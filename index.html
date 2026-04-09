@@ -1,734 +1,1876 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#1E3A5F">
-    
-    <!-- SEO Meta Tags -->
-    <title>Suporte Empreendedor | Despachante Digital MEI em Mato Grosso</title>
-    <meta name="description" content="Assessoria digital líder em Mato Grosso para MEIs. Abertura, Declaração Anual, Parcelamento e Consultoria Completa via WhatsApp.">
-    <meta name="keywords" content="MEI, Mato Grosso, Cuiabá, Despachante Digital, Abertura MEI, DASN, Parcelamento MEI">
-    <meta property="og:title" content="Suporte Empreendedor | Despachante Digital MEI MT">
-    <meta property="og:description" content="Sua regularidade MEI resolvida pelo WhatsApp em até 24h.">
-    <meta property="og:image" content="logo.png">
-    
-    <!-- Tailwind CSS & Google Fonts -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        primary: { DEFAULT: '#1E3A5F', dark: '#112240', light: '#2563EB' },
-                        cta: { DEFAULT: '#10B981', hover: '#059669' },
-                        amber: { 500: '#F59E0B' }
-                    },
-                    animation: {
-                        'float': 'float 3s ease-in-out infinite',
-                        'marquee': 'marquee 25s linear infinite',
-                    },
-                    keyframes: {
-                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
-                        marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } }
-                    }
-                }
-            }
-        }
-    </script>
 
-    <style type="text/css">
-        .glass-header { background: rgba(10, 25, 47, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; }
-        .header-shrink { height: 4rem !important; }
-        .hero-pattern { background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 40px 40px; }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); }
-        .step-line::after { content: ''; position: absolute; top: 2rem; left: 3rem; right: -3rem; height: 2px; border-top: 2px dashed rgba(30,58,95,0.2); z-index: 0; }
-        @media (max-width: 768px) { .step-line::after { display: none; } }
-        /* Lucide icon spacing safety */
-        svg, img { max-width: 100%; height: auto; display: inline-block; }
-    </style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1E3A5F">
+
+  <!-- SEO Meta Tags -->
+  <title>Suporte Empreendedor | Despachante Digital MEI em Mato Grosso</title>
+  <meta name="description"
+    content="Assessoria digital líder em Mato Grosso para MEIs. Abertura, Declaração Anual, Parcelamento e Consultoria Completa via WhatsApp. +15.000 MEIs regularizados.">
+  <meta name="keywords"
+    content="MEI, Mato Grosso, Cuiabá, Despachante Digital, Abertura MEI, DASN, Parcelamento MEI, Centro-Oeste">
+  <meta property="og:title" content="Suporte Empreendedor | Despachante Digital MEI MT">
+  <meta property="og:description"
+    content="Sua regularidade MEI resolvida pelo WhatsApp em até 24h. Atendemos todo o Mato Grosso.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://renato0503.github.io/SuporteEmpreendedor/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://renato0503.github.io/SuporteEmpreendedor/">
+
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            primary: {
+              DEFAULT: '#1E3A5F',
+              dark: '#0F1F38',
+              light: '#2563EB',
+              100: '#DBEAFE',
+              200: '#93C5FD'
+            },
+            cta: {
+              DEFAULT: '#10B981',
+              hover: '#059669',
+              light: '#34D399'
+            },
+          },
+          animation: {
+            'float': 'float 4s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-12px)' }
+            },
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ===== HEADER ===== */
+    .glass-header {
+      background: rgba(15, 31, 56, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .header-shrink {
+      height: 3.5rem !important;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-shrink .logo-text {
+      font-size: 1rem;
+    }
+
+    .header-shrink .logo-sub {
+      display: none;
+    }
+
+    /* ===== HERO PATTERN ===== */
+    .hero-pattern {
+      background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+
+    /* ===== REVEAL ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== SERVICE CARDS ===== */
+    .service-card {
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
+    }
+
+    /* ===== STEP LINES ===== */
+    @media (min-width: 1024px) {
+      .step-line {
+        position: relative;
+      }
+
+      .step-line::after {
+        content: '';
+        position: absolute;
+        top: 2rem;
+        left: 4.5rem;
+        right: -1.5rem;
+        height: 2px;
+        border-top: 2px dashed rgba(30, 58, 95, 0.15);
+        z-index: 0;
+      }
+    }
+
+    /* ===== MARQUEE ===== */
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ===== FAQ ===== */
+    .faq-content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s ease;
+    }
+
+    .faq-content.open {
+      opacity: 1;
+    }
+
+    /* ===== MISC ===== */
+    .no-scroll {
+      overflow: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0F1F38;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #2563EB;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #10B981;
+    }
+
+    /* Gradient text fallback */
+    .gradient-text {
+      background: linear-gradient(135deg, #10B981, #2563EB);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
 </head>
+
 <body class="bg-white text-slate-900 overflow-x-hidden antialiased">
 
-    <!-- SEÇÃO 1: HEADER -->
-    <header id="main-header" class="fixed top-0 w-full z-50 h-24 flex items-center glass-header">
-        <div class="max-w-7xl mx-auto px-4 md:px-8 w-full flex items-center justify-between">
-            <div class="flex items-center gap-3 group">
-                <div class="bg-primary-light p-2 rounded-lg shadow-lg group-hover:rotate-12 transition-transform">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                </div>
-                <div>
-                    <span class="text-white font-black text-xl tracking-tighter">Suporte<span class="text-cta">Empreendedor</span></span>
-                    <span class="block text-[10px] text-primary-200 font-bold uppercase tracking-widest mt-[-2px]">📍 Especialista Mato Grosso</span>
-                </div>
-            </div>
-
-            <nav class="hidden lg:flex items-center gap-8">
-                <a href="#servicos" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">Serviços</a>
-                <a href="#vantagens" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">Vantagens</a>
-                <a href="#depoimentos" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">Depoimentos</a>
-                <a href="#faq" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">FAQ</a>
-                <a href="https://wa.me/5565999999999" class="bg-cta hover:bg-cta-hover text-primary-dark px-6 py-2.5 rounded-full font-black text-sm flex items-center gap-2 transition-all transform hover:scale-105 shadow-lg shadow-cta/20">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.195.194 1.652.149.571-.055 1.758-.683 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-                    WhatsApp
-                </a>
-            </nav>
-
-            <button id="hamburger" class="lg:hidden text-white">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+  <!-- ============================================ -->
+  <!-- SEÇÃO 1: HEADER / NAVEGAÇÃO                  -->
+  <!-- ============================================ -->
+  <header id="main-header" class="fixed top-0 w-full z-50 h-20 flex items-center glass-header">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 w-full flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="bg-primary-light p-2 rounded-xl shadow-lg group-hover:rotate-6 transition-transform duration-300">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
         </div>
-    </header>
+        <div>
+          <span class="logo-text text-white font-black text-lg md:text-xl tracking-tight transition-all">
+            Suporte<span class="text-cta">Empreendedor</span>
+          </span>
+          <span class="logo-sub block text-[10px] text-blue-300/70 font-bold uppercase tracking-[0.2em]">
+            📍 Especialista Mato Grosso
+          </span>
+        </div>
+      </a>
 
-    <!-- MENU MOBILE SIDEBAR -->
-    <div id="mobile-sidebar" class="fixed inset-0 z-[60] bg-primary-dark/95 backdrop-blur-xl translate-x-full transition-transform duration-500 flex flex-col items-center justify-center gap-8 lg:hidden">
-        <button id="close-sidebar" class="absolute top-8 right-8 text-white">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-        <a href="#servicos" class="text-3xl font-black text-white link-m">Serviços</a>
-        <a href="#vantagens" class="text-3xl font-black text-white link-m">Vantagens</a>
-        <a href="#faq" class="text-3xl font-black text-white link-m">Dúvidas</a>
-        <a href="https://wa.me/5565999999999" class="bg-cta text-primary-dark px-12 py-5 rounded-3xl font-black text-xl shadow-2xl">📱 Chamar no Zap</a>
+      <!-- Nav Desktop -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="#servicos" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Serviços</a>
+        <a href="#como-funciona" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Como
+          Funciona</a>
+        <a href="#vantagens"
+          class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Vantagens</a>
+        <a href="#depoimentos"
+          class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Depoimentos</a>
+        <a href="#faq" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">FAQ</a>
+        <a href="https://wa.me/5565999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20para%20MEI.%20%F0%9F%98%8A"
+          target="_blank" rel="noopener"
+          class="bg-cta hover:bg-cta-hover text-white px-6 py-2.5 rounded-full font-bold text-sm flex items-center gap-2 transition-all transform hover:scale-105 shadow-lg shadow-cta/20">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.178 1.652.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          WhatsApp
+        </a>
+      </nav>
+
+      <!-- Hamburger Mobile -->
+      <button id="hamburger" class="lg:hidden text-white p-2" aria-label="Abrir menu">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menu Mobile Sidebar -->
+  <div id="mobile-sidebar"
+    class="fixed inset-0 z-[60] translate-x-full transition-transform duration-500 ease-in-out lg:hidden">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="sidebar-overlay"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-primary-dark flex flex-col p-8">
+      <button id="close-sidebar" class="self-end text-white mb-12 p-2" aria-label="Fechar menu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <nav class="flex flex-col gap-6">
+        <a href="#servicos"
+          class="sidebar-link text-2xl font-bold text-white hover:text-cta transition-colors">Serviços</a>
+        <a href="#como-funciona"
+          class="sidebar-link text-2xl font-bold text-white hover:text-cta transition-colors">Como Funciona</a>
+        <a href="#vantagens"
+          class="sidebar-link text-2xl font-bold text-white hover:text-cta transition-colors">Vantagens</a>
+        <a href="#depoimentos"
+          class="sidebar-link text-2xl font-bold text-white hover:text-cta transition-colors">Depoimentos</a>
+        <a href="#faq" class="sidebar-link text-2xl font-bold text-white hover:text-cta transition-colors">FAQ</a>
+      </nav>
+      <div class="mt-auto">
+        <a href="https://wa.me/5565999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20para%20MEI.%20%F0%9F%98%8A"
+          target="_blank" rel="noopener"
+          class="sidebar-link block w-full text-center bg-cta text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl">
+          📱 Chamar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================ -->
+  <!-- SEÇÃO 2: HERO SECTION                        -->
+  <!-- ============================================ -->
+  <section class="relative min-h-screen bg-primary-dark overflow-hidden flex items-center pt-20 hero-pattern">
+    <!-- Decorative blurs -->
+    <div class="absolute top-20 left-10 w-72 h-72 bg-primary-light/10 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-cta/5 rounded-full blur-[150px]"></div>
+
+    <div
+      class="max-w-7xl mx-auto px-4 md:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center py-12 lg:py-0 relative z-10">
+      <!-- Left: Text -->
+      <div class="reveal">
+        <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8">
+          <span class="text-amber-400 text-sm">🏆</span>
+          <span class="text-white/80 text-xs font-bold uppercase tracking-widest">+15.000 MEIs regularizados no
+            Centro-Oeste</span>
+        </div>
+
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.05] tracking-tight">
+          Seu MEI regularizado
+          <span class="gradient-text"> com quem entende</span>
+          do Mato Grosso.
+        </h1>
+
+        <p class="text-base md:text-lg text-slate-400 mb-10 max-w-xl leading-relaxed">
+          Somos a assessoria digital que mais atende microempreendedores em MT.
+          Abertura, declaração, parcelamento e mais — tudo resolvido pelo WhatsApp, sem sair de casa.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+          <a href="https://wa.me/5565999999999?text=Ol%C3%A1!%20Quero%20regularizar%20meu%20MEI.%20%F0%9F%98%8A"
+            target="_blank" rel="noopener"
+            class="bg-cta hover:bg-cta-hover text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-cta/25 transition-all transform hover:-translate-y-1 hover:shadow-2xl active:scale-95 text-center">
+            Regularizar meu MEI →
+          </a>
+          <a href="#servicos"
+            class="bg-white/5 hover:bg-white/10 text-white border border-white/20 px-8 py-4 rounded-2xl font-bold text-lg transition-all text-center backdrop-blur-sm">
+            Conhecer Serviços
+          </a>
+        </div>
+
+        <div class="flex flex-wrap gap-x-6 gap-y-3 border-t border-white/10 pt-8">
+          <div class="flex items-center gap-2 text-slate-300 text-sm">
+            <svg class="w-5 h-5 text-cta flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            Atendimento em até 2h
+          </div>
+          <div class="flex items-center gap-2 text-slate-300 text-sm">
+            <svg class="w-5 h-5 text-cta flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            +7 anos no mercado
+          </div>
+          <div class="flex items-center gap-2 text-slate-300 text-sm">
+            <svg class="w-5 h-5 text-amber-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            4.9 no Google
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Floating Card -->
+      <div class="hidden lg:flex justify-center animate-float">
+        <div
+          class="bg-white/5 p-8 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-xl relative w-full max-w-md">
+          <div class="absolute -top-16 -right-16 w-48 h-48 bg-cta/10 blur-[100px] rounded-full pointer-events-none">
+          </div>
+          <div
+            class="absolute -bottom-16 -left-16 w-48 h-48 bg-primary-light/10 blur-[100px] rounded-full pointer-events-none">
+          </div>
+
+          <!-- Simulated chat -->
+          <div class="flex items-center gap-4 mb-6 relative z-10">
+            <div
+              class="w-12 h-12 bg-cta/20 rounded-full border border-cta/30 flex items-center justify-center text-cta text-xl font-bold">
+              R</div>
+            <div>
+              <p class="text-white font-bold">Renato Rosa</p>
+              <p class="text-blue-300/60 text-[11px] font-semibold uppercase tracking-wider">Consultor Especialista</p>
+            </div>
+            <div class="ml-auto w-3 h-3 bg-cta rounded-full animate-pulse-slow"></div>
+          </div>
+
+          <div class="space-y-3 relative z-10">
+            <div class="bg-white/5 p-4 rounded-2xl border border-white/5">
+              <p class="text-slate-400 text-sm">Olá! Em que posso ajudar com seu MEI? 😊</p>
+            </div>
+            <div class="bg-primary-light/10 p-4 rounded-2xl border border-primary-light/10 ml-8">
+              <p class="text-blue-200 text-sm">Preciso parcelar minha dívida do DAS...</p>
+            </div>
+            <div class="bg-cta/10 p-4 rounded-2xl border border-cta/20">
+              <p class="text-cta text-sm font-semibold">✅ Perfeito! Seu parcelamento foi aprovado em 48x. Enviando
+                comprovante...</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-6 border-t border-white/5 relative z-10">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-500 text-xs font-semibold">Tempo médio: 24h</span>
+              <div class="flex gap-1">
+                <span class="text-amber-400 text-sm">⭐⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- SEÇÃO 2: HERO SECTION -->
-    <section class="relative min-h-screen bg-primary-dark overflow-hidden flex items-center pt-24 hero-pattern">
-        <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent opacity-5 z-20"></div>
-        <div class="max-w-7xl mx-auto px-4 md:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-30">
-            <div class="reveal">
-                <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8 shadow-inner">
-                    <span class="text-amber-500 font-black text-xs">🏆</span>
-                    <span class="text-white text-xs font-bold uppercase tracking-widest">+15.000 MEIs regularizados no Centro-Oeste</span>
-                </div>
-                <h1 class="text-4xl md:text-7xl font-black text-white mb-6 leading-[1.05] tracking-tight">
-                    Seu MEI regularizado <br/> 
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cta to-primary-light">com quem entende</span> <br/>
-                    do Mato Grosso.
-                </h1>
-                <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed font-medium">
-                    Somos a assessoria digital que mais atende microempreendedores em MT. Abertura, declaração, parcelamento e mais — tudo pelo WhatsApp.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-5 mb-12">
-                    <a href="https://wa.me/5565999999999" class="bg-cta hover:bg-cta-hover text-primary-dark px-10 py-5 rounded-2xl font-black text-xl shadow-2xl shadow-cta/30 transition-all transform hover:-translate-y-1 active:scale-95 text-center">
-                        Regularizar meu MEI →
-                    </a>
-                    <a href="#servicos" class="bg-white/5 hover:bg-white/10 text-white border-2 border-white/20 px-8 py-5 rounded-2xl font-black text-xl transition-all text-center backdrop-blur-sm">
-                        Conhecer Serviços
-                    </a>
-                </div>
+    <!-- Bottom fade -->
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent"></div>
+  </section>
 
-                <div class="flex flex-wrap gap-6 border-t border-white/10 pt-8">
-                    <div class="flex items-center gap-2 text-primary-200 font-bold text-sm">
-                        <svg class="w-5 h-5 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                        Atendimento em até 2h
-                    </div>
-                    <div class="flex items-center gap-2 text-primary-200 font-bold text-sm">
-                        <svg class="w-5 h-5 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                        +7 anos no mercado
-                    </div>
-                    <div class="flex items-center gap-2 text-primary-200 font-bold text-sm">
-                        <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        4.9 ⭐ no Google
-                    </div>
-                </div>
-            </div>
 
-            <div class="hidden lg:flex justify-center animate-float">
-                <div class="bg-primary/20 p-8 rounded-[3rem] border border-white/10 shadow-3xl backdrop-blur-xl relative w-full max-w-md">
-                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-cta/10 blur-[80px] rounded-full"></div>
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-white/10 rounded-full border border-white/20 flex items-center justify-center text-cta text-2xl font-bold">R</div>
-                        <div>
-                            <p class="text-white font-black">Renato Rosa</p>
-                            <p class="text-primary-200 text-[10px] font-bold uppercase tracking-widest">Consultor Especialista</p>
-                        </div>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="bg-white/5 p-4 rounded-2xl border border-white/5 animate-pulse">
-                            <div class="h-2 w-24 bg-cta/20 rounded-full mb-3"></div>
-                            <div class="h-2 w-full bg-white/10 rounded-full"></div>
-                        </div>
-                        <div class="bg-cta/5 p-4 rounded-x2 border border-cta/10">
-                            <p class="text-cta text-sm font-bold">Seu CNPJ foi regularizado com sucesso! ✅</p>
-                        </div>
-                        <div class="bg-amber-500/5 p-4 rounded-2xl border border-amber-500/10">
-                            <p class="text-amber-500 text-sm font-black italic">Atendendo Cuiabá e todo MT 📍</p>
-                        </div>
-                    </div>
-                    <div class="mt-8 pt-8 border-t border-white/5 flex justify-center">
-                        <img src="logo.png" class="h-8 opacity-50 grayscale contrast-125" alt="Suporte MT">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO 3: LOGOS CREDIBILIDADE -->
-    <div class="py-12 bg-slate-50 border-b border-slate-100 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 mb-6 text-center">
-            <p class="text-slate-400 text-xs font-black uppercase tracking-[0.3em]">Regularizamos MEIs junto aos principais órgãos</p>
-        </div>
-        <div class="flex marquee-container gap-16 animate-marquee">
-            <div class="flex gap-24 items-center flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
-                <span class="text-2xl font-black text-slate-800 tracking-tighter">Gov.<span class="text-blue-600">br</span></span>
-                <span class="text-2xl font-black text-slate-800 tracking-tighter">Receita <span class="text-green-600">Federal</span></span>
-                <span class="text-2xl font-black text-slate-800 tracking-tighter">Simples <span class="text-cta">Nacional</span></span>
-                <span class="text-2xl font-black text-slate-800 tracking-tighter">REDE<span class="text-amber-500">SIM</span></span>
-                <span class="text-2xl font-black text-slate-800 tracking-tighter">JUCEMAT</span>
-            </div>
-            <!-- Duplicado para loop infinito -->
-            <div class="flex gap-24 items-center flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
-                <span class="text-2xl font-black text-slate-800 tracking-tighter">Gov.<span class="text-blue-600">br</span></span>
-                <span class="text-2xl font-black text-slate-800 tracking-tighter">Receita <span class="text-green-600">Federal</span></span>
-                <span class="text-2xl font-black text-slate-800 tracking-tighter">Simples <span class="text-cta">Nacional</span></span>
-                <span class="text-2xl font-black text-slate-800 tracking-tighter">REDE<span class="text-amber-500">SIM</span></span>
-                <span class="text-2xl font-black text-slate-800 tracking-tighter">JUCEMAT</span>
-            </div>
-        </div>
+  <!-- ============================================ -->
+  <!-- SEÇÃO 3: BARRA DE CREDIBILIDADE (MARQUEE)    -->
+  <!-- ============================================ -->
+  <section class="py-10 bg-slate-50 border-b border-slate-100 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 mb-6 text-center">
+      <p class="text-slate-400 text-[11px] font-bold uppercase tracking-[0.25em]">Regularizamos MEIs junto aos
+        principais órgãos</p>
     </div>
-
-    <!-- SEÇÃO 4: SERVIÇOS -->
-    <section id="servicos" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 md:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-5xl font-black text-primary mb-6 tracking-tight">Soluções completas para cada fase do seu MEI</h2>
-                <p class="text-slate-500 text-lg md:text-xl font-medium max-w-2xl mx-auto">
-                    Do primeiro CNPJ à regularização de débitos, cuidamos de tudo com agilidade e segurança.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- CARD 1 -->
-                <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-[2.5rem] flex flex-col items-start transition-all shadow-sm">
-                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-primary-light mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <span class="text-[10px] bg-cta/10 text-cta font-black px-2 py-0.5 rounded uppercase mb-4">⚡ Mais rápido</span>
-                    <h3 class="text-2xl font-black mb-4">ABERTURA DE MEI</h3>
-                    <p class="text-slate-500 mb-8 leading-relaxed font-medium">Formalize seu negócio em até 24 horas. Cuidamos do CNAE ideal e emissão do Certificado MEI.</p>
-                    <div class="mt-auto w-full">
-                        <p class="text-slate-400 text-xs font-bold uppercase mb-4">Honorários a partir de: <span class="text-primary text-xl font-black ml-1">R$ 97</span></p>
-                        <a href="https://wa.me/5565999999999" class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white py-4 rounded-xl font-black transition-all">Abrir meu MEI →</a>
-                    </div>
-                </div>
-
-                <!-- CARD 2 -->
-                <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-[2.5rem] flex flex-col items-start transition-all shadow-sm" style="transition-delay: 100ms">
-                    <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center text-cta mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 2v-6m0 10v4a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2m4 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
-                    </div>
-                    <span class="text-[10px] bg-amber-500/10 text-amber-500 font-black px-2 py-0.5 rounded uppercase mb-4">📅 Prazo: 31/Maio</span>
-                    <h3 class="text-2xl font-black mb-4">DECLARAÇÃO ANUAL</h3>
-                    <p class="text-slate-500 mb-8 leading-relaxed font-medium">Entregamos sua DASN-SIMEI com precisão. Evite multas mensais e o bloqueio do seu CNPJ.</p>
-                    <div class="mt-auto w-full">
-                        <p class="text-slate-400 text-xs font-bold uppercase mb-4">Honorários a partir de: <span class="text-primary text-xl font-black ml-1">R$ 67</span></p>
-                        <a href="https://wa.me/5565999999999" class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white py-4 rounded-xl font-black transition-all">Declarar agora →</a>
-                    </div>
-                </div>
-
-                <!-- CARD 3 -->
-                <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-[2.5rem] flex flex-col items-start transition-all shadow-sm" style="transition-delay: 200ms">
-                    <div class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-500 mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <span class="text-[10px] bg-red-500/10 text-red-500 font-black px-2 py-0.5 rounded uppercase mb-4">🔥 Mais procurado</span>
-                    <h3 class="text-2xl font-black mb-4">PARCELAMENTO</h3>
-                    <p class="text-slate-500 mb-8 leading-relaxed font-medium">Negocie dívidas de DAS atrasados em até 60x. Evite a exclusão do Simples Nacional.</p>
-                    <div class="mt-auto w-full">
-                        <p class="text-slate-400 text-xs font-bold uppercase mb-4">Honorários a partir de: <span class="text-primary text-xl font-black ml-1">R$ 127</span></p>
-                        <a href="https://wa.me/5565999999999" class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white py-4 rounded-xl font-black transition-all">Parcelar dívidas →</a>
-                    </div>
-                </div>
-
-                <!-- CARD 4 -->
-                <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-[2.5rem] flex flex-col items-start transition-all shadow-sm">
-                    <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-800 mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4">ALTERAÇÃO</h3>
-                    <p class="text-slate-500 mb-8 leading-relaxed font-medium">Mudou de endereço, atividade ou nome fantasia? Atualizamos tudo sem complicação.</p>
-                    <div class="mt-auto w-full">
-                        <p class="text-slate-400 text-xs font-bold uppercase mb-4">Honorários a partir de: <span class="text-primary text-xl font-black ml-1">R$ 67</span></p>
-                        <a href="https://wa.me/5565999999999" class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white py-4 rounded-xl font-black transition-all">Alterar dados →</a>
-                    </div>
-                </div>
-
-                <!-- CARD 5 -->
-                <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-[2.5rem] flex flex-col items-start transition-all shadow-sm" style="transition-delay: 100ms">
-                    <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center text-red-500 mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4">BAIXA / BAIXAR</h3>
-                    <p class="text-slate-500 mb-8 leading-relaxed font-medium">Encerre seu CNPJ MEI definitivamente, sem pendências ou surpresas com a Receita Federal.</p>
-                    <div class="mt-auto w-full">
-                        <p class="text-slate-400 text-xs font-bold uppercase mb-4">Honorários a partir de: <span class="text-primary text-xl font-black ml-1">R$ 97</span></p>
-                        <a href="https://wa.me/5565999999999" class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white py-4 rounded-xl font-black transition-all">Encerrar MEI →</a>
-                    </div>
-                </div>
-
-                <!-- CARD 6 -->
-                <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-[2.5rem] flex flex-col items-start transition-all shadow-sm" style="transition-delay: 200ms">
-                    <div class="w-16 h-16 bg-primary-light/10 rounded-2xl flex items-center justify-center text-primary-light mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4">CONSULTA CNPJ</h3>
-                    <p class="text-slate-500 mb-8 leading-relaxed font-medium">Descubra a situação real do seu CNPJ. Relatório completo com orientação personalizada.</p>
-                    <div class="mt-auto w-full">
-                        <p class="text-slate-400 text-xs font-bold uppercase mb-4">Honorários a partir de: <span class="text-primary text-xl font-black ml-1">R$ 47</span></p>
-                        <a href="https://wa.me/5565999999999" class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white py-4 rounded-xl font-black transition-all">Consultar CNPJ →</a>
-                    </div>
-                </div>
-            </div>
+    <div class="overflow-hidden">
+      <div class="marquee-track">
+        <div class="flex gap-16 items-center flex-shrink-0 px-8">
+          <span
+            class="text-xl font-black text-slate-300 tracking-tight whitespace-nowrap hover:text-slate-600 transition-colors">Gov.<span
+              class="text-blue-400">br</span></span>
+          <span
+            class="text-xl font-black text-slate-300 tracking-tight whitespace-nowrap hover:text-slate-600 transition-colors">Receita
+            <span class="text-green-400">Federal</span></span>
+          <span
+            class="text-xl font-black text-slate-300 tracking-tight whitespace-nowrap hover:text-slate-600 transition-colors">Simples
+            <span class="text-emerald-400">Nacional</span></span>
+          <span
+            class="text-xl font-black text-slate-300 tracking-tight whitespace-nowrap hover:text-slate-600 transition-colors">REDE<span
+              class="text-amber-400">SIM</span></span>
+          <span
+            class="text-xl font-black text-slate-300 tracking-tight whitespace-nowrap hover:text-slate-600 transition-colors">JUCE<span
+              class="text-blue-400">MAT</span></span>
+          <span
+            class="text-xl font-black text-slate-300 tracking-tight whitespace-nowrap hover:text-slate-600 transition-colors">Portal
+            do <span class="text-emerald-400">Empreendedor</span></span>
         </div>
-    </section>
-
-    <!-- SECTION 5: NÚMEROS / RESULTADOS -->
-    <section class="py-24 bg-primary-dark hero-pattern text-white">
-        <div class="max-w-7xl mx-auto px-4 md:px-8">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
-                <div class="reveal">
-                    <p class="text-4xl md:text-6xl font-black mb-2 text-cta"><span class="count" data-target="15000">0</span>+</p>
-                    <p class="text-xs md:text-sm font-bold uppercase tracking-widest text-primary-200">MEIs Regularizados</p>
-                </div>
-                <div class="reveal" style="transition-delay: 100ms">
-                    <p class="text-4xl md:text-6xl font-black mb-2 text-white"><span class="count" data-target="7">0</span>+</p>
-                    <p class="text-xs md:text-sm font-bold uppercase tracking-widest text-primary-200">Anos de Experiência</p>
-                </div>
-                <div class="reveal" style="transition-delay: 200ms">
-                    <p class="text-4xl md:text-6xl font-black mb-2 text-white"><span class="count" data-target="98">0</span>%</p>
-                    <p class="text-xs md:text-sm font-bold uppercase tracking-widest text-primary-200">Taxa de Satisfação</p>
-                </div>
-                <div class="reveal" style="transition-delay: 300ms">
-                    <p class="text-4xl md:text-6xl font-black mb-2 text-cta"><span class="count" data-target="24">0</span>h</p>
-                    <p class="text-xs md:text-sm font-bold uppercase tracking-widest text-primary-200">Média de Resolução</p>
-                </div>
-            </div>
+        <!-- Duplicado para loop infinito -->
+        <div class="flex gap-16 items-center flex-shrink-0 px-8">
+          <span class="text-xl font-black text-slate-300 tracking-tight whitespace-nowrap">Gov.<span
+              class="text-blue-400">br</span></span>
+          <span class="text-xl font-black text-slate-300 tracking-tight whitespace-nowrap">Receita <span
+              class="text-green-400">Federal</span></span>
+          <span class="text-xl font-black text-slate-300 tracking-tight whitespace-nowrap">Simples <span
+              class="text-emerald-400">Nacional</span></span>
+          <span class="text-xl font-black text-slate-300 tracking-tight whitespace-nowrap">REDE<span
+              class="text-amber-400">SIM</span></span>
+          <span class="text-xl font-black text-slate-300 tracking-tight whitespace-nowrap">JUCE<span
+              class="text-blue-400">MAT</span></span>
+          <span class="text-xl font-black text-slate-300 tracking-tight whitespace-nowrap">Portal do <span
+              class="text-emerald-400">Empreendedor</span></span>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- SECTION 6: COMO FUNCIONA -->
-    <section class="py-24 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 md:px-8">
-            <div class="text-center mb-20 reveal">
-                <h2 class="text-3xl md:text-5xl font-black text-primary mb-6">Simples assim: 4 passos para resolver seu MEI</h2>
-                <p class="text-slate-500 text-lg font-medium">Sem filas, sem burocracia, sem sair de casa.</p>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
-                <!-- STEP 1 -->
-                <div class="reveal relative z-10 step-line">
-                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mb-6 shadow-xl ring-8 ring-primary/5">1</div>
-                    <h4 class="text-xl font-black mb-3">📱 Fale conosco</h4>
-                    <p class="text-slate-500 font-medium">Entre em contato pelo WhatsApp. Atendemos em até 2 horas com um especialista humano.</p>
-                </div>
-                <!-- STEP 2 -->
-                <div class="reveal relative z-10 step-line" style="transition-delay: 100ms">
-                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mb-6 shadow-xl ring-8 ring-primary/5">2</div>
-                    <h4 class="text-xl font-black mb-3">📋 Envie seus dados</h4>
-                    <p class="text-slate-500 font-medium">Informe dados básicos (CPF, atividade). Tudo via WhatsApp com segurança e LGPD.</p>
-                </div>
-                <!-- STEP 3 -->
-                <div class="reveal relative z-10 step-line" style="transition-delay: 200ms">
-                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mb-6 shadow-xl ring-8 ring-primary/5">3</div>
-                    <h4 class="text-xl font-black mb-3">💳 Pagamento seguro</h4>
-                    <p class="text-slate-500 font-medium">Pague via PIX, boleto ou cartão. Iniciamos o serviço imediatamente após a confirmação.</p>
-                </div>
-                <!-- STEP 4 -->
-                <div class="reveal relative z-10" style="transition-delay: 300ms">
-                    <div class="w-16 h-16 bg-cta text-white rounded-full flex items-center justify-center text-2xl font-black mb-6 shadow-xl ring-8 ring-cta/5">4</div>
-                    <h4 class="text-xl font-black mb-3">✅ Receba pronto</h4>
-                    <p class="text-slate-500 font-medium">Enviamos seu certificado ou protocolo por WhatsApp e e-mail. Simples e rápido.</p>
-                </div>
-            </div>
+  <!-- ============================================ -->
+  <!-- SEÇÃO 4: SERVIÇOS (Grid de Cards)            -->
+  <!-- ============================================ -->
+  <section id="servicos" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center mb-16 reveal">
+        <span
+          class="inline-block text-xs font-bold uppercase tracking-[0.25em] text-cta bg-cta/10 px-4 py-1.5 rounded-full mb-4">Portfólio
+          de Soluções</span>
+        <h2 class="text-3xl md:text-5xl font-black text-primary mb-4 tracking-tight">
+          Soluções completas para<br class="hidden sm:block"> cada fase do seu MEI
+        </h2>
+        <p class="text-slate-500 text-lg max-w-2xl mx-auto">
+          Do primeiro CNPJ à regularização de débitos, cuidamos de tudo com agilidade e segurança.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+        <!-- Card 1: Abertura -->
+        <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-3xl flex flex-col shadow-sm">
+          <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-primary-light mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+            </svg>
+          </div>
+          <span
+            class="inline-block text-[10px] bg-cta/10 text-cta font-bold px-2.5 py-1 rounded-full uppercase tracking-wider mb-4 w-fit">⚡
+            Mais rápido</span>
+          <h3 class="text-xl font-black text-slate-900 mb-3">Abertura de MEI</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+            Formalize seu negócio em até 24 horas. Cuidamos de todo o cadastro no Gov.br, escolha do CNAE ideal e
+            emissão do Certificado MEI.
+          </p>
+          <div class="mt-auto">
+            <p class="text-slate-400 text-xs font-semibold uppercase mb-3">A partir de <span
+                class="text-primary text-xl font-black ml-1">R$ 97</span></p>
+            <a href="https://wa.me/5565999999999?text=Ol%C3%A1!%20Quero%20abrir%20meu%20MEI.%20Podem%20me%20ajudar%3F"
+              target="_blank" rel="noopener"
+              class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white text-slate-700 py-3.5 rounded-xl font-bold text-sm transition-all duration-300">
+              Abrir meu MEI →
+            </a>
+          </div>
         </div>
-    </section>
 
-    <!-- SECTION 7: VANTAGENS / DIFERENCIAIS -->
-    <section id="vantagens" class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 md:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-5xl font-black text-primary mb-6">Por que mais de 15 mil empreendedores confiam em nós?</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="reveal p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
-                    <div class="text-cta text-2xl mb-4">✅</div>
-                    <h4 class="text-xl font-bold text-primary mb-3">Especialistas em Centro-Oeste</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Conhecemos a realidade do empreendedor de MT. Atendemos de Cuiabá a Alta Floresta.</p>
-                </div>
-                <div class="reveal p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all" style="transition-delay: 50ms">
-                    <div class="text-cta text-2xl mb-4">✅</div>
-                    <h4 class="text-xl font-bold text-primary mb-3">Atendimento 100% Digital</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Resolve tudo pelo celular, de qualquer cidade. WhatsApp, e-mail ou site, sem burocracia.</p>
-                </div>
-                <div class="reveal p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all" style="transition-delay: 100ms">
-                    <div class="text-cta text-2xl mb-4">✅</div>
-                    <h4 class="text-xl font-bold text-primary mb-3">Equipe com +7 anos</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Já regularizamos mais de 15 mil CNPJs. Sabemos exatamente como resolver sua pendência.</p>
-                </div>
-                <div class="reveal p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all" style="transition-delay: 150ms">
-                    <div class="text-cta text-2xl mb-4">✅</div>
-                    <h4 class="text-xl font-bold text-primary mb-3">Preço justo e transparente</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Você sabe exatamente quanto vai pagar antes de contratar. Sem taxas ocultas ou surpresas.</p>
-                </div>
-                <div class="reveal p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all" style="transition-delay: 200ms">
-                    <div class="text-cta text-2xl mb-4">✅</div>
-                    <h4 class="text-xl font-bold text-primary mb-3">Rapidez comprovada</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Maioria dos serviços resolvidos em até 24h úteis. Urgências resolvidas no mesmo dia.</p>
-                </div>
-                <div class="reveal p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all" style="transition-delay: 250ms">
-                    <div class="text-cta text-2xl mb-4">✅</div>
-                    <h4 class="text-xl font-bold text-primary mb-3">Suporte pós-serviço</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Dúvida depois que o serviço foi entregue? Estamos aqui. Suporte contínuo para seu MEI.</p>
-                </div>
-            </div>
+        <!-- Card 2: Declaração -->
+        <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-3xl flex flex-col shadow-sm"
+          style="transition-delay:80ms">
+          <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-cta mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+            </svg>
+          </div>
+          <span
+            class="inline-block text-[10px] bg-amber-500/10 text-amber-600 font-bold px-2.5 py-1 rounded-full uppercase tracking-wider mb-4 w-fit">📅
+            Prazo: 31/Mai</span>
+          <h3 class="text-xl font-black text-slate-900 mb-3">Declaração Anual (DASN)</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+            Entregamos sua DASN-SIMEI com precisão. Evite multas de até R$ 50/mês e o bloqueio automático do seu CNPJ
+            pela Receita Federal.
+          </p>
+          <div class="mt-auto">
+            <p class="text-slate-400 text-xs font-semibold uppercase mb-3">A partir de <span
+                class="text-primary text-xl font-black ml-1">R$ 67</span></p>
+            <a href="https://wa.me/5565999999999?text=Ol%C3%A1!%20Preciso%20fazer%20minha%20Declara%C3%A7%C3%A3o%20Anual%20(DASN)."
+              target="_blank" rel="noopener"
+              class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white text-slate-700 py-3.5 rounded-xl font-bold text-sm transition-all duration-300">
+              Declarar agora →
+            </a>
+          </div>
         </div>
-    </section>
 
-    <!-- SECTION 8: DEPOIMENTOS -->
-    <section id="depoimentos" class="py-24 bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 md:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-5xl font-black text-primary mb-6">Quem já usou, recomenda.</h2>
-                <p class="text-slate-500 text-lg font-medium">Veja o que empreendedores do Mato Grosso e do Centro-Oeste dizem.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Depoimento 1 -->
-                <div class="reveal p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-xl transition-all">
-                    <div class="flex text-amber-500 mb-4">⭐⭐⭐⭐⭐</div>
-                    <p class="text-slate-600 font-medium mb-8">"Abri meu MEI em menos de 24 horas! Eu tinha medo da burocracia, mas eles fizeram tudo por mim. Super recomendo!"</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-bold text-primary">CM</div>
-                        <div>
-                            <p class="font-black text-primary">Carla Mendes</p>
-                            <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Confeiteira • Cuiabá/MT</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Depoimento 2 -->
-                <div class="reveal p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-xl transition-all" style="transition-delay: 100ms">
-                    <div class="flex text-amber-500 mb-4">⭐⭐⭐⭐⭐</div>
-                    <p class="text-slate-600 font-medium mb-8">"Tinha 2 anos de declaração atrasada e achei que ia perder meu CNPJ. Resolveram tudo rapidinho e parcelaram minha dívida."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center font-bold text-cta">JF</div>
-                        <div>
-                            <p class="font-black text-primary">José Ferreira</p>
-                            <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Eletricista • Rondonópolis/MT</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Depoimento 3 -->
-                <div class="reveal p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-xl transition-all" style="transition-delay: 200ms">
-                    <div class="flex text-amber-500 mb-4">⭐⭐⭐⭐⭐</div>
-                    <p class="text-slate-600 font-medium mb-8">"Atendimento pelo WhatsApp muito prático. Moro no interior e não preciso ir pra cidade resolver nada. Top demais!"</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center font-bold text-amber-500">MS</div>
-                        <div>
-                            <p class="font-black text-primary">Maria Silva</p>
-                            <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Costureira • Sorriso/MT</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Card 3: Parcelamento -->
+        <div
+          class="service-card reveal p-8 bg-white border border-slate-100 rounded-3xl flex flex-col shadow-sm relative overflow-hidden"
+          style="transition-delay:160ms">
+          <div class="absolute top-0 right-0 w-20 h-20 bg-red-500/5 rounded-bl-[3rem]"></div>
+          <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-500 mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+            </svg>
+          </div>
+          <span
+            class="inline-block text-[10px] bg-red-500/10 text-red-500 font-bold px-2.5 py-1 rounded-full uppercase tracking-wider mb-4 w-fit">🔥
+            Mais procurado</span>
+          <h3 class="text-xl font-black text-slate-900 mb-3">Parcelamento de Débitos</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+            Negocie suas dívidas de DAS atrasados em até 60x direto no sistema da Receita. Evite a exclusão do Simples
+            Nacional.
+          </p>
+          <div class="mt-auto">
+            <p class="text-slate-400 text-xs font-semibold uppercase mb-3">A partir de <span
+                class="text-primary text-xl font-black ml-1">R$ 127</span></p>
+            <a href="https://wa.me/5565999999999?text=Ol%C3%A1!%20Preciso%20parcelar%20d%C3%ADvidas%20do%20meu%20MEI."
+              target="_blank" rel="noopener"
+              class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white text-slate-700 py-3.5 rounded-xl font-bold text-sm transition-all duration-300">
+              Parcelar dívidas →
+            </a>
+          </div>
         </div>
-    </section>
 
-    <!-- SECTION 9: MAPA DE ATUAÇÃO -->
-    <section class="py-24 bg-primary-dark text-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-[50%] h-full bg-cta/5 skew-x-12 translate-x-24"></div>
-        <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="reveal">
-                    <div class="inline-flex items-center gap-2 bg-cta/10 border border-cta/20 px-4 py-1.5 rounded-full mb-8">
-                        <span class="text-xs font-black uppercase tracking-widest text-cta">📱 100% digital — atende qualquer cidade</span>
-                    </div>
-                    <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight">Presentes em todo o Mato Grosso e Centro-Oeste</h2>
-                    <p class="text-primary-200 mb-12 text-lg leading-relaxed">Nossa tecnologia permite regularizar seu MEI de qualquer lugar, mas temos um carinho especial pela nossa terra.</p>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        <div>
-                            <p class="text-cta font-black text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
-                                <span class="w-4 h-4 bg-cta rounded-sm"></span> 🏙️ MATO GROSSO
-                            </p>
-                            <ul class="text-primary-100/70 text-sm space-y-2 font-medium">
-                                <li>Cuiabá, Várzea Grande, Rondonópolis</li>
-                                <li>Sinop, Sorriso, Lucas do Rio Verde</li>
-                                <li>Tangará da Serra, Primavera do Leste</li>
-                                <li>Cáceres, Alta Floresta, Barra do Garças</li>
-                                <li>e mais 141 municípios</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p class="text-primary-light font-black text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
-                                <span class="w-4 h-4 bg-primary-light rounded-sm"></span> 📍 CENTRO-OESTE
-                            </p>
-                            <ul class="text-primary-100/70 text-sm space-y-2 font-medium">
-                                <li>Goiânia, Anápolis, Ap. de Goiânia</li>
-                                <li>Campo Grande, Dourados, Três Lagoas</li>
-                                <li>Brasília e cidades satélites</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal flex justify-center">
-                    <div class="relative w-full max-w-sm">
-                        <svg class="w-full h-auto text-primary-light opacity-20 drop-shadow-2xl" viewBox="0 0 100 100" fill="currentColor"><path d="M78 20c-2-2-5-2-7 0L45 46 29 28c-2-2-5-2-7 0l-15 15c-2 2-2 5 0 7l30 30c2 2 5 2 7 0l42-42c2-2 2-5 0-7l-8-11z"/></svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-24 h-24 bg-cta/20 rounded-full animate-ping"></div>
-                            <div cl    <!-- SECTION 10: FAQ -->
-    <section id="faq" class="py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-4 md:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-5xl font-black text-primary mb-6">Dúvidas? A gente responde.</h2>
-                <p class="text-slate-500 text-lg font-medium">Transparência total para você empreender com tranquilidade.</p>
-            </div>
-
-            <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="reveal border-2 border-slate-50 rounded-3xl overflow-hidden shadow-sm">
-                    <button class="faq-toggle w-full p-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-all">
-                        <span class="font-black text-primary md:text-lg text-center">O que exatamente vocês fazem?</span>
-                        <svg class="w-6 h-6 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-content h-0 opacity-0 overflow-hidden transition-all duration-300 px-6">
-                        <div class="pb-6 text-slate-600 leading-relaxed text-center">
-                            Somos uma assessoria digital especializada em MEI. Cuidamos de toda a burocracia junto aos portais do governo (Gov.br, Receita Federal, REDESIM) para que você não precise enfrentar filas ou sistemas confusos. Cobramos honorários pelo serviço de assessoria — como um despachante, mas 100% digital.
-                        </div>
-                    </div>
-                </div>
-                <!-- FAQ Item 2 -->
-                <div class="reveal border-2 border-slate-50 rounded-3xl overflow-hidden shadow-sm" style="transition-delay: 50ms">
-                    <button class="faq-toggle w-full p-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-all">
-                        <span class="font-black text-primary md:text-lg text-center">Vocês são do governo?</span>
-                        <svg class="w-6 h-6 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-content h-0 opacity-0 overflow-hidden transition-all duration-300 px-6">
-                        <div class="pb-6 text-slate-600 leading-relaxed text-center">
-                            Não. Somos uma empresa PRIVADA de assessoria. Não temos vínculo com Receita Federal, SEBRAE ou Gov.br. Nossos serviços são opcionais e visam facilitar a vida do empreendedor. Todos os procedimentos podem ser realizados gratuitamente pelo próprio empreendedor nos portais oficiais.
-                        </div>
-                    </div>
-                </div>
-                <!-- FAQ Item 3 -->
-                <div class="reveal border-2 border-slate-50 rounded-3xl overflow-hidden shadow-sm" style="transition-delay: 100ms">
-                    <button class="faq-toggle w-full p-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-all">
-                        <span class="font-black text-primary md:text-lg text-center">Quanto tempo leva para abrir meu MEI?</span>
-                        <svg class="w-6 h-6 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-content h-0 opacity-0 overflow-hidden transition-all duration-300 px-6">
-                        <div class="pb-6 text-slate-600 leading-relaxed text-center">
-                            Na maioria dos casos, seu CNPJ fica pronto em até 24 horas após o envio dos dados e confirmação do pagamento. Em casos simples, pode ficar pronto no mesmo dia.
-                        </div>
-                    </div>
-                </div>
-                <!-- FAQ Item 4 -->
-                <div class="reveal border-2 border-slate-50 rounded-3xl overflow-hidden shadow-sm" style="transition-delay: 150ms">
-                    <button class="faq-toggle w-full p-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-all">
-                        <span class="font-black text-primary md:text-lg text-center">Atende minha cidade no Mato Grosso?</span>
-                        <svg class="w-6 h-6 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-content h-0 opacity-0 overflow-hidden transition-all duration-300 px-6">
-                        <div class="pb-6 text-slate-600 leading-relaxed text-center">
-                            Sim! Nosso atendimento é 100% digital. Atendemos todas as 141 cidades do Mato Grosso e todo o Brasil. Você resolve tudo pelo WhatsApp, sem precisar sair de casa.
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Card 4: Alteração -->
+        <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-3xl flex flex-col shadow-sm">
+          <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600 mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-black text-slate-900 mb-3">Alteração Cadastral</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+            Mudou de endereço, atividade ou nome fantasia? Atualizamos seus dados no Gov.br e órgãos competentes sem
+            complicação.
+          </p>
+          <div class="mt-auto">
+            <p class="text-slate-400 text-xs font-semibold uppercase mb-3">A partir de <span
+                class="text-primary text-xl font-black ml-1">R$ 67</span></p>
+            <a href="https://wa.me/5565999999999?text=Ol%C3%A1!%20Preciso%20alterar%20dados%20do%20meu%20MEI."
+              target="_blank" rel="noopener"
+              class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white text-slate-700 py-3.5 rounded-xl font-bold text-sm transition-all duration-300">
+              Alterar dados →
+            </a>
+          </div>
         </div>
-    </section>
 
-    <!-- SECTION 11: CTA FINAL -->
-    <section class="py-24 px-4">
-        <div class="max-w-6xl mx-auto bg-gradient-to-br from-emerald-900 to-emerald-700 rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-32 translate-x-32 blur-3xl"></div>
-            <div class="relative z-10 reveal">
-                <h2 class="text-4xl md:text-6xl font-black mb-6 leading-tight">Chega de burocracia. <br/> Resolva seu MEI agora.</h2>
-                <p class="text-emerald-100 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-medium">
-                    Fale com um especialista hoje e tenha seu problema resolvido em até 24 horas. Atendemos todo o Mato Grosso e Centro-Oeste.
-                </p>
-                <div class="flex flex-col items-center gap-6">
-                    <a href="https://wa.me/5565999999999" class="bg-white text-emerald-800 px-12 py-6 rounded-3xl font-black text-2xl hover:bg-emerald-50 transition-all shadow-xl hover:scale-105 active:scale-95">
-                        💬 Falar com Especialista no WhatsApp
-                    </a>
-                    <p class="text-emerald-200/70 text-sm font-bold uppercase tracking-widest">Atendimento: Seg a Sáb • 8h às 20h</p>
-                </div>
-            </div>
+        <!-- Card 5: Baixa -->
+        <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-3xl flex flex-col shadow-sm"
+          style="transition-delay:80ms">
+          <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center text-red-400 mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-black text-slate-900 mb-3">Baixa / Encerramento</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+            Encerre seu CNPJ MEI de forma legal e definitiva, sem pendências com a Receita Federal. Inclui orientação
+            sobre débitos.
+          </p>
+          <div class="mt-auto">
+            <p class="text-slate-400 text-xs font-semibold uppercase mb-3">A partir de <span
+                class="text-primary text-xl font-black ml-1">R$ 97</span></p>
+            <a href="https://wa.me/5565999999999?text=Ol%C3%A1!%20Preciso%20dar%20baixa%20no%20meu%20MEI."
+              target="_blank" rel="noopener"
+              class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white text-slate-700 py-3.5 rounded-xl font-bold text-sm transition-all duration-300">
+              Encerrar MEI →
+            </a>
+          </div>
         </div>
-    </section>
 
-    <!-- SECTION 12: FOOTER -->
-    <footer class="bg-slate-950 text-slate-400 pt-24 pb-12">
-        <div class="max-w-7xl mx-auto px-4 md:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <!-- Col 1 -->
-                <div>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="bg-primary-light p-1.5 rounded-lg">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        </div>
-                        <span class="text-white font-black text-xl tracking-tighter">Suporte<span class="text-cta">Empreendedor</span></span>
+        <!-- Card 6: Consulta -->
+        <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-3xl flex flex-col shadow-sm"
+          style="transition-delay:160ms">
+          <div class="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-500 mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-black text-slate-900 mb-3">Consulta de Situação</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+            Descubra a situação real do seu CNPJ: ativo, inapto, suspenso ou baixado. Relatório completo com orientação
+            personalizada.
+          </p>
+          <div class="mt-auto">
+            <p class="text-slate-400 text-xs font-semibold uppercase mb-3">A partir de <span
+                class="text-primary text-xl font-black ml-1">R$ 47</span></p>
+            <a href="https://wa.me/5565999999999?text=Ol%C3%A1!%20Quero%20consultar%20a%20situa%C3%A7%C3%A3o%20do%20meu%20CNPJ."
+              target="_blank" rel="noopener"
+              class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white text-slate-700 py-3.5 rounded-xl font-bold text-sm transition-all duration-300">
+              Consultar CNPJ →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- SEÇÃO 5: NÚMEROS / RESULTADOS                -->
+  <!-- ============================================ -->
+  <section class="py-20 bg-primary-dark hero-pattern text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary to-primary-dark opacity-80"></div>
+    <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 text-center">
+        <div class="reveal">
+          <p class="text-4xl md:text-6xl font-black mb-2 text-cta">
+            <span class="counter" data-target="15000">0</span>+
+          </p>
+          <p class="text-[11px] md:text-xs font-bold uppercase tracking-[0.2em] text-slate-400">MEIs Regularizados</p>
+        </div>
+        <div class="reveal" style="transition-delay:100ms">
+          <p class="text-4xl md:text-6xl font-black mb-2 text-white">
+            <span class="counter" data-target="7">0</span>+
+          </p>
+          <p class="text-[11px] md:text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Anos de Experiência</p>
+        </div>
+        <div class="reveal" style="transition-delay:200ms">
+          <p class="text-4xl md:text-6xl font-black mb-2 text-white">
+            <span class="counter" data-target="98">0</span>%
+          </p>
+          <p class="text-[11px] md:text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Taxa de Satisfação</p>
+        </div>
+        <div class="reveal" style="transition-delay:300ms">
+          <p class="text-4xl md:text-6xl font-black mb-2 text-cta">
+            <span class="counter" data-target="24">0</span>h
+          </p>
+          <p class="text-[11px] md:text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Média de Resolução</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- SEÇÃO 6: COMO FUNCIONA                       -->
+  <!-- ============================================ -->
+  <section id="como-funciona" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center mb-16 reveal">
+        <span
+          class="inline-block text-xs font-bold uppercase tracking-[0.25em] text-primary-light bg-blue-50 px-4 py-1.5 rounded-full mb-4">Passo
+          a Passo</span>
+        <h2 class="text-3xl md:text-5xl font-black text-primary mb-4 tracking-tight">
+          Simples assim: 4 passos<br class="hidden sm:block"> para resolver seu MEI
+        </h2>
+        <p class="text-slate-500 text-lg">Sem filas, sem burocracia, sem sair de casa.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+        <div class="reveal relative step-line">
+          <div
+            class="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center text-xl font-black mb-5 shadow-lg shadow-primary/20 relative z-10">
+            1</div>
+          <h4 class="text-lg font-black text-slate-900 mb-2">📱 Fale conosco</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Entre em contato pelo WhatsApp. Atendemos em até 2 horas com
+            um especialista humano.</p>
+        </div>
+        <div class="reveal relative step-line" style="transition-delay:100ms">
+          <div
+            class="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center text-xl font-black mb-5 shadow-lg shadow-primary/20 relative z-10">
+            2</div>
+          <h4 class="text-lg font-black text-slate-900 mb-2">📋 Envie seus dados</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Informe dados básicos (CPF, atividade). Tudo via WhatsApp
+            com segurança LGPD.</p>
+        </div>
+        <div class="reveal relative step-line" style="transition-delay:200ms">
+          <div
+            class="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center text-xl font-black mb-5 shadow-lg shadow-primary/20 relative z-10">
+            3</div>
+          <h4 class="text-lg font-black text-slate-900 mb-2">💳 Pagamento seguro</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Pague via PIX, boleto ou cartão. Iniciamos imediatamente
+            após confirmação.</p>
+        </div>
+        <div class="reveal" style="transition-delay:300ms">
+          <div
+            class="w-14 h-14 bg-cta text-white rounded-2xl flex items-center justify-center text-xl font-black mb-5 shadow-lg shadow-cta/20 relative z-10">
+            4</div>
+          <h4 class="text-lg font-black text-slate-900 mb-2">✅ Receba tudo pronto</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Enviamos certificado ou protocolo por WhatsApp e e-mail.
+            Rápido e simples.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- SEÇÃO 7: VANTAGENS / DIFERENCIAIS            -->
+  <!-- ============================================ -->
+  <section id="vantagens" class="py-20 md:py-28 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center mb-16 reveal">
+        <span
+          class="inline-block text-xs font-bold uppercase tracking-[0.25em] text-cta bg-cta/10 px-4 py-1.5 rounded-full mb-4">Diferenciais</span>
+        <h2 class="text-3xl md:text-5xl font-black text-primary mb-4 tracking-tight">
+          Por que mais de 15 mil<br class="hidden sm:block"> empreendedores confiam em nós?
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="reveal p-8 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+          <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary-light" fill="none" stroke="currentColor" stroke-width="1.5"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+          </div>
+          <h4 class="text-lg font-bold text-primary mb-2">Especialistas em Centro-Oeste</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Conhecemos a realidade do empreendedor mato-grossense.
+            Atendemos de Cuiabá a Alta Floresta.</p>
+        </div>
+        <div class="reveal p-8 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all"
+          style="transition-delay:60ms">
+          <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-cta" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+            </svg>
+          </div>
+          <h4 class="text-lg font-bold text-primary mb-2">Atendimento 100% Digital</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Resolve tudo pelo celular, de qualquer cidade do MT.
+            WhatsApp, e-mail ou site.</p>
+        </div>
+        <div class="reveal p-8 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all"
+          style="transition-delay:120ms">
+          <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" stroke-width="1.5"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+            </svg>
+          </div>
+          <h4 class="text-lg font-bold text-primary mb-2">Equipe com +7 anos</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Já regularizamos mais de 15 mil CNPJs. Sabemos exatamente
+            como resolver sua pendência.</p>
+        </div>
+        <div class="reveal p-8 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all"
+          style="transition-delay:180ms">
+          <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" stroke-width="1.5"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h4 class="text-lg font-bold text-primary mb-2">Preço justo e transparente</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Você sabe exatamente quanto vai pagar antes de contratar.
+            Sem taxas ocultas ou surpresas.</p>
+        </div>
+        <div class="reveal p-8 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all"
+          style="transition-delay:240ms">
+          <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" stroke-width="1.5"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            </svg>
+          </div>
+          <h4 class="text-lg font-bold text-primary mb-2">Rapidez comprovada</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Maioria dos serviços resolvidos em até 24h úteis. Urgências
+            resolvidas no mesmo dia.</p>
+        </div>
+        <div class="reveal p-8 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all"
+          style="transition-delay:300ms">
+          <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-rose-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+            </svg>
+          </div>
+          <h4 class="text-lg font-bold text-primary mb-2">Suporte pós-serviço</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Dúvida depois que o serviço foi entregue? Estamos aqui.
+            Suporte contínuo para seu MEI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- SEÇÃO 8: DEPOIMENTOS DE CLIENTES             -->
+  <!-- ============================================ -->
+  <section id="depoimentos" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center mb-16 reveal">
+        <span
+          class="inline-block text-xs font-bold uppercase tracking-[0.25em] text-amber-600 bg-amber-50 px-4 py-1.5 rounded-full mb-4">Prova
+          Social</span>
+        <h2 class="text-3xl md:text-5xl font-black text-primary mb-4 tracking-tight">Quem já usou, recomenda.</h2>
+        <p class="text-slate-500 text-lg">Veja o que empreendedores do Mato Grosso e do Centro-Oeste dizem sobre nosso
+          trabalho.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Depoimento 1 -->
+        <div
+          class="reveal p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div class="flex gap-1 text-amber-400 mb-4 text-lg">⭐⭐⭐⭐⭐</div>
+          <p class="text-slate-600 leading-relaxed mb-6 italic">
+            "Abri meu MEI em menos de 24 horas! Eu tinha medo da burocracia, mas eles fizeram tudo por mim. Super
+            recomendo pra quem não quer dor de cabeça!"
+          </p>
+          <div class="flex items-center gap-4 pt-6 border-t border-slate-100">
+            <div
+              class="w-11 h-11 bg-blue-100 rounded-full flex items-center justify-center font-bold text-primary text-sm">
+              CM</div>
+            <div>
+              <p class="font-bold text-slate-900 text-sm">Carla Mendes</p>
+              <p class="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Confeiteira • Cuiabá/MT</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 2 -->
+        <div
+          class="reveal p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+          style="transition-delay:80ms">
+          <div class="flex gap-1 text-amber-400 mb-4 text-lg">⭐⭐⭐⭐⭐</div>
+          <p class="text-slate-600 leading-relaxed mb-6 italic">
+            "Tinha 2 anos de declaração atrasada e achei que ia perder meu CNPJ. Resolveram tudo rapidinho e ainda
+            parcelaram minha dívida. Profissionais demais!"
+          </p>
+          <div class="flex items-center gap-4 pt-6 border-t border-slate-100">
+            <div
+              class="w-11 h-11 bg-green-100 rounded-full flex items-center justify-center font-bold text-cta text-sm">JF
+            </div>
+            <div>
+              <p class="font-bold text-slate-900 text-sm">José Ferreira</p>
+              <p class="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Eletricista • Rondonópolis/MT
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 3 -->
+        <div
+          class="reveal p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+          style="transition-delay:160ms">
+          <div class="flex gap-1 text-amber-400 mb-4 text-lg">⭐⭐⭐⭐⭐</div>
+          <p class="text-slate-600 leading-relaxed mb-6 italic">
+            "Atendimento pelo WhatsApp muito prático. Moro no interior e não preciso ir pra cidade resolver nada. Top
+            demais! Já indiquei pra vários amigos."
+          </p>
+          <div class="flex items-center gap-4 pt-6 border-t border-slate-100">
+            <div
+              class="w-11 h-11 bg-amber-100 rounded-full flex items-center justify-center font-bold text-amber-600 text-sm">
+              MS</div>
+            <div>
+              <p class="font-bold text-slate-900 text-sm">Maria Silva</p>
+              <p class="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Costureira • Sorriso/MT</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 4 -->
+        <div
+          class="reveal p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div class="flex gap-1 text-amber-400 mb-4 text-lg">⭐⭐⭐⭐⭐</div>
+          <p class="text-slate-600 leading-relaxed mb-6 italic">
+            "Já usei 3 vezes: abri o MEI, fiz a declaração e agora alterei meu endereço. Sempre rápido e sem dor de
+            cabeça. Viraram meu contador digital!"
+          </p>
+          <div class="flex items-center gap-4 pt-6 border-t border-slate-100">
+            <div
+              class="w-11 h-11 bg-indigo-100 rounded-full flex items-center justify-center font-bold text-indigo-600 text-sm">
+              PS</div>
+            <div>
+              <p class="font-bold text-slate-900 text-sm">Pedro Santos</p>
+              <p class="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Barbeiro • Sinop/MT</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 5 -->
+        <div
+          class="reveal p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+          style="transition-delay:80ms">
+          <div class="flex gap-1 text-amber-400 mb-4 text-lg">⭐⭐⭐⭐⭐</div>
+          <p class="text-slate-600 leading-relaxed mb-6 italic">
+            "Precisei dar baixa no meu MEI antigo e abrir um novo. Fizeram os dois serviços num pacote com desconto.
+            Muito honestos e transparentes!"
+          </p>
+          <div class="flex items-center gap-4 pt-6 border-t border-slate-100">
+            <div
+              class="w-11 h-11 bg-rose-100 rounded-full flex items-center justify-center font-bold text-rose-600 text-sm">
+              AC</div>
+            <div>
+              <p class="font-bold text-slate-900 text-sm">Ana Costa</p>
+              <p class="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Manicure • Várzea Grande/MT
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 6 -->
+        <div
+          class="reveal p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+          style="transition-delay:160ms">
+          <div class="flex gap-1 text-amber-400 mb-4 text-lg">⭐⭐⭐⭐⭐</div>
+          <p class="text-slate-600 leading-relaxed mb-6 italic">
+            "Meu parcelamento de R$ 3.200 em DAS atrasados foi aprovado em 48h. Salvaram meu CNPJ! Gratidão eterna a
+            essa equipe maravilhosa."
+          </p>
+          <div class="flex items-center gap-4 pt-6 border-t border-slate-100">
+            <div
+              class="w-11 h-11 bg-emerald-100 rounded-full flex items-center justify-center font-bold text-emerald-600 text-sm">
+              LO</div>
+            <div>
+              <p class="font-bold text-slate-900 text-sm">Lucas Oliveira</p>
+              <p class="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Motoboy • Tangará da Serra/MT
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- SEÇÃO 9: MAPA DE ATUAÇÃO                     -->
+  <!-- ============================================ -->
+  <section class="py-20 md:py-28 bg-primary-dark text-white relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-cta/5 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary-light/5 rounded-full blur-[150px]"></div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Content -->
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 bg-cta/10 border border-cta/20 px-4 py-1.5 rounded-full mb-8">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-cta">📱 100% digital — atende qualquer
+              cidade</span>
+          </div>
+          <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight">
+            Presentes em todo o<br> Mato Grosso e Centro-Oeste
+          </h2>
+          <p class="text-slate-400 mb-10 text-lg leading-relaxed">
+            Nossa tecnologia permite regularizar seu MEI de qualquer lugar, mas temos um carinho especial pela nossa
+            terra mato-grossense.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <span class="w-3 h-3 bg-cta rounded-sm flex-shrink-0"></span>
+                <p class="text-cta font-bold text-sm uppercase tracking-wider">🏙️ Mato Grosso</p>
+              </div>
+              <ul class="text-slate-400 text-sm space-y-2">
+                <li>Cuiabá e Várzea Grande</li>
+                <li>Rondonópolis e Sinop</li>
+                <li>Sorriso e Lucas do Rio Verde</li>
+                <li>Tangará da Serra</li>
+                <li>Primavera do Leste</li>
+                <li>Cáceres e Alta Floresta</li>
+                <li>Barra do Garças e Pontes e Lacerda</li>
+                <li class="text-cta font-semibold">+ todos os 141 municípios</li>
+              </ul>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <span class="w-3 h-3 bg-primary-light rounded-sm flex-shrink-0"></span>
+                <p class="text-primary-light font-bold text-sm uppercase tracking-wider">📍 Centro-Oeste & Brasil</p>
+              </div>
+              <ul class="text-slate-400 text-sm space-y-2">
+                <li>Goiânia e Anápolis</li>
+                <li>Aparecida de Goiânia</li>
+                <li>Campo Grande e Dourados</li>
+                <li>Três Lagoas</li>
+                <li>Brasília e cidades satélites</li>
+                <li class="text-primary-light font-semibold pt-2">🌎 Atendimento nacional via WhatsApp</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual Map -->
+        <div class="reveal flex justify-center">
+          <div class="relative w-full max-w-sm">
+            <!-- Stylized map icon -->
+            <div class="bg-white/5 border border-white/10 rounded-3xl p-12 backdrop-blur-sm">
+              <svg class="w-full h-auto text-primary-light/20" viewBox="0 0 200 200" fill="none" stroke="currentColor"
+                stroke-width="1">
+                <!-- Simplified Brazil map outline -->
+                <path
+                  d="M60 30 L140 25 L160 50 L170 80 L165 120 L150 150 L120 170 L80 175 L50 160 L35 130 L30 100 L35 70 L45 45 Z"
+                  stroke-dasharray="4 4" />
+                <!-- Centro-Oeste highlight -->
+                <path d="M70 60 L120 55 L130 80 L125 110 L100 120 L75 115 L65 90 Z" fill="currentColor" opacity="0.3" />
+                <!-- MT highlight -->
+                <path d="M75 55 L115 52 L120 72 L115 92 L95 98 L78 93 L70 75 Z" fill="currentColor" opacity="0.6" />
+              </svg>
+
+              <!-- Animated pin -->
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div class="relative">
+                  <div class="w-20 h-20 bg-cta/20 rounded-full animate-ping"></div>
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-10 h-10 bg-cta rounded-full flex items-center justify-center shadow-lg shadow-cta/30">
+                      <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                      </svg>
                     </div>
-                    <p class="text-sm leading-relaxed mb-6 font-medium">
-                        Assessoria digital especializada em MEI, conectando microempreendedores do Mato Grosso e Centro-Oeste à regularidade desde 2018.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary-light transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.063 1.366-.333 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.063-2.633-.333-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07m0-2.163c-3.259 0-3.667.014-4.947.072-1.363.063-2.638.336-3.676 1.373-1.037 1.036-1.31 2.311-1.373 3.676-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.063 1.363.336 2.638 1.373 3.676 1.036 1.037 2.311 1.31 3.676 1.373 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.364-.063 2.638-.336 3.676-1.373 1.037-1.036 1.31-2.311 1.373-3.676.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.063-1.364-.336-2.638-1.373-3.676-1.036-1.037-2.311-1.31-3.676-1.373-1.28-.058-1.688-.072-4.947-.072z"/></svg></a>
-                        <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary-light transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                    </div>
+                  </div>
                 </div>
-                <!-- Col 2 -->
-                <div>
-                    <h6 class="text-white font-black uppercase tracking-widest text-sm mb-6">Serviços</h6>
-                    <ul class="space-y-4 text-sm font-bold">
-                        <li><a href="#servicos" class="hover:text-cta transition-colors">Abertura de MEI</a></li>
-                        <li><a href="#servicos" class="hover:text-cta transition-colors">Declaração Anual</a></li>
-                        <li><a href="#servicos" class="hover:text-cta transition-colors">Parcelamento</a></li>
-                        <li><a href="#servicos" class="hover:text-cta transition-colors">Alteração de Dados</a></li>
-                        <li><a href="#servicos" class="hover:text-cta transition-colors">Baixa de MEI</a></li>
-                    </ul>
-                </div>
-                <!-- Col 3 -->
-                <div>
-                    <h6 class="text-white font-black uppercase tracking-widest text-sm mb-6">Institucional</h6>
-                    <ul class="space-y-4 text-sm font-bold">
-                        <li><a href="#servicos" class="hover:text-cta transition-colors">Como Funciona</a></li>
-                        <li><a href="#vantagens" class="hover:text-cta transition-colors">Diferenciais</a></li>
-                        <li><a href="#" class="hover:text-cta transition-colors">Políticas</a></li>
-                        <li><a href="#" class="hover:text-cta transition-colors">Termos</a></li>
-                    </ul>
-                </div>
-                <!-- Col 4 -->
-                <div>
-                    <h6 class="text-white font-black uppercase tracking-widest text-sm mb-6">Contato</h6>
-                    <ul class="space-y-4 text-sm font-bold">
-                        <li class="flex items-center gap-3"><span class="text-cta">📱</span> (65) 99999-9999</li>
-                        <li class="flex items-center gap-3"><span class="text-cta">📧</span> contato@suporteempreendedor.com.br</li>
-                        <li class="flex items-center gap-3"><span class="text-cta">📍</span> Cuiabá — MT</li>
-                        <li class="flex items-center gap-3 text-xs opacity-50">Seg a Sáb: 8h às 20h</li>
-                    </ul>
-                </div>
+              </div>
+
+              <!-- Labels -->
+              <div
+                class="absolute top-8 left-8 bg-cta/20 text-cta text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                Cuiabá/MT</div>
+              <div
+                class="absolute bottom-8 right-8 bg-primary-light/20 text-primary-light text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                Centro-Oeste</div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <!-- DISCLAIMER -->
-            <div class="border-t border-white/5 pt-12">
-                <div class="bg-amber-500/5 border-l-4 border-amber-500 p-6 rounded-r-2xl mb-12">
-                    <p class="text-[10px] md:text-xs text-amber-500/80 leading-relaxed font-bold uppercase tracking-wider">
-                        ⚠️ AVISO LEGAL: Este é um serviço PRIVADO e OPCIONAL de assessoria ao Microempreendedor Individual (MEI). NÃO possuímos vínculo com o Governo Federal, Receita Federal, SEBRAE ou qualquer órgão público. Os serviços oferecidos referem-se exclusivamente à assessoria e intermediação junto aos portais públicos, pelos quais cobramos honorários de serviço. Todos os procedimentos aqui descritos podem ser realizados gratuitamente pelo próprio empreendedor diretamente nos portais oficiais do governo (Gov.br, Portal do Simples Nacional).
-                    </p>
-                </div>
-                <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold uppercase tracking-[0.2em] opacity-40">
-                    <p>© 2025 Suporte Empreendedor Digital</p>
-                    <p>CNPJ: 00.000.000/0001-00 • Renato Rosa</p>
-                    <p>Cuiabá/MT para todo o Brasil</p>
-                </div>
+
+  <!-- ============================================ -->
+  <!-- SEÇÃO 10: FAQ                                -->
+  <!-- ============================================ -->
+  <section id="faq" class="py-20 md:py-28 bg-white">
+    <div class="max-w-3xl mx-auto px-4 md:px-8">
+      <div class="text-center mb-16 reveal">
+        <span
+          class="inline-block text-xs font-bold uppercase tracking-[0.25em] text-primary-light bg-blue-50 px-4 py-1.5 rounded-full mb-4">Tire
+          suas dúvidas</span>
+        <h2 class="text-3xl md:text-5xl font-black text-primary mb-4 tracking-tight">Dúvidas? A gente responde.</h2>
+        <p class="text-slate-500 text-lg">Transparência total para você empreender com tranquilidade.</p>
+      </div>
+
+      <div class="space-y-3" id="faq-container">
+        <!-- FAQ 1 -->
+        <div
+          class="reveal faq-item border border-slate-100 rounded-2xl overflow-hidden bg-white hover:border-slate-200 transition-colors">
+          <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center gap-4"
+            aria-expanded="false">
+            <span class="font-bold text-primary text-sm md:text-base">O que exatamente vocês fazem?</span>
+            <svg class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0" fill="none"
+              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-5 md:px-6">
+            <div class="pb-5 md:pb-6 text-slate-500 text-sm leading-relaxed border-t border-slate-50 pt-4">
+              Somos uma assessoria digital especializada em MEI. Cuidamos de toda a burocracia junto aos portais do
+              governo (Gov.br, Receita Federal, REDESIM) para que você não precise enfrentar filas ou sistemas confusos.
+              Cobramos honorários pelo serviço de assessoria — como um despachante, mas 100% digital.
             </div>
+          </div>
         </div>
-    </footer>
 
-    <!-- BOTÃO FLUTUANTE WHATSAPP -->
-    <a href="https://wa.me/5565999999999" class="fixed bottom-8 right-8 z-[100] group flex items-center gap-3">
-        <div class="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl animate-bounce group-hover:animate-none transition-all border-4 border-white/20">
-            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.195.194 1.652.149.571-.055 1.758-.683 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+        <!-- FAQ 2 -->
+        <div
+          class="reveal faq-item border border-slate-100 rounded-2xl overflow-hidden bg-white hover:border-slate-200 transition-colors"
+          style="transition-delay:50ms">
+          <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center gap-4"
+            aria-expanded="false">
+            <span class="font-bold text-primary text-sm md:text-base">Vocês são do governo?</span>
+            <svg class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0" fill="none"
+              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-5 md:px-6">
+            <div class="pb-5 md:pb-6 text-slate-500 text-sm leading-relaxed border-t border-slate-50 pt-4">
+              <strong>Não.</strong> Somos uma empresa PRIVADA de assessoria. Não temos vínculo com Receita Federal,
+              SEBRAE, Gov.br ou qualquer órgão público. Todos os serviços que oferecemos podem ser feitos gratuitamente
+              pelo próprio empreendedor nos portais oficiais. Nosso diferencial é a praticidade, rapidez e segurança de
+              ter um especialista cuidando de tudo por você.
+            </div>
+          </div>
         </div>
-        <div class="bg-white text-primary-dark font-black py-2 px-4 rounded-xl shadow-lg opacity-0 -translate-x-10 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-sm whitespace-nowrap">Dúvidas? Fale comigo! 😊</div>
-    </a>
 
-    <!-- SCHEMA.ORG -->
-    <script type="application/ld+json">
+        <!-- FAQ 3 -->
+        <div
+          class="reveal faq-item border border-slate-100 rounded-2xl overflow-hidden bg-white hover:border-slate-200 transition-colors"
+          style="transition-delay:100ms">
+          <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center gap-4"
+            aria-expanded="false">
+            <span class="font-bold text-primary text-sm md:text-base">Quanto tempo leva para abrir meu MEI?</span>
+            <svg class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0" fill="none"
+              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-5 md:px-6">
+            <div class="pb-5 md:pb-6 text-slate-500 text-sm leading-relaxed border-t border-slate-50 pt-4">
+              Na maioria dos casos, seu CNPJ fica pronto em <strong>até 24 horas</strong> após o envio dos dados e
+              confirmação do pagamento. Em casos simples, pode ficar pronto no mesmo dia. Enviamos o Certificado MEI por
+              WhatsApp e e-mail.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div
+          class="reveal faq-item border border-slate-100 rounded-2xl overflow-hidden bg-white hover:border-slate-200 transition-colors"
+          style="transition-delay:150ms">
+          <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center gap-4"
+            aria-expanded="false">
+            <span class="font-bold text-primary text-sm md:text-base">Atende minha cidade no Mato Grosso?</span>
+            <svg class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0" fill="none"
+              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-5 md:px-6">
+            <div class="pb-5 md:pb-6 text-slate-500 text-sm leading-relaxed border-t border-slate-50 pt-4">
+              <strong>Sim!</strong> Nosso atendimento é 100% digital. Atendemos <strong>todas as 141 cidades do Mato
+                Grosso</strong> e todo o Brasil. Você resolve tudo pelo WhatsApp, sem precisar sair de casa nem pegar
+              fila em lugar nenhum.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div
+          class="reveal faq-item border border-slate-100 rounded-2xl overflow-hidden bg-white hover:border-slate-200 transition-colors"
+          style="transition-delay:200ms">
+          <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center gap-4"
+            aria-expanded="false">
+            <span class="font-bold text-primary text-sm md:text-base">Como funciona o pagamento?</span>
+            <svg class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0" fill="none"
+              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-5 md:px-6">
+            <div class="pb-5 md:pb-6 text-slate-500 text-sm leading-relaxed border-t border-slate-50 pt-4">
+              Aceitamos <strong>PIX</strong> (pagamento instantâneo), <strong>boleto bancário</strong> e <strong>cartão
+                de crédito</strong>. Você recebe o valor exato antes de contratar — sem surpresas nem taxas ocultas. O
+              serviço só é iniciado após a confirmação do pagamento.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div
+          class="reveal faq-item border border-slate-100 rounded-2xl overflow-hidden bg-white hover:border-slate-200 transition-colors"
+          style="transition-delay:250ms">
+          <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center gap-4"
+            aria-expanded="false">
+            <span class="font-bold text-primary text-sm md:text-base">E se eu tiver dívidas no meu MEI?</span>
+            <svg class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0" fill="none"
+              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-5 md:px-6">
+            <div class="pb-5 md:pb-6 text-slate-500 text-sm leading-relaxed border-t border-slate-50 pt-4">
+              Podemos regularizar! Fazemos <strong>parcelamento de DAS atrasados em até 60 vezes</strong> direto no
+              sistema da Receita Federal. Também orientamos sobre a melhor estratégia para limpar seu nome e manter o
+              CNPJ ativo sem dores de cabeça.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div
+          class="reveal faq-item border border-slate-100 rounded-2xl overflow-hidden bg-white hover:border-slate-200 transition-colors"
+          style="transition-delay:300ms">
+          <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center gap-4"
+            aria-expanded="false">
+            <span class="font-bold text-primary text-sm md:text-base">Meus dados estão seguros?</span>
+            <svg class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0" fill="none"
+              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-5 md:px-6">
+            <div class="pb-5 md:pb-6 text-slate-500 text-sm leading-relaxed border-t border-slate-50 pt-4">
+              Sim. Utilizamos <strong>conexão criptografada (HTTPS)</strong>, não armazenamos senhas do Gov.br e
+              seguimos as diretrizes da <strong>LGPD</strong> (Lei Geral de Proteção de Dados). Seus dados são usados
+              exclusivamente para a prestação do serviço contratado.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 8 -->
+        <div
+          class="reveal faq-item border border-slate-100 rounded-2xl overflow-hidden bg-white hover:border-slate-200 transition-colors"
+          style="transition-delay:350ms">
+          <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center gap-4"
+            aria-expanded="false">
+            <span class="font-bold text-primary text-sm md:text-base">Posso falar com vocês antes de contratar?</span>
+            <svg class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0" fill="none"
+              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-5 md:px-6">
+            <div class="pb-5 md:pb-6 text-slate-500 text-sm leading-relaxed border-t border-slate-50 pt-4">
+              <strong>Claro!</strong> Nosso WhatsApp está sempre aberto para tirar dúvidas, <strong>sem compromisso
+                nenhum</strong>. Só cobramos se você decidir contratar o serviço. Pode chamar tranquilo que vamos te
+              orientar! 😊
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- SEÇÃO 11: CTA FINAL                          -->
+  <!-- ============================================ -->
+  <section class="py-16 md:py-20 px-4">
+    <div
+      class="max-w-5xl mx-auto bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700 rounded-3xl md:rounded-[3rem] p-10 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
+      <!-- Decorative elements -->
+      <div
+        class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-32 translate-x-32 blur-3xl pointer-events-none">
+      </div>
+      <div
+        class="absolute bottom-0 left-0 w-48 h-48 bg-emerald-400/10 rounded-full translate-y-24 -translate-x-24 blur-3xl pointer-events-none">
+      </div>
+
+      <div class="relative z-10 reveal">
+        <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full mb-8">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-200">🚀 Resolva agora mesmo</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
+          Chega de burocracia.<br>Resolva seu MEI agora.
+        </h2>
+        <p class="text-emerald-100/80 text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+          Fale com um especialista hoje e tenha seu problema resolvido em até 24 horas.
+          Atendemos todo o Mato Grosso e Centro-Oeste com agilidade e segurança.
+        </p>
+        <div class="flex flex-col items-center gap-5">
+          <a href="https://wa.me/5565999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20resolver%20meu%20MEI.%20Podem%20me%20ajudar%3F%20%F0%9F%98%8A"
+            target="_blank" rel="noopener"
+            class="bg-white text-emerald-800 px-10 md:px-14 py-5 md:py-6 rounded-2xl md:rounded-3xl font-black text-lg md:text-xl hover:bg-emerald-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 inline-flex items-center gap-3">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.178 1.652.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Falar com Especialista
+          </a>
+          <p class="text-emerald-200/50 text-xs font-bold uppercase tracking-[0.2em]">
+            Seg a Sáb • 8h às 20h • Resposta em até 2h
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- SEÇÃO 12: FOOTER COMPLETO                    -->
+  <!-- ============================================ -->
+  <footer class="bg-slate-950 text-slate-400 pt-20 pb-8">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <!-- Grid 4 colunas -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-16">
+        <!-- Col 1: Sobre -->
+        <div>
+          <div class="flex items-center gap-3 mb-5">
+            <div class="bg-primary-light p-1.5 rounded-lg">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <span class="text-white font-black text-lg tracking-tight">Suporte<span
+                class="text-cta">Empreendedor</span></span>
+          </div>
+          <p class="text-sm leading-relaxed mb-6">
+            Assessoria digital especializada em MEI, conectando microempreendedores do Mato Grosso e Centro-Oeste à
+            regularidade e ao sucesso desde 2018.
+          </p>
+          <div class="flex gap-3">
+            <a href="#" aria-label="Instagram"
+              class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-primary-light/20 hover:text-primary-light transition-all">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.063 1.366-.333 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.063-2.633-.333-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608C4.516 2.567 5.783 2.297 7.15 2.233 8.416 2.175 8.796 2.163 12 2.163M12 0C8.741 0 8.333.014 7.053.072 5.775.13 4.602.393 3.635 1.36 2.67 2.325 2.406 3.498 2.348 4.776.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.058 1.277.321 2.45 1.288 3.416.966.966 2.139 1.23 3.417 1.288C8.333 23.986 8.741 24 12 24s3.667-.014 4.947-.072c1.277-.058 2.45-.322 3.416-1.288.967-.966 1.23-2.139 1.288-3.416.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.058-1.278-.321-2.451-1.288-3.417-.966-.966-2.139-1.23-3.416-1.288C15.667.014 15.259 0 12 0z" />
+                <circle cx="12" cy="12" r="3.5" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook"
+              class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-primary-light/20 hover:text-primary-light transition-all">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://wa.me/5565999999999" aria-label="WhatsApp"
+              class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-cta/20 hover:text-cta transition-all">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.178 1.652.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Serviços -->
+        <div>
+          <h6 class="text-white font-bold uppercase tracking-widest text-xs mb-5">Serviços</h6>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#servicos" class="hover:text-cta transition-colors">Abertura de MEI</a></li>
+            <li><a href="#servicos" class="hover:text-cta transition-colors">Declaração Anual (DASN)</a></li>
+            <li><a href="#servicos" class="hover:text-cta transition-colors">Parcelamento de Débitos</a></li>
+            <li><a href="#servicos" class="hover:text-cta transition-colors">Alteração Cadastral</a></li>
+            <li><a href="#servicos" class="hover:text-cta transition-colors">Baixa do MEI</a></li>
+            <li><a href="#servicos" class="hover:text-cta transition-colors">Consulta de Situação</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Institucional -->
+        <div>
+          <h6 class="text-white font-bold uppercase tracking-widest text-xs mb-5">Institucional</h6>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#como-funciona" class="hover:text-cta transition-colors">Como Funciona</a></li>
+            <li><a href="#vantagens" class="hover:text-cta transition-colors">Nossos Diferenciais</a></li>
+            <li><a href="#depoimentos" class="hover:text-cta transition-colors">Depoimentos</a></li>
+            <li><a href="#faq" class="hover:text-cta transition-colors">Perguntas Frequentes</a></li>
+            <li><a href="#" class="hover:text-cta transition-colors">Termos de Uso</a></li>
+            <li><a href="#" class="hover:text-cta transition-colors">Política de Privacidade</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contato -->
+        <div>
+          <h6 class="text-white font-bold uppercase tracking-widest text-xs mb-5">Contato</h6>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-center gap-3">
+              <span class="text-cta">📱</span>
+              <a href="https://wa.me/5565999999999" class="hover:text-cta transition-colors">(65) 99999-9999</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="text-cta">📧</span>
+              <span>contato@suporteempreendedor.com.br</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="text-cta">📍</span>
+              <span>Cuiabá — Mato Grosso</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="text-cta">🕐</span>
+              <span>Seg a Sáb: 8h às 20h</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- DISCLAIMER JURÍDICO -->
+      <div class="border-t border-white/5 pt-10">
+        <div class="bg-amber-500/5 border-l-4 border-amber-500/60 p-5 rounded-r-xl mb-10">
+          <p class="text-[11px] text-amber-400/70 leading-relaxed font-medium">
+            ⚠️ <strong class="text-amber-400/90">AVISO LEGAL:</strong> Este é um serviço PRIVADO e OPCIONAL de
+            assessoria ao Microempreendedor Individual (MEI). NÃO possuímos vínculo com o Governo Federal, Receita
+            Federal, SEBRAE ou qualquer órgão público. Os serviços oferecidos referem-se exclusivamente à assessoria e
+            intermediação junto aos portais públicos, pelos quais cobramos honorários de serviço. Todos os procedimentos
+            aqui descritos podem ser realizados gratuitamente pelo próprio empreendedor diretamente nos portais oficiais
+            do governo (Gov.br, Portal do Simples Nacional).
+          </p>
+        </div>
+
+        <!-- Copyright bar -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-600">
+          <p>© 2025 Suporte Empreendedor Digital. Todos os direitos reservados.</p>
+          <p>CNPJ: 00.000.000/0001-00 • Responsável: Renato Rosa</p>
+          <p>📍 Cuiabá/MT — Atendimento nacional</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================ -->
+  <!-- BOTÃO FLUTUANTE WHATSAPP                     -->
+  <!-- ============================================ -->
+  <a href="https://wa.me/5565999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20para%20MEI.%20%F0%9F%98%8A"
+    target="_blank" rel="noopener" id="whatsapp-float"
+    class="fixed bottom-6 right-6 z-[100] group flex items-center gap-3" aria-label="Fale conosco no WhatsApp">
+    <!-- Tooltip -->
+    <span
+      class="bg-white text-slate-800 font-bold py-2 px-4 rounded-xl shadow-lg text-sm whitespace-nowrap opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block">
+      Dúvidas? Fale comigo! 😊
+    </span>
+    <!-- Button -->
+    <span class="relative flex items-center justify-center">
+      <span class="absolute w-16 h-16 bg-green-400/30 rounded-full animate-ping"></span>
+      <span
+        class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl shadow-green-500/30 hover:shadow-2xl hover:scale-110 transition-all duration-300">
+        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.178 1.652.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+      </span>
+    </span>
+  </a>
+
+
+  <!-- ============================================ -->
+  <!-- SCHEMA.ORG JSON-LD                           -->
+  <!-- ============================================ -->
+  <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Suporte Empreendedor",
-      "image": "logo.png",
-      "@id": "",
-      "url": "https://renato0503.github.io/SuporteEmpreendedor/",
-      "telephone": "+5565999999999",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Cuiabá",
-        "addressLocality": "Cuiabá",
-        "addressRegion": "MT",
-        "postalCode": "78000-000",
-        "addressCountry": "BR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -15.598,
-        "longitude": -56.094
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Suporte Empreendedor",
+        "description": "Assessoria digital especializada em MEI - Microempreendedor Individual. Abertura, Declaração Anual, Parcelamento de Débitos e mais.",
+        "url": "https://renato0503.github.io/SuporteEmpreendedor/",
+        "telephone": "+5565999999999",
+        "email": "contato@suporteempreendedor.com.br",
+        "founder": {
+            "@type": "Person",
+            "name": "Renato Rosa"
+        },
+        "foundingDate": "2018",
+        "areaServed": [
+            { "@type": "State", "name": "Mato Grosso" },
+            { "@type": "State", "name": "Goiás" },
+            { "@type": "State", "name": "Mato Grosso do Sul" },
+            { "@type": "AdministrativeArea", "name": "Distrito Federal" }
         ],
-        "opens": "08:00",
-        "closes": "20:00"
-      }
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cuiabá",
+            "addressRegion": "MT",
+            "addressCountry": "BR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -15.5989,
+                        "longitude": -56.0949
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "08:00",
+            "closes": "20:00"
+        },
+        "priceRange": "R$ 47 - R$ 247",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "15000"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Serviços MEI",
+            "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Abertura de MEI", "description": "Formalização do CNPJ MEI em até 24h" }, "price": "97.00", "priceCurrency": "BRL" },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Declaração Anual DASN-SIMEI", "description": "Entrega da declaração anual obrigatória" }, "price": "67.00", "priceCurrency": "BRL" },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Parcelamento de Débitos MEI", "description": "Negociação de DAS atrasados em até 60x" }, "price": "127.00", "priceCurrency": "BRL" },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Alteração Cadastral MEI", "description": "Atualização de dados no Gov.br" }, "price": "67.00", "priceCurrency": "BRL" },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Baixa do MEI", "description": "Encerramento legal do CNPJ MEI" }, "price": "97.00", "priceCurrency": "BRL" },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consulta de Situação Cadastral", "description": "Relatório completo da situação do CNPJ" }, "price": "47.00", "priceCurrency": "BRL" }
+            ]
+        }
     }
     </script>
 
-    <script>
-        // FAQ ACCORDION LOGIC
-        document.querySelectorAll('.faq-toggle').forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-                const icon = button.querySelector('svg');
-                
-                // Toggle current
-                if (content.style.height && content.style.height !== '0px') {
-                    content.style.height = '0px';
-                    content.style.opacity = '0';
-                    icon.classList.remove('rotate-180');
-                } else {
-                    // Close all others
-                    document.querySelectorAll('.faq-content').forEach(c => {
-                        c.style.height = '0px';
-                        c.style.opacity = '0';
-                        c.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
-                    });
-                    
-                    content.style.height = content.scrollHeight + 'px';
-                    content.style.opacity = '1';
-                    icon.classList.add('rotate-180');
-                }
-            });
+
+  <!-- ============================================ -->
+  <!-- JAVASCRIPT — TODO O COMPORTAMENTO DA PÁGINA  -->
+  <!-- ============================================ -->
+  <script>
+      (function () {
+        'use strict';
+
+        // =============================================
+        // 1. INTERSECTION OBSERVER — REVEAL ANIMATIONS
+        // =============================================
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              // Não desconecta — permite re-animar se voltar a scrollar
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
         });
 
-        // SMOOTH SCROLL FOR ALL ANCHORS
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerOffset = 80;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }
-            });
+        document.querySelectorAll('.reveal').forEach(el => {
+          revealObserver.observe(el);
         });
-    </script>
-</body>
-</html>
-tartCounts();
-                countObserver.disconnect();
+
+
+        // =============================================
+        // 2. HEADER SHRINK ON SCROLL
+        // =============================================
+        const header = document.getElementById('main-header');
+        let lastScroll = 0;
+        let headerShrunk = false;
+
+        function handleHeaderScroll() {
+          const currentScroll = window.pageYOffset;
+
+          if (currentScroll > 80 && !headerShrunk) {
+            header.classList.add('header-shrink');
+            headerShrunk = true;
+          } else if (currentScroll <= 80 && headerShrunk) {
+            header.classList.remove('header-shrink');
+            headerShrunk = false;
+          }
+
+          lastScroll = currentScroll;
+        }
+
+        // Throttle scroll events for performance
+        let scrollTicking = false;
+        window.addEventListener('scroll', function () {
+          if (!scrollTicking) {
+            window.requestAnimationFrame(function () {
+              handleHeaderScroll();
+              scrollTicking = false;
+            });
+            scrollTicking = true;
+          }
+        }, { passive: true });
+
+
+        // =============================================
+        // 3. MOBILE SIDEBAR TOGGLE
+        // =============================================
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('mobile-sidebar');
+        const closeSidebar = document.getElementById('close-sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        function openSidebar() {
+          sidebar.classList.remove('translate-x-full');
+          sidebar.classList.add('translate-x-0');
+          document.body.classList.add('no-scroll');
+        }
+
+        function closeSidebarMenu() {
+          sidebar.classList.add('translate-x-full');
+          sidebar.classList.remove('translate-x-0');
+          document.body.classList.remove('no-scroll');
+        }
+
+        if (hamburger) {
+          hamburger.addEventListener('click', openSidebar);
+        }
+        if (closeSidebar) {
+          closeSidebar.addEventListener('click', closeSidebarMenu);
+        }
+        if (sidebarOverlay) {
+          sidebarOverlay.addEventListener('click', closeSidebarMenu);
+        }
+
+        // Close sidebar when clicking a link
+        sidebarLinks.forEach(link => {
+          link.addEventListener('click', function () {
+            closeSidebarMenu();
+          });
+        });
+
+        // Close sidebar on Escape key
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && !sidebar.classList.contains('translate-x-full')) {
+            closeSidebarMenu();
+          }
+        });
+
+
+        // =============================================
+        // 4. SMOOTH SCROLL FOR ANCHOR LINKS
+        // =============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || targetId === '') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              e.preventDefault();
+              const headerHeight = header ? header.offsetHeight : 80;
+              const elementPosition = targetElement.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 16;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+              });
             }
-        }, { threshold: 0.5 });
-        countObserver.observe(document.querySelector('.count').parentElement.parentElement);
-    </script>
+          });
+        });
+
+
+        // =============================================
+        // 5. FAQ ACCORDION
+        // =============================================
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+
+        faqToggles.forEach(toggle => {
+          toggle.addEventListener('click', function () {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('.faq-icon');
+            const isOpen = content.classList.contains('open');
+            const parent = this.closest('.faq-item');
+
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-content.open').forEach(openContent => {
+              if (openContent !== content) {
+                openContent.style.maxHeight = '0px';
+                openContent.classList.remove('open');
+                const otherIcon = openContent.previousElementSibling.querySelector('.faq-icon');
+                if (otherIcon) otherIcon.classList.remove('rotate-180');
+                const otherToggle = openContent.previousElementSibling;
+                if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
+              }
+            });
+
+            // Toggle current
+            if (isOpen) {
+              content.style.maxHeight = '0px';
+              content.classList.remove('open');
+              if (icon) icon.classList.remove('rotate-180');
+              this.setAttribute('aria-expanded', 'false');
+            } else {
+              content.style.maxHeight = content.scrollHeight + 'px';
+              content.classList.add('open');
+              if (icon) icon.classList.add('rotate-180');
+              this.setAttribute('aria-expanded', 'true');
+            }
+          });
+
+          // Keyboard accessibility
+          toggle.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              this.click();
+            }
+          });
+        });
+
+
+        // =============================================
+        // 6. COUNTER ANIMATION (Count-Up)
+        // =============================================
+        const counters = document.querySelectorAll('.counter');
+        let countersStarted = false;
+
+        function startCounters() {
+          if (countersStarted) return;
+          countersStarted = true;
+
+          counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000; // 2 seconds
+            const startTime = performance.now();
+
+            function easeOutQuart(t) {
+              return 1 - Math.pow(1 - t, 4);
+            }
+
+            function updateCounter(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const easedProgress = easeOutQuart(progress);
+              const currentValue = Math.floor(easedProgress * target);
+
+              // Format with dots for thousands
+              if (target >= 1000) {
+                counter.textContent = currentValue.toLocaleString('pt-BR');
+              } else {
+                counter.textContent = currentValue;
+              }
+
+              if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+              } else {
+                // Ensure final value is exact
+                if (target >= 1000) {
+                  counter.textContent = target.toLocaleString('pt-BR');
+                } else {
+                  counter.textContent = target;
+                }
+              }
+            }
+
+            requestAnimationFrame(updateCounter);
+          });
+        }
+
+        // Observe the counter section
+        if (counters.length > 0) {
+          const counterSection = counters[0].closest('section');
+          if (counterSection) {
+            const counterObserver = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  startCounters();
+                  counterObserver.disconnect();
+                }
+              });
+            }, { threshold: 0.3 });
+
+            counterObserver.observe(counterSection);
+          }
+        }
+
+
+        // =============================================
+        // 7. WHATSAPP FLOAT BUTTON — SHOW AFTER SCROLL
+        // =============================================
+        const whatsappFloat = document.getElementById('whatsapp-float');
+
+        if (whatsappFloat) {
+          // Start hidden
+          whatsappFloat.style.opacity = '0';
+          whatsappFloat.style.transform = 'translateY(20px) scale(0.8)';
+          whatsappFloat.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+          let floatShown = false;
+
+          function checkFloatVisibility() {
+            if (window.pageYOffset > 400 && !floatShown) {
+              whatsappFloat.style.opacity = '1';
+              whatsappFloat.style.transform = 'translateY(0) scale(1)';
+              floatShown = true;
+            } else if (window.pageYOffset <= 400 && floatShown) {
+              whatsappFloat.style.opacity = '0';
+              whatsappFloat.style.transform = 'translateY(20px) scale(0.8)';
+              floatShown = false;
+            }
+          }
+
+          window.addEventListener('scroll', function () {
+            if (!scrollTicking) {
+              window.requestAnimationFrame(function () {
+                checkFloatVisibility();
+              });
+            }
+          }, { passive: true });
+        }
+
+
+        // =============================================
+        // 8. ACTIVE NAV LINK ON SCROLL (Desktop)
+        // =============================================
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('header nav a[href^="#"]');
+
+        function updateActiveNav() {
+          const scrollPos = window.pageYOffset + 150;
+
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+              navLinks.forEach(link => {
+                link.classList.remove('text-white');
+                link.classList.add('text-slate-300');
+                if (link.getAttribute('href') === '#' + sectionId) {
+                  link.classList.add('text-white');
+                  link.classList.remove('text-slate-300');
+                }
+              });
+            }
+          });
+        }
+
+        window.addEventListener('scroll', function () {
+          requestAnimationFrame(updateActiveNav);
+        }, { passive: true });
+
+
+        // =============================================
+        // 9. PRELOAD — TRIGGER INITIAL REVEALS
+        // =============================================
+        // Force reveal for elements already in viewport on page load
+        window.addEventListener('load', function () {
+          // Small delay to ensure CSS transitions work
+          setTimeout(function () {
+            document.querySelectorAll('.reveal').forEach(el => {
+              const rect = el.getBoundingClientRect();
+              if (rect.top < window.innerHeight) {
+                el.classList.add('active');
+              }
+            });
+          }, 100);
+        });
+
+
+        // =============================================
+        // 10. PERFORMANCE — REDUCE MOTION IF PREFERRED
+        // =============================================
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        if (prefersReducedMotion.matches) {
+          // Disable animations for users who prefer reduced motion
+          document.querySelectorAll('.reveal').forEach(el => {
+            el.style.transition = 'none';
+            el.classList.add('active');
+          });
+
+          // Stop marquee
+          const marqueeTrack = document.querySelector('.marquee-track');
+          if (marqueeTrack) {
+            marqueeTrack.style.animation = 'none';
+          }
+
+          // Stop floating animation
+          document.querySelectorAll('.animate-float').forEach(el => {
+            el.style.animation = 'none';
+          });
+
+          // Stop ping animation on WhatsApp button
+          document.querySelectorAll('.animate-ping').forEach(el => {
+            el.style.animation = 'none';
+            el.style.opacity = '0.3';
+          });
+        }
+
+      })();
+  </script>
+
 </body>
+
 </html>
