@@ -2,17 +2,17 @@
   "name": "Suporte Empreendedor",
   "short_name": "Suporte MEI",
   "description": "Despachante digital para MEIs - Abertura, Declaração, Parcelamento e mais",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#F9FAFB",
   "theme_color": "#1E3A5F",
   "orientation": "portrait",
-  "scope": "/",
+  "scope": "./",
   "lang": "pt-BR",
   "categories": ["business", "productivity"],
   "icons": [
     {
-      "src": "/logo.png",
+      "src": "./logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -24,13 +24,13 @@
       "name": "Serviços",
       "short_name": "Serviços",
       "description": "Ver todos os serviços",
-      "url": "/#servicos"
+      "url": "./#servicos"
     },
     {
       "name": "Contato",
       "short_name": "Contato",
       "description": "Fale conosco",
-      "url": "/#contato"
+      "url": "./#contato"
     }
   ],
   "prefer_related_applications": false

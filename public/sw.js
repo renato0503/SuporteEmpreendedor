@@ -3,19 +3,19 @@ const STATIC_CACHE = 'se-static-v1';
 const DYNAMIC_CACHE = 'se-dynamic-v1';
 
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/offline.html',
-  '/css/styles.css',
-  '/logo.png',
-  '/assets/icons/icon.svg',
-  '/assets/svg/abertura.svg',
-  '/assets/svg/declaracao.svg',
-  '/assets/svg/parcelamento.svg',
-  '/assets/svg/alteracao.svg',
-  '/assets/svg/baixa.svg',
-  '/assets/svg/consulta.svg',
+  './',
+  './index.html',
+  './manifest.json',
+  './offline.html',
+  './css/styles.css',
+  './logo.png',
+  './assets/icons/icon.svg',
+  './assets/svg/abertura.svg',
+  './assets/svg/declaracao.svg',
+  './assets/svg/parcelamento.svg',
+  './assets/svg/alteracao.svg',
+  './assets/svg/baixa.svg',
+  './assets/svg/consulta.svg',
 ];
 
 const CACHE_STRATEGIES = {

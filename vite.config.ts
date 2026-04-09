@@ -39,7 +39,7 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
-  base: './',
+  base: '/SuporteEmpreendedor/',
   server: {
     port: 3000,
     open: false,
