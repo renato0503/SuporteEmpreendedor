@@ -1,11 +1,10 @@
+import './css/styles.css';
 import { router } from './router';
 import { renderHeader } from './components/Header';
 import { renderFooter } from './components/Footer';
 import { renderHomePage } from './pages/HomePage';
 import { renderServicePage } from './pages/ServicePage';
 import { renderNotFoundPage } from './pages/NotFoundPage';
-import { renderOfflinePage } from './pages/OfflinePage';
-import { APP_CONFIG } from './data/config';
 import { trackPageView } from './utils/analytics';
 
 function initApp(): void {
@@ -83,28 +82,6 @@ function initApp(): void {
   if (footer) {
     renderFooter(footer, { showCTA: true, showLinks: true });
   }
-
-  initServiceWorker();
-  initOfflineHandler();
-}
-
-function initServiceWorker(): void {
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js').catch((error) => {
-        console.log('ServiceWorker registration failed:', error);
-      });
-    });
-  }
-}
-
-function initOfflineHandler(): void {
-  window.addEventListener('offline', () => {
-    const app = document.getElementById('app');
-    if (app) {
-      renderOfflinePage(app);
-    }
-  });
 }
 
 document.addEventListener('DOMContentLoaded', initApp);

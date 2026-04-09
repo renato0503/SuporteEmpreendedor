@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-slate-50 text-slate-900;
+  }
+}
+
+@layer components {
+  /* Adicione aqui qualquer componente personalizado que não possa ser feito puramente com utilitários */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .premium-gradient {
+    @apply bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950;
+  }
+}
+
+/* Animações suaves */
+.transition-standard {
+  @apply transition-all duration-300 cubic-bezier(0.4, 0, 0.2, 1);
+}

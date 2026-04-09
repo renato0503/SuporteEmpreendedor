@@ -1,7 +1,7 @@
 import type { AppConfig } from '../types';
 
 export const APP_CONFIG: AppConfig = {
-  whatsappNumber: '5500000000000',
+  whatsappNumber: '556593619070',
   siteName: 'Suporte Empreendedor',
   siteDescription: 'Despachante digital especializado em serviços para MEIs. Abertura, Declaração, Parcelamento e muito mais.',
   gaId: '',

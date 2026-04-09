@@ -88,30 +88,38 @@ export function renderHeader(container: HTMLElement, props?: HeaderProps): void 
         <div class="h-full flex flex-col p-6">
           <div class="flex justify-between items-center mb-10">
             <div class="flex items-center gap-3">
-               <div class="w-9 h-9 bg-white rounded-lg flex items-center justify-center">
-                <img src="logo.png" alt="Logo" class="w-6 h-6 object-contain">
+               <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center p-2">
+                <img src="logo.png" alt="Logo" class="w-full h-full object-contain">
               </div>
               <span class="text-xl font-bold text-white">${APP_CONFIG.siteName.split(' ')[0]}</span>
             </div>
-            <button id="mobile-menu-close" class="p-2.5 text-primary-200 hover:text-white hover:bg-primary-800/50 rounded-xl transition-all active:scale-95" aria-label="Fechar menu">
+            <button id="mobile-menu-close" class="p-2 text-primary-200 hover:text-white hover:bg-white/10 rounded-xl transition-all" aria-label="Fechar menu">
               ${headerIcons.close}
             </button>
           </div>
           <nav class="flex-1 space-y-2" role="navigation" aria-label="Menu mobile">
-            <a href="#servicos" class="mobile-nav-link flex items-center gap-4 text-white text-lg font-bold py-4 px-5 rounded-2xl hover:bg-primary-800 transition-all border border-transparent hover:border-primary-700/50">
-              <span class="p-2 bg-primary-800 rounded-lg text-lg">📋</span>
+            <a href="#servicos" class="mobile-nav-link flex items-center gap-4 text-white text-lg font-bold py-4 px-4 rounded-2xl hover:bg-white/5 transition-all">
+              <span class="p-2 bg-primary-800 rounded-lg">
+                <svg class="w-5 h-5 text-cta-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              </span>
               Serviços
             </a>
-            <a href="#faq" class="mobile-nav-link flex items-center gap-4 text-white text-lg font-bold py-4 px-5 rounded-2xl hover:bg-primary-800 transition-all border border-transparent hover:border-primary-700/50">
-              <span class="p-2 bg-primary-800 rounded-lg text-lg">❓</span>
+            <a href="#faq" class="mobile-nav-link flex items-center gap-4 text-white text-lg font-bold py-4 px-4 rounded-2xl hover:bg-white/5 transition-all">
+              <span class="p-2 bg-primary-800 rounded-lg">
+                <svg class="w-5 h-5 text-cta-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </span>
               Dúvidas
             </a>
-            <a href="#sobre" class="mobile-nav-link flex items-center gap-4 text-white text-lg font-bold py-4 px-5 rounded-2xl hover:bg-primary-800 transition-all border border-transparent hover:border-primary-700/50">
-              <span class="p-2 bg-primary-800 rounded-lg text-lg">ℹ️</span>
+            <a href="#sobre" class="mobile-nav-link flex items-center gap-4 text-white text-lg font-bold py-4 px-4 rounded-2xl hover:bg-white/5 transition-all">
+              <span class="p-2 bg-primary-800 rounded-lg">
+                <svg class="w-5 h-5 text-cta-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </span>
               Sobre Nós
             </a>
-            <a href="#contato" class="mobile-nav-link flex items-center gap-4 text-white text-lg font-bold py-4 px-5 rounded-2xl hover:bg-primary-800 transition-all border border-transparent hover:border-primary-700/50">
-              <span class="p-2 bg-primary-800 rounded-lg text-lg">📞</span>
+            <a href="#contato" class="mobile-nav-link flex items-center gap-4 text-white text-lg font-bold py-4 px-4 rounded-2xl hover:bg-white/5 transition-all">
+              <span class="p-2 bg-primary-800 rounded-lg">
+                <svg class="w-5 h-5 text-cta-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              </span>
               Contato
             </a>
           </nav>
