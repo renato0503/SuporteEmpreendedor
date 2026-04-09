@@ -8,6 +8,7 @@ const STATIC_ASSETS = [
   '/manifest.json',
   '/offline.html',
   '/css/styles.css',
+  '/logo.png',
   '/assets/icons/icon.svg',
   '/assets/svg/abertura.svg',
   '/assets/svg/declaracao.svg',
