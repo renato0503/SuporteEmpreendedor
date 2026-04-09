@@ -1,274 +1,734 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  
-  <!-- Tailwind CSS CDN (Robustez Total para o Cliente) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: {
-              50: '#f0f9ff',
-              100: '#e0f2fe',
-              200: '#bae6fd',
-              300: '#7dd3fc',
-              400: '#38bdf8',
-              500: '#0ea5e9',
-              600: '#0284c7',
-              700: '#0369a1',
-              800: '#075985',
-              900: '#0c4a6e',
-              950: '#082f49',
-            },
-            cta: {
-              400: '#34d399',
-              500: '#10b981',
-              600: '#059669',
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1E3A5F">
+    
+    <!-- SEO Meta Tags -->
+    <title>Suporte Empreendedor | Despachante Digital MEI em Mato Grosso</title>
+    <meta name="description" content="Assessoria digital líder em Mato Grosso para MEIs. Abertura, Declaração Anual, Parcelamento e Consultoria Completa via WhatsApp.">
+    <meta name="keywords" content="MEI, Mato Grosso, Cuiabá, Despachante Digital, Abertura MEI, DASN, Parcelamento MEI">
+    <meta property="og:title" content="Suporte Empreendedor | Despachante Digital MEI MT">
+    <meta property="og:description" content="Sua regularidade MEI resolvida pelo WhatsApp em até 24h.">
+    <meta property="og:image" content="logo.png">
+    
+    <!-- Tailwind CSS & Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: { DEFAULT: '#1E3A5F', dark: '#112240', light: '#2563EB' },
+                        cta: { DEFAULT: '#10B981', hover: '#059669' },
+                        amber: { 500: '#F59E0B' }
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                        marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } }
+                    }
+                }
             }
-          }
         }
-      }
-    }
-  </script>
+    </script>
 
-  <!-- SEO Meta Tags -->
-  <title>Suporte Empreendedor | Despachante Digital MEI</title>
-  <meta name="description" content="Assessoria completa para MEI: Abertura, Declaração Anual, Parcelamento e Consultoria Digital.">
-  <link rel="icon" type="image/png" href="logo.png">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <style>
-    body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
-    /* Prevenção de ícones gigantes caso CSS demore a carregar */
-    img, svg { max-width: 100%; height: auto; }
-    .hero-gradient { background: radial-gradient(circle at 70% 30%, #112240 0%, #0A192F 100%); }
-    .nav-blur { background: rgba(10, 25, 47, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-  </style>
+    <style type="text/css">
+        .glass-header { background: rgba(10, 25, 47, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; }
+        .header-shrink { height: 4rem !important; }
+        .hero-pattern { background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 40px 40px; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); }
+        .step-line::after { content: ''; position: absolute; top: 2rem; left: 3rem; right: -3rem; height: 2px; border-top: 2px dashed rgba(30,58,95,0.2); z-index: 0; }
+        @media (max-width: 768px) { .step-line::after { display: none; } }
+        /* Lucide icon spacing safety */
+        svg, img { max-width: 100%; height: auto; display: inline-block; }
+    </style>
 </head>
-<body class="bg-white text-slate-900 antialiased selection:bg-cta-500/30">
+<body class="bg-white text-slate-900 overflow-x-hidden antialiased">
 
-  <!-- Navegação -->
-  <nav class="fixed top-0 inset-x-0 z-50 nav-blur">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <img src="logo.png" alt="Logo" class="w-10 h-10 rounded-xl shadow-inner bg-white/10 p-1">
-        <span class="text-white font-black text-xl tracking-tighter">Suporte<span class="text-cta-400">Empreendedor</span></span>
-      </div>
-      
-      <div class="hidden md:flex items-center gap-10">
-        <a href="#servicos" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">Serviços</a>
-        <a href="#solucoes" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">Vantagens</a>
-        <a href="#faq" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">FAQ</a>
-        <a href="https://wa.me/556593619070" class="bg-cta-500 hover:bg-cta-400 text-white px-7 py-3 rounded-2xl font-black text-sm transition-all transform hover:-translate-y-0.5 active:scale-95 shadow-lg shadow-cta-500/25">
-          WhatsApp Oficial
-        </a>
-      </div>
+    <!-- SEÇÃO 1: HEADER -->
+    <header id="main-header" class="fixed top-0 w-full z-50 h-24 flex items-center glass-header">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 w-full flex items-center justify-between">
+            <div class="flex items-center gap-3 group">
+                <div class="bg-primary-light p-2 rounded-lg shadow-lg group-hover:rotate-12 transition-transform">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                </div>
+                <div>
+                    <span class="text-white font-black text-xl tracking-tighter">Suporte<span class="text-cta">Empreendedor</span></span>
+                    <span class="block text-[10px] text-primary-200 font-bold uppercase tracking-widest mt-[-2px]">📍 Especialista Mato Grosso</span>
+                </div>
+            </div>
 
-      <button id="menu-toggle" class="md:hidden text-white p-2 focus:outline-none">
-        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-      </button>
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="#servicos" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">Serviços</a>
+                <a href="#vantagens" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">Vantagens</a>
+                <a href="#depoimentos" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">Depoimentos</a>
+                <a href="#faq" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">FAQ</a>
+                <a href="https://wa.me/5565999999999" class="bg-cta hover:bg-cta-hover text-primary-dark px-6 py-2.5 rounded-full font-black text-sm flex items-center gap-2 transition-all transform hover:scale-105 shadow-lg shadow-cta/20">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.195.194 1.652.149.571-.055 1.758-.683 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+                    WhatsApp
+                </a>
+            </nav>
+
+            <button id="hamburger" class="lg:hidden text-white">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- MENU MOBILE SIDEBAR -->
+    <div id="mobile-sidebar" class="fixed inset-0 z-[60] bg-primary-dark/95 backdrop-blur-xl translate-x-full transition-transform duration-500 flex flex-col items-center justify-center gap-8 lg:hidden">
+        <button id="close-sidebar" class="absolute top-8 right-8 text-white">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <a href="#servicos" class="text-3xl font-black text-white link-m">Serviços</a>
+        <a href="#vantagens" class="text-3xl font-black text-white link-m">Vantagens</a>
+        <a href="#faq" class="text-3xl font-black text-white link-m">Dúvidas</a>
+        <a href="https://wa.me/5565999999999" class="bg-cta text-primary-dark px-12 py-5 rounded-3xl font-black text-xl shadow-2xl">📱 Chamar no Zap</a>
     </div>
-  </nav>
 
-  <!-- Menu Mobile Overlay -->
-  <div id="nav-overlay" class="fixed inset-0 z-[60] bg-slate-950/95 flex flex-col items-center justify-center gap-8 -translate-y-full transition-transform duration-500 md:hidden">
-    <button id="menu-close" class="absolute top-6 right-6 text-white p-2">
-      <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-    </button>
-    <a href="#servicos" class="mobile-link text-3xl font-black text-white hover:text-cta-400">Serviços</a>
-    <a href="#solucoes" class="mobile-link text-3xl font-black text-white hover:text-cta-400">Vantagens</a>
-    <a href="#faq" class="mobile-link text-3xl font-black text-white hover:text-cta-400">Dúvidas</a>
-    <a href="https://wa.me/556593619070" class="bg-cta-500 text-white px-10 py-5 rounded-3xl font-black text-xl shadow-2xl">Falar com Consultor</a>
-  </div>
+    <!-- SEÇÃO 2: HERO SECTION -->
+    <section class="relative min-h-screen bg-primary-dark overflow-hidden flex items-center pt-24 hero-pattern">
+        <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent opacity-5 z-20"></div>
+        <div class="max-w-7xl mx-auto px-4 md:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-30">
+            <div class="reveal">
+                <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8 shadow-inner">
+                    <span class="text-amber-500 font-black text-xs">🏆</span>
+                    <span class="text-white text-xs font-bold uppercase tracking-widest">+15.000 MEIs regularizados no Centro-Oeste</span>
+                </div>
+                <h1 class="text-4xl md:text-7xl font-black text-white mb-6 leading-[1.05] tracking-tight">
+                    Seu MEI regularizado <br/> 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cta to-primary-light">com quem entende</span> <br/>
+                    do Mato Grosso.
+                </h1>
+                <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed font-medium">
+                    Somos a assessoria digital que mais atende microempreendedores em MT. Abertura, declaração, parcelamento e mais — tudo pelo WhatsApp.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-5 mb-12">
+                    <a href="https://wa.me/5565999999999" class="bg-cta hover:bg-cta-hover text-primary-dark px-10 py-5 rounded-2xl font-black text-xl shadow-2xl shadow-cta/30 transition-all transform hover:-translate-y-1 active:scale-95 text-center">
+                        Regularizar meu MEI →
+                    </a>
+                    <a href="#servicos" class="bg-white/5 hover:bg-white/10 text-white border-2 border-white/20 px-8 py-5 rounded-2xl font-black text-xl transition-all text-center backdrop-blur-sm">
+                        Conhecer Serviços
+                    </a>
+                </div>
 
-  <!-- Hero Section -->
-  <section class="hero-gradient pt-44 pb-24 md:pt-56 md:pb-40 text-white relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="max-w-4xl">
-        <div class="inline-flex items-center gap-3 bg-cta-500/10 border border-cta-500/20 px-4 py-2 rounded-full mb-8">
-          <span class="flex h-2 w-2 rounded-full bg-cta-400 animate-pulse"></span>
-          <span class="text-xs font-black uppercase tracking-widest text-cta-400">Assessor Digital Especializado</span>
+                <div class="flex flex-wrap gap-6 border-t border-white/10 pt-8">
+                    <div class="flex items-center gap-2 text-primary-200 font-bold text-sm">
+                        <svg class="w-5 h-5 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        Atendimento em até 2h
+                    </div>
+                    <div class="flex items-center gap-2 text-primary-200 font-bold text-sm">
+                        <svg class="w-5 h-5 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        +7 anos no mercado
+                    </div>
+                    <div class="flex items-center gap-2 text-primary-200 font-bold text-sm">
+                        <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        4.9 ⭐ no Google
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden lg:flex justify-center animate-float">
+                <div class="bg-primary/20 p-8 rounded-[3rem] border border-white/10 shadow-3xl backdrop-blur-xl relative w-full max-w-md">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-cta/10 blur-[80px] rounded-full"></div>
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-white/10 rounded-full border border-white/20 flex items-center justify-center text-cta text-2xl font-bold">R</div>
+                        <div>
+                            <p class="text-white font-black">Renato Rosa</p>
+                            <p class="text-primary-200 text-[10px] font-bold uppercase tracking-widest">Consultor Especialista</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white/5 p-4 rounded-2xl border border-white/5 animate-pulse">
+                            <div class="h-2 w-24 bg-cta/20 rounded-full mb-3"></div>
+                            <div class="h-2 w-full bg-white/10 rounded-full"></div>
+                        </div>
+                        <div class="bg-cta/5 p-4 rounded-x2 border border-cta/10">
+                            <p class="text-cta text-sm font-bold">Seu CNPJ foi regularizado com sucesso! ✅</p>
+                        </div>
+                        <div class="bg-amber-500/5 p-4 rounded-2xl border border-amber-500/10">
+                            <p class="text-amber-500 text-sm font-black italic">Atendendo Cuiabá e todo MT 📍</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-8 border-t border-white/5 flex justify-center">
+                        <img src="logo.png" class="h-8 opacity-50 grayscale contrast-125" alt="Suporte MT">
+                    </div>
+                </div>
+            </div>
         </div>
-        <h1 class="text-4xl md:text-7xl font-black mb-8 leading-[1.05] tracking-tight">
-          O Despachante <br/>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-cta-400 to-emerald-400">Legal do seu MEI</span>.
-        </h1>
-        <p class="text-lg md:text-2xl text-slate-400 mb-12 max-w-2xl leading-relaxed">
-          Regularize seu CNPJ com rapidez e total segurança jurídica. Mais de 15.000 empreendedores já confiam na nossa equipe.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-5">
-          <a href="https://wa.me/556593619070" class="bg-cta-500 hover:bg-cta-400 text-[#0A192F] px-12 py-6 rounded-3xl font-black text-xl transition-all shadow-2xl shadow-cta-500/40 text-center">
-            Solicitar Regularização
-          </a>
-          <a href="#servicos" class="bg-white/5 hover:bg-white/10 text-white border-2 border-white/10 px-10 py-6 rounded-3xl font-black text-xl text-center">
-            Ver Serviços
-          </a>
+    </section>
+
+    <!-- SEÇÃO 3: LOGOS CREDIBILIDADE -->
+    <div class="py-12 bg-slate-50 border-b border-slate-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 mb-6 text-center">
+            <p class="text-slate-400 text-xs font-black uppercase tracking-[0.3em]">Regularizamos MEIs junto aos principais órgãos</p>
         </div>
-      </div>
+        <div class="flex marquee-container gap-16 animate-marquee">
+            <div class="flex gap-24 items-center flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
+                <span class="text-2xl font-black text-slate-800 tracking-tighter">Gov.<span class="text-blue-600">br</span></span>
+                <span class="text-2xl font-black text-slate-800 tracking-tighter">Receita <span class="text-green-600">Federal</span></span>
+                <span class="text-2xl font-black text-slate-800 tracking-tighter">Simples <span class="text-cta">Nacional</span></span>
+                <span class="text-2xl font-black text-slate-800 tracking-tighter">REDE<span class="text-amber-500">SIM</span></span>
+                <span class="text-2xl font-black text-slate-800 tracking-tighter">JUCEMAT</span>
+            </div>
+            <!-- Duplicado para loop infinito -->
+            <div class="flex gap-24 items-center flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
+                <span class="text-2xl font-black text-slate-800 tracking-tighter">Gov.<span class="text-blue-600">br</span></span>
+                <span class="text-2xl font-black text-slate-800 tracking-tighter">Receita <span class="text-green-600">Federal</span></span>
+                <span class="text-2xl font-black text-slate-800 tracking-tighter">Simples <span class="text-cta">Nacional</span></span>
+                <span class="text-2xl font-black text-slate-800 tracking-tighter">REDE<span class="text-amber-500">SIM</span></span>
+                <span class="text-2xl font-black text-slate-800 tracking-tighter">JUCEMAT</span>
+            </div>
+        </div>
     </div>
-    <!-- Detalhe Decorativo -->
-    <div class="absolute bottom-0 right-0 w-[40%] h-[40%] bg-cta-500/5 blur-[100px] pointer-events-none"></div>
-  </section>
 
-  <!-- Lista de Serviços -->
-  <section id="servicos" class="py-24 md:py-32 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-        <div class="max-w-2xl">
-          <h2 class="text-cta-600 font-black uppercase tracking-[0.2em] text-sm mb-4">Portfólio de Soluções</h2>
-          <h3 class="text-3xl md:text-5xl font-black text-slate-900 leading-none">Serviços profissionais <br class="hidden md:block"/> para sua jornada MEI.</h3>
+    <!-- SEÇÃO 4: SERVIÇOS -->
+    <section id="servicos" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-black text-primary mb-6 tracking-tight">Soluções completas para cada fase do seu MEI</h2>
+                <p class="text-slate-500 text-lg md:text-xl font-medium max-w-2xl mx-auto">
+                    Do primeiro CNPJ à regularização de débitos, cuidamos de tudo com agilidade e segurança.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- CARD 1 -->
+                <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-[2.5rem] flex flex-col items-start transition-all shadow-sm">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-primary-light mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <span class="text-[10px] bg-cta/10 text-cta font-black px-2 py-0.5 rounded uppercase mb-4">⚡ Mais rápido</span>
+                    <h3 class="text-2xl font-black mb-4">ABERTURA DE MEI</h3>
+                    <p class="text-slate-500 mb-8 leading-relaxed font-medium">Formalize seu negócio em até 24 horas. Cuidamos do CNAE ideal e emissão do Certificado MEI.</p>
+                    <div class="mt-auto w-full">
+                        <p class="text-slate-400 text-xs font-bold uppercase mb-4">Honorários a partir de: <span class="text-primary text-xl font-black ml-1">R$ 97</span></p>
+                        <a href="https://wa.me/5565999999999" class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white py-4 rounded-xl font-black transition-all">Abrir meu MEI →</a>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-[2.5rem] flex flex-col items-start transition-all shadow-sm" style="transition-delay: 100ms">
+                    <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center text-cta mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 2v-6m0 10v4a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2m4 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                    </div>
+                    <span class="text-[10px] bg-amber-500/10 text-amber-500 font-black px-2 py-0.5 rounded uppercase mb-4">📅 Prazo: 31/Maio</span>
+                    <h3 class="text-2xl font-black mb-4">DECLARAÇÃO ANUAL</h3>
+                    <p class="text-slate-500 mb-8 leading-relaxed font-medium">Entregamos sua DASN-SIMEI com precisão. Evite multas mensais e o bloqueio do seu CNPJ.</p>
+                    <div class="mt-auto w-full">
+                        <p class="text-slate-400 text-xs font-bold uppercase mb-4">Honorários a partir de: <span class="text-primary text-xl font-black ml-1">R$ 67</span></p>
+                        <a href="https://wa.me/5565999999999" class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white py-4 rounded-xl font-black transition-all">Declarar agora →</a>
+                    </div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-[2.5rem] flex flex-col items-start transition-all shadow-sm" style="transition-delay: 200ms">
+                    <div class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-500 mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <span class="text-[10px] bg-red-500/10 text-red-500 font-black px-2 py-0.5 rounded uppercase mb-4">🔥 Mais procurado</span>
+                    <h3 class="text-2xl font-black mb-4">PARCELAMENTO</h3>
+                    <p class="text-slate-500 mb-8 leading-relaxed font-medium">Negocie dívidas de DAS atrasados em até 60x. Evite a exclusão do Simples Nacional.</p>
+                    <div class="mt-auto w-full">
+                        <p class="text-slate-400 text-xs font-bold uppercase mb-4">Honorários a partir de: <span class="text-primary text-xl font-black ml-1">R$ 127</span></p>
+                        <a href="https://wa.me/5565999999999" class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white py-4 rounded-xl font-black transition-all">Parcelar dívidas →</a>
+                    </div>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-[2.5rem] flex flex-col items-start transition-all shadow-sm">
+                    <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-800 mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4">ALTERAÇÃO</h3>
+                    <p class="text-slate-500 mb-8 leading-relaxed font-medium">Mudou de endereço, atividade ou nome fantasia? Atualizamos tudo sem complicação.</p>
+                    <div class="mt-auto w-full">
+                        <p class="text-slate-400 text-xs font-bold uppercase mb-4">Honorários a partir de: <span class="text-primary text-xl font-black ml-1">R$ 67</span></p>
+                        <a href="https://wa.me/5565999999999" class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white py-4 rounded-xl font-black transition-all">Alterar dados →</a>
+                    </div>
+                </div>
+
+                <!-- CARD 5 -->
+                <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-[2.5rem] flex flex-col items-start transition-all shadow-sm" style="transition-delay: 100ms">
+                    <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center text-red-500 mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4">BAIXA / BAIXAR</h3>
+                    <p class="text-slate-500 mb-8 leading-relaxed font-medium">Encerre seu CNPJ MEI definitivamente, sem pendências ou surpresas com a Receita Federal.</p>
+                    <div class="mt-auto w-full">
+                        <p class="text-slate-400 text-xs font-bold uppercase mb-4">Honorários a partir de: <span class="text-primary text-xl font-black ml-1">R$ 97</span></p>
+                        <a href="https://wa.me/5565999999999" class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white py-4 rounded-xl font-black transition-all">Encerrar MEI →</a>
+                    </div>
+                </div>
+
+                <!-- CARD 6 -->
+                <div class="service-card reveal p-8 bg-white border border-slate-100 rounded-[2.5rem] flex flex-col items-start transition-all shadow-sm" style="transition-delay: 200ms">
+                    <div class="w-16 h-16 bg-primary-light/10 rounded-2xl flex items-center justify-center text-primary-light mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4">CONSULTA CNPJ</h3>
+                    <p class="text-slate-500 mb-8 leading-relaxed font-medium">Descubra a situação real do seu CNPJ. Relatório completo com orientação personalizada.</p>
+                    <div class="mt-auto w-full">
+                        <p class="text-slate-400 text-xs font-bold uppercase mb-4">Honorários a partir de: <span class="text-primary text-xl font-black ml-1">R$ 47</span></p>
+                        <a href="https://wa.me/5565999999999" class="block w-full text-center bg-slate-50 hover:bg-cta hover:text-white py-4 rounded-xl font-black transition-all">Consultar CNPJ →</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="text-slate-500 font-medium md:max-w-xs">Oferecemos consultoria completa para todas as fases do seu negócio.</p>
-      </div>
+    </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Serviço Individual -->
-        <div class="bg-white p-10 rounded-[3rem] border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-500 group">
-          <div class="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-800 mb-8 group-hover:bg-cta-500 group-hover:text-white transition-all transform group-hover:rotate-6">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <h4 class="text-2xl font-black mb-4">Abertura de MEI</h4>
-          <p class="text-slate-500 leading-relaxed mb-8">Formalize seu negócio em poucos minutos com total assessoria na emissão do alvará e certificado.</p>
-          <a href="https://wa.me/556593619070" class="inline-flex items-center gap-2 text-cta-500 font-black group-hover:gap-4 transition-all">Começar Agora <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+    <!-- SECTION 5: NÚMEROS / RESULTADOS -->
+    <section class="py-24 bg-primary-dark hero-pattern text-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+                <div class="reveal">
+                    <p class="text-4xl md:text-6xl font-black mb-2 text-cta"><span class="count" data-target="15000">0</span>+</p>
+                    <p class="text-xs md:text-sm font-bold uppercase tracking-widest text-primary-200">MEIs Regularizados</p>
+                </div>
+                <div class="reveal" style="transition-delay: 100ms">
+                    <p class="text-4xl md:text-6xl font-black mb-2 text-white"><span class="count" data-target="7">0</span>+</p>
+                    <p class="text-xs md:text-sm font-bold uppercase tracking-widest text-primary-200">Anos de Experiência</p>
+                </div>
+                <div class="reveal" style="transition-delay: 200ms">
+                    <p class="text-4xl md:text-6xl font-black mb-2 text-white"><span class="count" data-target="98">0</span>%</p>
+                    <p class="text-xs md:text-sm font-bold uppercase tracking-widest text-primary-200">Taxa de Satisfação</p>
+                </div>
+                <div class="reveal" style="transition-delay: 300ms">
+                    <p class="text-4xl md:text-6xl font-black mb-2 text-cta"><span class="count" data-target="24">0</span>h</p>
+                    <p class="text-xs md:text-sm font-bold uppercase tracking-widest text-primary-200">Média de Resolução</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Serviço Individual -->
-        <div class="bg-white p-10 rounded-[3rem] border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-500 group">
-          <div class="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-800 mb-8 group-hover:bg-cta-500 group-hover:text-white transition-all transform group-hover:rotate-6">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
-          </div>
-          <h4 class="text-2xl font-black mb-4">Declaração (DASN)</h4>
-          <p class="text-slate-500 leading-relaxed mb-8">Entregamos sua declaração anual com precisão, evitando multas e o bloqueio do seu CNPJ.</p>
-          <a href="https://wa.me/556593619070" class="inline-flex items-center gap-2 text-cta-500 font-black group-hover:gap-4 transition-all">Entregar Declaração <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+    <!-- SECTION 6: COMO FUNCIONA -->
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-3xl md:text-5xl font-black text-primary mb-6">Simples assim: 4 passos para resolver seu MEI</h2>
+                <p class="text-slate-500 text-lg font-medium">Sem filas, sem burocracia, sem sair de casa.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
+                <!-- STEP 1 -->
+                <div class="reveal relative z-10 step-line">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mb-6 shadow-xl ring-8 ring-primary/5">1</div>
+                    <h4 class="text-xl font-black mb-3">📱 Fale conosco</h4>
+                    <p class="text-slate-500 font-medium">Entre em contato pelo WhatsApp. Atendemos em até 2 horas com um especialista humano.</p>
+                </div>
+                <!-- STEP 2 -->
+                <div class="reveal relative z-10 step-line" style="transition-delay: 100ms">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mb-6 shadow-xl ring-8 ring-primary/5">2</div>
+                    <h4 class="text-xl font-black mb-3">📋 Envie seus dados</h4>
+                    <p class="text-slate-500 font-medium">Informe dados básicos (CPF, atividade). Tudo via WhatsApp com segurança e LGPD.</p>
+                </div>
+                <!-- STEP 3 -->
+                <div class="reveal relative z-10 step-line" style="transition-delay: 200ms">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mb-6 shadow-xl ring-8 ring-primary/5">3</div>
+                    <h4 class="text-xl font-black mb-3">💳 Pagamento seguro</h4>
+                    <p class="text-slate-500 font-medium">Pague via PIX, boleto ou cartão. Iniciamos o serviço imediatamente após a confirmação.</p>
+                </div>
+                <!-- STEP 4 -->
+                <div class="reveal relative z-10" style="transition-delay: 300ms">
+                    <div class="w-16 h-16 bg-cta text-white rounded-full flex items-center justify-center text-2xl font-black mb-6 shadow-xl ring-8 ring-cta/5">4</div>
+                    <h4 class="text-xl font-black mb-3">✅ Receba pronto</h4>
+                    <p class="text-slate-500 font-medium">Enviamos seu certificado ou protocolo por WhatsApp e e-mail. Simples e rápido.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Serviço Individual -->
-        <div class="bg-white p-10 rounded-[3rem] border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-500 group">
-          <div class="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-800 mb-8 group-hover:bg-cta-500 group-hover:text-white transition-all transform group-hover:rotate-6">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-          </div>
-          <h4 class="text-2xl font-black mb-4">Parcelamentos</h4>
-          <p class="text-slate-500 leading-relaxed mb-8">Negociamos suas dívidas tributárias em atraso com as melhores condições oficiais dos órgãos do governo.</p>
-          <a href="https://wa.me/556593619070" class="inline-flex items-center gap-2 text-cta-500 font-black group-hover:gap-4 transition-all">Ver Valores <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+    <!-- SECTION 7: VANTAGENS / DIFERENCIAIS -->
+    <section id="vantagens" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-black text-primary mb-6">Por que mais de 15 mil empreendedores confiam em nós?</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="reveal p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                    <div class="text-cta text-2xl mb-4">✅</div>
+                    <h4 class="text-xl font-bold text-primary mb-3">Especialistas em Centro-Oeste</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Conhecemos a realidade do empreendedor de MT. Atendemos de Cuiabá a Alta Floresta.</p>
+                </div>
+                <div class="reveal p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all" style="transition-delay: 50ms">
+                    <div class="text-cta text-2xl mb-4">✅</div>
+                    <h4 class="text-xl font-bold text-primary mb-3">Atendimento 100% Digital</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Resolve tudo pelo celular, de qualquer cidade. WhatsApp, e-mail ou site, sem burocracia.</p>
+                </div>
+                <div class="reveal p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all" style="transition-delay: 100ms">
+                    <div class="text-cta text-2xl mb-4">✅</div>
+                    <h4 class="text-xl font-bold text-primary mb-3">Equipe com +7 anos</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Já regularizamos mais de 15 mil CNPJs. Sabemos exatamente como resolver sua pendência.</p>
+                </div>
+                <div class="reveal p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all" style="transition-delay: 150ms">
+                    <div class="text-cta text-2xl mb-4">✅</div>
+                    <h4 class="text-xl font-bold text-primary mb-3">Preço justo e transparente</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Você sabe exatamente quanto vai pagar antes de contratar. Sem taxas ocultas ou surpresas.</p>
+                </div>
+                <div class="reveal p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all" style="transition-delay: 200ms">
+                    <div class="text-cta text-2xl mb-4">✅</div>
+                    <h4 class="text-xl font-bold text-primary mb-3">Rapidez comprovada</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Maioria dos serviços resolvidos em até 24h úteis. Urgências resolvidas no mesmo dia.</p>
+                </div>
+                <div class="reveal p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all" style="transition-delay: 250ms">
+                    <div class="text-cta text-2xl mb-4">✅</div>
+                    <h4 class="text-xl font-bold text-primary mb-3">Suporte pós-serviço</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Dúvida depois que o serviço foi entregue? Estamos aqui. Suporte contínuo para seu MEI.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ Moderno -->
-  <section id="faq" class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-black text-slate-900 mb-4">Dúvidas Frequentes</h2>
-        <p class="text-slate-500 font-medium">Transparência total para você empreender com paz.</p>
-      </div>
-
-      <div class="space-y-6">
-        <div class="border-2 border-slate-100 rounded-[2rem] overflow-hidden">
-          <button class="faq-btn w-full p-8 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-all">
-            <span class="text-xl font-black text-slate-800 text-center">Quais os riscos de não declarar o MEI?</span>
-            <svg class="w-7 h-7 text-slate-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          <div class="faq-content hidden p-8 text-slate-600 bg-slate-50 text-lg border-t border-slate-100">
-            Atrasar a declaração (DASN) gera multas imediatas, impedimento na emissão de notas fiscais e pode levar ao cancelamento total do seu CNPJ, além de problemas com o INSS.
-          </div>
+    <!-- SECTION 8: DEPOIMENTOS -->
+    <section id="depoimentos" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-black text-primary mb-6">Quem já usou, recomenda.</h2>
+                <p class="text-slate-500 text-lg font-medium">Veja o que empreendedores do Mato Grosso e do Centro-Oeste dizem.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Depoimento 1 -->
+                <div class="reveal p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-xl transition-all">
+                    <div class="flex text-amber-500 mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-slate-600 font-medium mb-8">"Abri meu MEI em menos de 24 horas! Eu tinha medo da burocracia, mas eles fizeram tudo por mim. Super recomendo!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-bold text-primary">CM</div>
+                        <div>
+                            <p class="font-black text-primary">Carla Mendes</p>
+                            <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Confeiteira • Cuiabá/MT</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Depoimento 2 -->
+                <div class="reveal p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-xl transition-all" style="transition-delay: 100ms">
+                    <div class="flex text-amber-500 mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-slate-600 font-medium mb-8">"Tinha 2 anos de declaração atrasada e achei que ia perder meu CNPJ. Resolveram tudo rapidinho e parcelaram minha dívida."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center font-bold text-cta">JF</div>
+                        <div>
+                            <p class="font-black text-primary">José Ferreira</p>
+                            <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Eletricista • Rondonópolis/MT</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Depoimento 3 -->
+                <div class="reveal p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-xl transition-all" style="transition-delay: 200ms">
+                    <div class="flex text-amber-500 mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-slate-600 font-medium mb-8">"Atendimento pelo WhatsApp muito prático. Moro no interior e não preciso ir pra cidade resolver nada. Top demais!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center font-bold text-amber-500">MS</div>
+                        <div>
+                            <p class="font-black text-primary">Maria Silva</p>
+                            <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Costureira • Sorriso/MT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="border-2 border-slate-100 rounded-[2rem] overflow-hidden">
-          <button class="faq-btn w-full p-8 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-all">
-            <span class="text-xl font-black text-slate-800 text-center">Como funciona o atendimento online?</span>
-            <svg class="w-7 h-7 text-slate-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          <div class="faq-content hidden p-8 text-slate-600 bg-slate-50 text-lg border-t border-slate-100">
-            É 100% digital. Você nos envia os dados via WhatsApp, geramos as guias oficiais e os certificados, e enviamos tudo pronto para o seu celular com validade jurídica nacional.
-          </div>
+    <!-- SECTION 9: MAPA DE ATUAÇÃO -->
+    <section class="py-24 bg-primary-dark text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[50%] h-full bg-cta/5 skew-x-12 translate-x-24"></div>
+        <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-2 bg-cta/10 border border-cta/20 px-4 py-1.5 rounded-full mb-8">
+                        <span class="text-xs font-black uppercase tracking-widest text-cta">📱 100% digital — atende qualquer cidade</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight">Presentes em todo o Mato Grosso e Centro-Oeste</h2>
+                    <p class="text-primary-200 mb-12 text-lg leading-relaxed">Nossa tecnologia permite regularizar seu MEI de qualquer lugar, mas temos um carinho especial pela nossa terra.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-cta font-black text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                                <span class="w-4 h-4 bg-cta rounded-sm"></span> 🏙️ MATO GROSSO
+                            </p>
+                            <ul class="text-primary-100/70 text-sm space-y-2 font-medium">
+                                <li>Cuiabá, Várzea Grande, Rondonópolis</li>
+                                <li>Sinop, Sorriso, Lucas do Rio Verde</li>
+                                <li>Tangará da Serra, Primavera do Leste</li>
+                                <li>Cáceres, Alta Floresta, Barra do Garças</li>
+                                <li>e mais 141 municípios</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-primary-light font-black text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                                <span class="w-4 h-4 bg-primary-light rounded-sm"></span> 📍 CENTRO-OESTE
+                            </p>
+                            <ul class="text-primary-100/70 text-sm space-y-2 font-medium">
+                                <li>Goiânia, Anápolis, Ap. de Goiânia</li>
+                                <li>Campo Grande, Dourados, Três Lagoas</li>
+                                <li>Brasília e cidades satélites</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal flex justify-center">
+                    <div class="relative w-full max-w-sm">
+                        <svg class="w-full h-auto text-primary-light opacity-20 drop-shadow-2xl" viewBox="0 0 100 100" fill="currentColor"><path d="M78 20c-2-2-5-2-7 0L45 46 29 28c-2-2-5-2-7 0l-15 15c-2 2-2 5 0 7l30 30c2 2 5 2 7 0l42-42c2-2 2-5 0-7l-8-11z"/></svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-24 h-24 bg-cta/20 rounded-full animate-ping"></div>
+                            <div cl    <!-- SECTION 10: FAQ -->
+    <section id="faq" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-black text-primary mb-6">Dúvidas? A gente responde.</h2>
+                <p class="text-slate-500 text-lg font-medium">Transparência total para você empreender com tranquilidade.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="reveal border-2 border-slate-50 rounded-3xl overflow-hidden shadow-sm">
+                    <button class="faq-toggle w-full p-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-all">
+                        <span class="font-black text-primary md:text-lg text-center">O que exatamente vocês fazem?</span>
+                        <svg class="w-6 h-6 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content h-0 opacity-0 overflow-hidden transition-all duration-300 px-6">
+                        <div class="pb-6 text-slate-600 leading-relaxed text-center">
+                            Somos uma assessoria digital especializada em MEI. Cuidamos de toda a burocracia junto aos portais do governo (Gov.br, Receita Federal, REDESIM) para que você não precise enfrentar filas ou sistemas confusos. Cobramos honorários pelo serviço de assessoria — como um despachante, mas 100% digital.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="reveal border-2 border-slate-50 rounded-3xl overflow-hidden shadow-sm" style="transition-delay: 50ms">
+                    <button class="faq-toggle w-full p-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-all">
+                        <span class="font-black text-primary md:text-lg text-center">Vocês são do governo?</span>
+                        <svg class="w-6 h-6 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content h-0 opacity-0 overflow-hidden transition-all duration-300 px-6">
+                        <div class="pb-6 text-slate-600 leading-relaxed text-center">
+                            Não. Somos uma empresa PRIVADA de assessoria. Não temos vínculo com Receita Federal, SEBRAE ou Gov.br. Nossos serviços são opcionais e visam facilitar a vida do empreendedor. Todos os procedimentos podem ser realizados gratuitamente pelo próprio empreendedor nos portais oficiais.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="reveal border-2 border-slate-50 rounded-3xl overflow-hidden shadow-sm" style="transition-delay: 100ms">
+                    <button class="faq-toggle w-full p-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-all">
+                        <span class="font-black text-primary md:text-lg text-center">Quanto tempo leva para abrir meu MEI?</span>
+                        <svg class="w-6 h-6 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content h-0 opacity-0 overflow-hidden transition-all duration-300 px-6">
+                        <div class="pb-6 text-slate-600 leading-relaxed text-center">
+                            Na maioria dos casos, seu CNPJ fica pronto em até 24 horas após o envio dos dados e confirmação do pagamento. Em casos simples, pode ficar pronto no mesmo dia.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="reveal border-2 border-slate-50 rounded-3xl overflow-hidden shadow-sm" style="transition-delay: 150ms">
+                    <button class="faq-toggle w-full p-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-all">
+                        <span class="font-black text-primary md:text-lg text-center">Atende minha cidade no Mato Grosso?</span>
+                        <svg class="w-6 h-6 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content h-0 opacity-0 overflow-hidden transition-all duration-300 px-6">
+                        <div class="pb-6 text-slate-600 leading-relaxed text-center">
+                            Sim! Nosso atendimento é 100% digital. Atendemos todas as 141 cidades do Mato Grosso e todo o Brasil. Você resolve tudo pelo WhatsApp, sem precisar sair de casa.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Final -->
-  <section class="max-w-7xl mx-auto px-4 mb-16">
-    <div class="hero-gradient rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl">
-      <div class="relative z-10">
-        <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">Chega de burocracia. <br/> Comece a lucrar hoje.</h2>
-        <p class="text-primary-100/70 text-lg md:text-2xl mb-12 max-w-2xl mx-auto font-medium">
-          Todo suporte que você precisa para seu MEI, do seu celular para todo o Brasil.
-        </p>
-        <a href="https://wa.me/556593619070" class="bg-cta-500 hover:bg-white hover:text-cta-600 text-[#0A192F] px-16 py-7 rounded-3xl font-black text-2xl transition-all shadow-xl active:scale-95">
-          Falar com um Especialista
-        </a>
-      </div>
-      <!-- Glow -->
-      <div class="absolute -top-20 -right-20 w-80 h-80 bg-cta-500/20 rounded-full blur-[100px] pointer-events-none"></div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-white border-t border-slate-100 py-16">
-    <div class="max-w-7xl mx-auto px-4 text-center md:text-left">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
-        <div>
-          <h5 class="font-black text-2xl text-slate-900 mb-6 tracking-tighter">Suporte<span class="text-cta-500">Empreendedor</span></h5>
-          <p class="text-slate-500 font-medium leading-relaxed">Conectando microempreendedores à regularidade e ao sucesso sustentável desde 2018.</p>
+    <!-- SECTION 11: CTA FINAL -->
+    <section class="py-24 px-4">
+        <div class="max-w-6xl mx-auto bg-gradient-to-br from-emerald-900 to-emerald-700 rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-32 translate-x-32 blur-3xl"></div>
+            <div class="relative z-10 reveal">
+                <h2 class="text-4xl md:text-6xl font-black mb-6 leading-tight">Chega de burocracia. <br/> Resolva seu MEI agora.</h2>
+                <p class="text-emerald-100 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-medium">
+                    Fale com um especialista hoje e tenha seu problema resolvido em até 24 horas. Atendemos todo o Mato Grosso e Centro-Oeste.
+                </p>
+                <div class="flex flex-col items-center gap-6">
+                    <a href="https://wa.me/5565999999999" class="bg-white text-emerald-800 px-12 py-6 rounded-3xl font-black text-2xl hover:bg-emerald-50 transition-all shadow-xl hover:scale-105 active:scale-95">
+                        💬 Falar com Especialista no WhatsApp
+                    </a>
+                    <p class="text-emerald-200/70 text-sm font-bold uppercase tracking-widest">Atendimento: Seg a Sáb • 8h às 20h</p>
+                </div>
+            </div>
         </div>
-        <div>
-          <h6 class="font-black text-slate-900 mb-6 uppercase tracking-widest text-sm">Serviços</h6>
-          <ul class="space-y-4 text-slate-500 font-bold">
-            <li><a href="#servicos" class="hover:text-cta-500 transition-colors">Formalização</a></li>
-            <li><a href="#servicos" class="hover:text-cta-500 transition-colors">Parcelamentos</a></li>
-            <li><a href="#servicos" class="hover:text-cta-500 transition-colors">Assessoria Anual</a></li>
-          </ul>
+    </section>
+
+    <!-- SECTION 12: FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Col 1 -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-primary-light p-1.5 rounded-lg">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <span class="text-white font-black text-xl tracking-tighter">Suporte<span class="text-cta">Empreendedor</span></span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-6 font-medium">
+                        Assessoria digital especializada em MEI, conectando microempreendedores do Mato Grosso e Centro-Oeste à regularidade desde 2018.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary-light transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.063 1.366-.333 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.063-2.633-.333-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07m0-2.163c-3.259 0-3.667.014-4.947.072-1.363.063-2.638.336-3.676 1.373-1.037 1.036-1.31 2.311-1.373 3.676-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.063 1.363.336 2.638 1.373 3.676 1.036 1.037 2.311 1.31 3.676 1.373 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.364-.063 2.638-.336 3.676-1.373 1.037-1.036 1.31-2.311 1.373-3.676.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.063-1.364-.336-2.638-1.373-3.676-1.036-1.037-2.311-1.31-3.676-1.373-1.28-.058-1.688-.072-4.947-.072z"/></svg></a>
+                        <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary-light transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    </div>
+                </div>
+                <!-- Col 2 -->
+                <div>
+                    <h6 class="text-white font-black uppercase tracking-widest text-sm mb-6">Serviços</h6>
+                    <ul class="space-y-4 text-sm font-bold">
+                        <li><a href="#servicos" class="hover:text-cta transition-colors">Abertura de MEI</a></li>
+                        <li><a href="#servicos" class="hover:text-cta transition-colors">Declaração Anual</a></li>
+                        <li><a href="#servicos" class="hover:text-cta transition-colors">Parcelamento</a></li>
+                        <li><a href="#servicos" class="hover:text-cta transition-colors">Alteração de Dados</a></li>
+                        <li><a href="#servicos" class="hover:text-cta transition-colors">Baixa de MEI</a></li>
+                    </ul>
+                </div>
+                <!-- Col 3 -->
+                <div>
+                    <h6 class="text-white font-black uppercase tracking-widest text-sm mb-6">Institucional</h6>
+                    <ul class="space-y-4 text-sm font-bold">
+                        <li><a href="#servicos" class="hover:text-cta transition-colors">Como Funciona</a></li>
+                        <li><a href="#vantagens" class="hover:text-cta transition-colors">Diferenciais</a></li>
+                        <li><a href="#" class="hover:text-cta transition-colors">Políticas</a></li>
+                        <li><a href="#" class="hover:text-cta transition-colors">Termos</a></li>
+                    </ul>
+                </div>
+                <!-- Col 4 -->
+                <div>
+                    <h6 class="text-white font-black uppercase tracking-widest text-sm mb-6">Contato</h6>
+                    <ul class="space-y-4 text-sm font-bold">
+                        <li class="flex items-center gap-3"><span class="text-cta">📱</span> (65) 99999-9999</li>
+                        <li class="flex items-center gap-3"><span class="text-cta">📧</span> contato@suporteempreendedor.com.br</li>
+                        <li class="flex items-center gap-3"><span class="text-cta">📍</span> Cuiabá — MT</li>
+                        <li class="flex items-center gap-3 text-xs opacity-50">Seg a Sáb: 8h às 20h</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DISCLAIMER -->
+            <div class="border-t border-white/5 pt-12">
+                <div class="bg-amber-500/5 border-l-4 border-amber-500 p-6 rounded-r-2xl mb-12">
+                    <p class="text-[10px] md:text-xs text-amber-500/80 leading-relaxed font-bold uppercase tracking-wider">
+                        ⚠️ AVISO LEGAL: Este é um serviço PRIVADO e OPCIONAL de assessoria ao Microempreendedor Individual (MEI). NÃO possuímos vínculo com o Governo Federal, Receita Federal, SEBRAE ou qualquer órgão público. Os serviços oferecidos referem-se exclusivamente à assessoria e intermediação junto aos portais públicos, pelos quais cobramos honorários de serviço. Todos os procedimentos aqui descritos podem ser realizados gratuitamente pelo próprio empreendedor diretamente nos portais oficiais do governo (Gov.br, Portal do Simples Nacional).
+                    </p>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold uppercase tracking-[0.2em] opacity-40">
+                    <p>© 2025 Suporte Empreendedor Digital</p>
+                    <p>CNPJ: 00.000.000/0001-00 • Renato Rosa</p>
+                    <p>Cuiabá/MT para todo o Brasil</p>
+                </div>
+            </div>
         </div>
-        <div>
-          <h6 class="font-black text-slate-900 mb-6 uppercase tracking-widest text-sm">Legal</h6>
-          <p class="text-slate-400 text-sm">
-            © 2026 Suporte Empreendedor Digital.<br/>
-            CNPJ: 50.123/456-0001/01<br/>
-            Responsável: Renato Rosa.
-          </p>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <a href="https://wa.me/5565999999999" class="fixed bottom-8 right-8 z-[100] group flex items-center gap-3">
+        <div class="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl animate-bounce group-hover:animate-none transition-all border-4 border-white/20">
+            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.195.194 1.652.149.571-.055 1.758-.683 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
         </div>
-      </div>
-      <div class="text-center pt-8 border-t border-slate-50">
-        <span class="text-slate-300 text-xs font-bold uppercase tracking-[0.5em]">Brasília • São Paulo • Multi-canal</span>
-      </div>
-    </div>
-  </footer>
+        <div class="bg-white text-primary-dark font-black py-2 px-4 rounded-xl shadow-lg opacity-0 -translate-x-10 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-sm whitespace-nowrap">Dúvidas? Fale comigo! 😊</div>
+    </a>
 
-  <script>
-    // Menu Toggle
-    const toggle = document.getElementById('menu-toggle');
-    const close = document.getElementById('menu-close');
-    const overlay = document.getElementById('nav-overlay');
-    const links = document.querySelectorAll('.mobile-link');
-
-    const toggleNav = (open) => {
-      overlay.classList.toggle('-translate-y-full', !open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    }
-
-    toggle.onclick = () => toggleNav(true);
-    close.onclick = () => toggleNav(false);
-    links.forEach(l => l.onclick = () => toggleNav(false));
-
-    // FAQ Accordion
-    document.querySelectorAll('.faq-btn').forEach(btn => {
-      btn.onclick = () => {
-        const content = btn.nextElementSibling;
-        const icon = btn.querySelector('svg');
-        content.classList.toggle('hidden');
-        icon.classList.toggle('rotate-180');
+    <!-- SCHEMA.ORG -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Suporte Empreendedor",
+      "image": "logo.png",
+      "@id": "",
+      "url": "https://renato0503.github.io/SuporteEmpreendedor/",
+      "telephone": "+5565999999999",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Cuiabá",
+        "addressLocality": "Cuiabá",
+        "addressRegion": "MT",
+        "postalCode": "78000-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -15.598,
+        "longitude": -56.094
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "08:00",
+        "closes": "20:00"
       }
-    });
-  </script>
+    }
+    </script>
 
+    <script>
+        // FAQ ACCORDION LOGIC
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('svg');
+                
+                // Toggle current
+                if (content.style.height && content.style.height !== '0px') {
+                    content.style.height = '0px';
+                    content.style.opacity = '0';
+                    icon.classList.remove('rotate-180');
+                } else {
+                    // Close all others
+                    document.querySelectorAll('.faq-content').forEach(c => {
+                        c.style.height = '0px';
+                        c.style.opacity = '0';
+                        c.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                    });
+                    
+                    content.style.height = content.scrollHeight + 'px';
+                    content.style.opacity = '1';
+                    icon.classList.add('rotate-180');
+                }
+            });
+        });
+
+        // SMOOTH SCROLL FOR ALL ANCHORS
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+tartCounts();
+                countObserver.disconnect();
+            }
+        }, { threshold: 0.5 });
+        countObserver.observe(document.querySelector('.count').parentElement.parentElement);
+    </script>
 </body>
 </html>
