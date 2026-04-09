@@ -11,23 +11,60 @@
   <meta property="og:description" content="Serviços especializados para Microempreendedores Individuais. Rápido, seguro e sem sair de casa.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="/assets/icons/icon.svg">
   
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Suporte MEI">
   <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Suporte MEI">
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Suporte MEI">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Suporte MEI">
   
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/svg+xml" href="/assets/icons/icon.svg">
-  <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="/assets/icons/icon-192.png">
-  <link rel="apple-touch-icon" sizes="512x512" href="/assets/icons/icon-512.png">
-  
-  <title>Suporte Empreendedor | Despachante Digital MEI</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/icon.svg">
+  <link rel="apple-touch-icon" href="/assets/icons/icon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/icon.svg">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/icon.svg">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/icon.svg">
+  <link rel="apple-touch-icon" sizes="167x167" href="/assets/icons/icon.svg">
+  <link rel="apple-touch-startup-image" href="/assets/icons/icon.svg">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/styles.css">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -222,5 +259,19 @@
   </div>
 
   <script type="module" src="/src/main.ts"></script>
+  
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW registered:', registration.scope);
+          })
+          .catch(error => {
+            console.log('SW registration failed:', error);
+          });
+      });
+    }
+  </script>
 </body>
 </html>

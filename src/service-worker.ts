@@ -9,6 +9,8 @@ const STATIC_ASSETS = [
   '/offline.html',
   '/css/styles.css',
   '/assets/icons/icon.svg',
+  '/assets/icons/icon-192.png',
+  '/assets/icons/icon-512.png',
   '/assets/svg/abertura.svg',
   '/assets/svg/declaracao.svg',
   '/assets/svg/parcelamento.svg',
@@ -23,7 +25,7 @@ const CACHE_STRATEGIES = {
   STALE_WHILE_REVALIDATE: 'stale-while-revalidate',
 };
 
-function getCacheStrategy(url) {
+function getCacheStrategy(url: string): string {
   if (url.includes('/fonts.googleapis.com') || url.includes('/fonts.gstatic.com')) {
     return CACHE_STRATEGIES.CACHE_FIRST;
   }
@@ -36,7 +38,7 @@ function getCacheStrategy(url) {
   return CACHE_STRATEGIES.STALE_WHILE_REVALIDATE;
 }
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', (event: ExtendableEvent) => {
   event.waitUntil(
     caches.open(STATIC_CACHE).then((cache) => {
       return cache.addAll(STATIC_ASSETS);
@@ -46,7 +48,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-self.addEventListener('activate', (event) => {
+self.addEventListener('activate', (event: ExtendableEvent) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
@@ -60,27 +62,28 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-self.addEventListener('fetch', (event) => {
-  const url = new URL(event.request.url);
+self.addEventListener('fetch', (event: FetchEvent) => {
+  const { request } = event;
+  const url = new URL(request.url);
 
   if (url.origin !== location.origin) {
     return;
   }
 
-  const strategy = getCacheStrategy(event.request.url);
+  const strategy = getCacheStrategy(request.url);
 
-  if (event.request.mode === 'navigate') {
+  if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(event.request)
+      fetch(request)
         .then((response) => {
           const clonedResponse = response.clone();
           caches.open(DYNAMIC_CACHE).then((cache) => {
-            cache.put(event.request, clonedResponse);
+            cache.put(request, clonedResponse);
           });
           return response;
         })
         .catch(() => {
-          return caches.match(event.request).then((response) => {
+          return caches.match(request).then((response) => {
             return response || caches.match('/offline.html');
           });
         })
@@ -90,10 +93,10 @@ self.addEventListener('fetch', (event) => {
 
   if (strategy === CACHE_STRATEGIES.CACHE_FIRST) {
     event.respondWith(
-      caches.match(event.request).then((response) => {
-        return response || fetch(event.request).then((fetchResponse) => {
+      caches.match(request).then((response) => {
+        return response || fetch(request).then((fetchResponse) => {
           return caches.open(STATIC_CACHE).then((cache) => {
-            cache.put(event.request, fetchResponse.clone());
+            cache.put(request, fetchResponse.clone());
             return fetchResponse;
           });
         });
@@ -101,24 +104,24 @@ self.addEventListener('fetch', (event) => {
     );
   } else if (strategy === CACHE_STRATEGIES.NETWORK_FIRST) {
     event.respondWith(
-      fetch(event.request)
+      fetch(request)
         .then((response) => {
           const clonedResponse = response.clone();
           caches.open(DYNAMIC_CACHE).then((cache) => {
-            cache.put(event.request, clonedResponse);
+            cache.put(request, clonedResponse);
           });
           return response;
         })
         .catch(() => {
-          return caches.match(event.request);
+          return caches.match(request);
         })
     );
   } else {
     event.respondWith(
-      caches.match(event.request).then((response) => {
-        const fetchPromise = fetch(event.request).then((fetchResponse) => {
+      caches.match(request).then((response) => {
+        const fetchPromise = fetch(request).then((fetchResponse) => {
           caches.open(DYNAMIC_CACHE).then((cache) => {
-            cache.put(event.request, fetchResponse.clone());
+            cache.put(request, fetchResponse.clone());
           });
           return fetchResponse;
         });
@@ -128,28 +131,30 @@ self.addEventListener('fetch', (event) => {
   }
 });
 
-self.addEventListener('push', (event) => {
-  const data = event.data ? event.data.json() : {};
+self.addEventListener('push', (event: PushEvent) => {
+  const data = event.data?.json() || {};
   const title = data.title || 'Suporte Empreendedor';
-  const options = {
+  const options: NotificationOptions = {
     body: data.body || 'Nova mensagem',
-    icon: '/assets/icons/icon.svg',
-    badge: '/assets/icons/icon.svg',
+    icon: '/assets/icons/icon-192.png',
+    badge: '/assets/icons/icon-192.png',
     vibrate: [100, 50, 100],
     data: { url: data.url || '/' },
   };
   event.waitUntil(self.registration.showNotification(title, options));
 });
 
-self.addEventListener('notificationclick', (event) => {
+self.addEventListener('notificationclick', (event: NotificationEvent) => {
   event.notification.close();
   event.waitUntil(
-    clients.openWindow(event.notification.data ? event.notification.data.url : '/')
+    clients.openWindow(event.notification.data?.url || '/')
   );
 });
 
-self.addEventListener('message', (event) => {
+self.addEventListener('message', (event: MessageEvent) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
 });
+
+export {};
