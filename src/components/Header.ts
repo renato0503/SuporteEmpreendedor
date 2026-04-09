@@ -21,44 +21,49 @@ export function renderHeader(container: HTMLElement, props?: HeaderProps): void 
   const headerHTML = `
     <header 
       id="main-header" 
-      class="fixed top-0 left-0 right-0 z-50 bg-primary-900 text-white transition-all duration-300"
+      class="fixed top-0 left-0 right-0 z-50 bg-primary-900/80 backdrop-blur-lg border-b border-primary-800/50 text-white transition-all duration-300"
       role="banner"
     >
-      <div class="max-w-7xl mx-auto px-4">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8">
         <div class="flex items-center justify-between h-20 transition-all duration-300 header-inner">
           <a href="#" class="flex items-center gap-3 group" aria-label="${APP_CONFIG.siteName} - Início">
-            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-              ${headerIcons.logo}
+            <div class="relative">
+              <div class="absolute inset-0 bg-cta-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
+              <div class="relative w-11 h-11 bg-white rounded-xl flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform overflow-hidden">
+                <img src="logo.png" alt="Logo" class="w-8 h-8 object-contain">
+              </div>
             </div>
             <div class="hidden sm:block">
-              <h1 class="text-lg font-bold leading-tight">${APP_CONFIG.siteName.split(' ')[0]}</h1>
-              <p class="text-xs text-primary-200">Despachante Digital</p>
+              <h1 class="text-xl font-extrabold tracking-tight leading-none text-white transition-colors group-hover:text-cta-400">
+                ${APP_CONFIG.siteName.split(' ')[0]}<span class="text-cta-500 font-normal">.</span>
+              </h1>
+              <p class="text-[10px] uppercase tracking-widest text-primary-300 font-bold">Despachante Digital</p>
             </div>
           </a>
 
-          <nav class="hidden md:flex items-center gap-6" role="navigation" aria-label="Menu principal">
-            <a href="#servicos" class="text-sm font-medium hover:text-cta-400 transition-colors">Serviços</a>
-            <a href="#faq" class="text-sm font-medium hover:text-cta-400 transition-colors">FAQ</a>
-            <a href="#sobre" class="text-sm font-medium hover:text-cta-400 transition-colors">Sobre</a>
-            <a href="#contato" class="text-sm font-medium hover:text-cta-400 transition-colors">Contato</a>
+          <nav class="hidden md:flex items-center bg-primary-800/30 backdrop-blur-sm px-6 py-2 rounded-full border border-primary-700/50 gap-8" role="navigation" aria-label="Menu principal">
+            <a href="#servicos" class="text-sm font-semibold text-primary-100 hover:text-cta-400 transition-colors uppercase tracking-wider">Serviços</a>
+            <a href="#faq" class="text-sm font-semibold text-primary-100 hover:text-cta-400 transition-colors uppercase tracking-wider">FAQ</a>
+            <a href="#sobre" class="text-sm font-semibold text-primary-100 hover:text-cta-400 transition-colors uppercase tracking-wider">Sobre</a>
+            <a href="#contato" class="text-sm font-semibold text-primary-100 hover:text-cta-400 transition-colors uppercase tracking-wider">Contato</a>
           </nav>
 
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-4">
             ${showCTA ? `
               <a 
                 href="https://wa.me/${APP_CONFIG.whatsappNumber}" 
-                class="hidden sm:flex items-center gap-2 bg-cta-500 hover:bg-cta-600 text-white font-semibold px-4 py-2 rounded-full text-sm transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                class="hidden sm:flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-cta-600 hover:from-cta-500 hover:to-emerald-700 text-white font-bold px-6 py-2.5 rounded-full text-sm transition-all shadow-[0_4px_14px_0_rgba(16,185,129,0.39)] hover:shadow-cta-500/50 hover:scale-105 active:scale-95"
                 aria-label="Falar no WhatsApp"
               >
                 ${headerIcons.whatsapp}
-                <span>Fale no WhatsApp</span>
+                <span>Suporte VIP</span>
               </a>
             ` : ''}
             
             ${showMenuButton ? `
               <button 
                 id="mobile-menu-btn" 
-                class="md:hidden p-2 hover:bg-primary-800 rounded-lg transition-colors"
+                class="md:hidden p-2.5 bg-primary-800/50 hover:bg-primary-700/50 rounded-xl border border-primary-700/30 transition-all active:scale-95"
                 aria-label="Abrir menu"
                 aria-expanded="false"
                 aria-controls="mobile-menu"
@@ -73,43 +78,53 @@ export function renderHeader(container: HTMLElement, props?: HeaderProps): void 
 
     <div 
       id="mobile-menu" 
-      class="fixed inset-0 z-50 hidden"
+      class="fixed inset-0 z-[60] hidden"
       role="dialog"
       aria-modal="true"
       aria-label="Menu de navegação"
     >
-      <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="mobile-menu-backdrop"></div>
-      <div class="absolute right-0 top-0 bottom-0 w-72 bg-primary-900 shadow-2xl transform transition-transform duration-300 translate-x-full" id="mobile-menu-panel">
-        <div class="p-4">
-          <div class="flex justify-between items-center mb-8">
-            <span class="text-xl font-bold text-white">Menu</span>
-            <button id="mobile-menu-close" class="p-2 text-white hover:bg-primary-800 rounded-lg transition-colors" aria-label="Fechar menu">
+      <div class="absolute inset-0 bg-primary-950/60 backdrop-blur-md transition-opacity duration-300" id="mobile-menu-backdrop"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-[85%] max-w-sm bg-primary-900 border-l border-primary-800 shadow-[20px_0_60px_-15px_rgba(0,0,0,0.5)] transform transition-transform duration-500 translate-x-full ease-out" id="mobile-menu-panel">
+        <div class="h-full flex flex-col p-6">
+          <div class="flex justify-between items-center mb-10">
+            <div class="flex items-center gap-3">
+               <div class="w-9 h-9 bg-white rounded-lg flex items-center justify-center">
+                <img src="logo.png" alt="Logo" class="w-6 h-6 object-contain">
+              </div>
+              <span class="text-xl font-bold text-white">${APP_CONFIG.siteName.split(' ')[0]}</span>
+            </div>
+            <button id="mobile-menu-close" class="p-2.5 text-primary-200 hover:text-white hover:bg-primary-800/50 rounded-xl transition-all active:scale-95" aria-label="Fechar menu">
               ${headerIcons.close}
             </button>
           </div>
-          <nav class="space-y-2" role="navigation" aria-label="Menu mobile">
-            <a href="#servicos" class="mobile-nav-link block text-white text-base py-3 px-4 border-b border-primary-700 hover:bg-primary-800 rounded-lg transition-colors">
-              📋 Serviços
+          <nav class="flex-1 space-y-2" role="navigation" aria-label="Menu mobile">
+            <a href="#servicos" class="mobile-nav-link flex items-center gap-4 text-white text-lg font-bold py-4 px-5 rounded-2xl hover:bg-primary-800 transition-all border border-transparent hover:border-primary-700/50">
+              <span class="p-2 bg-primary-800 rounded-lg text-lg">📋</span>
+              Serviços
             </a>
-            <a href="#faq" class="mobile-nav-link block text-white text-base py-3 px-4 border-b border-primary-700 hover:bg-primary-800 rounded-lg transition-colors">
-              ❓ FAQ
+            <a href="#faq" class="mobile-nav-link flex items-center gap-4 text-white text-lg font-bold py-4 px-5 rounded-2xl hover:bg-primary-800 transition-all border border-transparent hover:border-primary-700/50">
+              <span class="p-2 bg-primary-800 rounded-lg text-lg">❓</span>
+              Dúvidas
             </a>
-            <a href="#sobre" class="mobile-nav-link block text-white text-base py-3 px-4 border-b border-primary-700 hover:bg-primary-800 rounded-lg transition-colors">
-              ℹ️ Sobre
+            <a href="#sobre" class="mobile-nav-link flex items-center gap-4 text-white text-lg font-bold py-4 px-5 rounded-2xl hover:bg-primary-800 transition-all border border-transparent hover:border-primary-700/50">
+              <span class="p-2 bg-primary-800 rounded-lg text-lg">ℹ️</span>
+              Sobre Nós
             </a>
-            <a href="#contato" class="mobile-nav-link block text-white text-base py-3 px-4 border-b border-primary-700 hover:bg-primary-800 rounded-lg transition-colors">
-              📞 Contato
+            <a href="#contato" class="mobile-nav-link flex items-center gap-4 text-white text-lg font-bold py-4 px-5 rounded-2xl hover:bg-primary-800 transition-all border border-transparent hover:border-primary-700/50">
+              <span class="p-2 bg-primary-800 rounded-lg text-lg">📞</span>
+              Contato
             </a>
           </nav>
           ${showCTA ? `
-            <div class="mt-6 p-4">
+            <div class="mt-auto pt-6 border-t border-primary-800/50">
               <a 
                 href="https://wa.me/${APP_CONFIG.whatsappNumber}" 
-                class="flex items-center justify-center gap-2 bg-cta-500 hover:bg-cta-600 text-white font-semibold px-4 py-3 rounded-full transition-all"
+                class="flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 to-cta-600 text-white font-bold px-6 py-4 rounded-2xl transition-all shadow-lg active:scale-95"
               >
                 ${headerIcons.whatsapp}
-                <span>Fale no WhatsApp</span>
+                <span>Suporte Agora</span>
               </a>
+              <p class="text-center text-[10px] text-primary-400 mt-4 uppercase tracking-widest font-bold">Atendimento Seg - Sex, 09h às 18h</p>
             </div>
           ` : ''}
         </div>

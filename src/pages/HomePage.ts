@@ -1,7 +1,4 @@
-import { $ } from '../utils/dom';
 import { scrollToElement } from '../utils/dom';
-import { SERVICES } from '../data/services';
-import { getTopTestimonials } from '../data/testimonials';
 import { FAQ_GERAL } from '../data/faq';
 import { renderServiceGrid } from '../components/ServiceGrid';
 import { renderTestimonials } from '../components/Testimonials';
@@ -18,51 +15,113 @@ const heroIcons = {
 
 export function renderHomePage(container: HTMLElement): void {
   const pageHTML = `
-    <div id="home-page" class="page-content">
+    <div id="home-page" class="page-content bg-slate-50">
       <!-- Hero Section -->
-      <section class="relative overflow-hidden bg-gradient-to-br from-blue-950 via-primary-900 to-indigo-900 text-white">
-        <div class="absolute inset-0 opacity-10">
-          <div class="absolute top-20 left-10 w-64 h-64 bg-cta-500 rounded-full blur-3xl"></div>
-          <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
+      <section class="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0A192F] text-white">
+        <!-- Floating Elements Background -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+          <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-600/20 rounded-full blur-[120px] animate-pulse"></div>
+          <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cta-500/10 rounded-full blur-[150px] animate-pulse" style="animation-delay: 2s"></div>
+          <div class="absolute top-[20%] right-[15%] w-2 h-2 bg-cta-400 rounded-full animate-ping"></div>
+          <div class="absolute bottom-[30%] left-[10%] w-3 h-3 bg-primary-400 rounded-full animate-ping" style="animation-delay: 1.5s"></div>
+          
+          <!-- Grid Overlay -->
+          <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
         </div>
         
-        <div class="relative max-w-7xl mx-auto px-4 py-16 md:py-24">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="relative max-w-7xl mx-auto px-4 lg:px-8 py-24 md:py-32 w-full">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div class="text-center lg:text-left">
-              <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                Resolva seu MEI em minutos.
-              </h1>
-              <p class="text-lg md:text-xl text-primary-100 mb-8 max-w-lg mx-auto lg:mx-0">
-                Abertura, Declaração, Parcelamento e mais. Sem burocracia, sem complicação.
-              </p>
-              <button 
-                id="hero-cta" 
-                class="inline-flex items-center gap-2 bg-cta-500 hover:bg-cta-600 text-white font-semibold px-8 py-4 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                Ver Serviços →
-              </button>
+              <div class="inline-flex items-center gap-2 bg-primary-800/50 backdrop-blur-sm border border-primary-700/50 px-4 py-2 rounded-full mb-8 animate-fade-in">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cta-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-cta-500"></span>
+                </span>
+                <span class="text-xs font-bold uppercase tracking-widest text-primary-100">Soluções MEI em Tempo Real</span>
+              </div>
               
-              <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
-                <div class="flex items-center gap-2 text-sm text-primary-200">
-                  ${heroIcons.check}
-                  <span>Atendimento rápido</span>
+              <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.1] animate-fade-in-up">
+                O Despachante <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cta-400 to-emerald-400">Inteligente</span> do MEI.
+              </h1>
+              
+              <p class="text-lg md:text-xl text-primary-200/80 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
+                Formalize, regularize e gerencie seu CNPJ com a agilidade que o mercado exige. Tecnologia de ponta com suporte especializado.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fade-in-up" style="animation-delay: 0.4s">
+                <button 
+                  id="hero-cta" 
+                  class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-cta-500 hover:bg-cta-400 text-white font-black px-10 py-5 rounded-2xl transition-all shadow-[0_20px_50px_-15px_rgba(16,185,129,0.4)] hover:shadow-cta-500/60 hover:-translate-y-1 active:scale-95 text-lg"
+                >
+                  Resolver Pendências
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </button>
+                
+                <a 
+                  href="#sobre" 
+                  class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 backdrop-blur-md text-white font-bold px-8 py-5 rounded-2xl border border-white/10 transition-all hover:border-white/20"
+                >
+                  Conhecer Método
+                </a>
+              </div>
+              
+              <div class="mt-12 pt-8 border-t border-white/10 flex flex-wrap justify-center lg:justify-start gap-8 animate-fade-in" style="animation-delay: 0.6s">
+                <div class="flex flex-col">
+                  <span class="text-2xl font-black text-white">4.9/5</span>
+                  <span class="text-[10px] uppercase tracking-wider text-primary-400 font-bold">Avaliação Google</span>
                 </div>
-                <div class="flex items-center gap-2 text-sm text-primary-200">
-                  ${heroIcons.shield}
-                  <span>Dados protegidos</span>
+                <div class="flex flex-col">
+                  <span class="text-2xl font-black text-white">+15k</span>
+                  <span class="text-[10px] uppercase tracking-wider text-primary-400 font-bold">Processos Concluídos</span>
                 </div>
-                <div class="flex items-center gap-2 text-sm text-primary-200">
-                  ${heroIcons.users}
-                  <span>+2.000 MEIs atendidos</span>
+                <div class="flex flex-col">
+                  <span class="text-2xl font-black text-white">100%</span>
+                  <span class="text-[10px] uppercase tracking-wider text-primary-400 font-bold">Segurança Digital</span>
                 </div>
               </div>
             </div>
             
-            <div class="hidden lg:block">
-              <div id="hero-lottie" class="w-full aspect-square max-w-md mx-auto bg-white/5 rounded-2xl flex items-center justify-center">
-                <div class="text-center text-primary-200">
-                  <div class="text-6xl mb-4">📋</div>
-                  <p class="text-lg">Serviços para MEI</p>
+            <div class="relative hidden lg:block animate-fade-in-left">
+              <div class="absolute -inset-10 bg-cta-500/20 blur-[100px] rounded-full"></div>
+              <div class="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/10 p-8 shadow-2xl">
+                <div class="flex items-center justify-between mb-8">
+                  <div class="flex gap-1.5">
+                    <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                  </div>
+                  <div class="px-3 py-1 bg-white/5 rounded-lg border border-white/10 text-[10px] font-mono text-primary-300">suporte_empreendedor.v2</div>
+                </div>
+                
+                <div class="space-y-6">
+                  <div class="p-4 bg-white/5 rounded-xl border border-white/10 flex items-center gap-4">
+                    <div class="w-12 h-12 bg-cta-500/20 rounded-lg flex items-center justify-center text-cta-400 text-2xl">✨</div>
+                    <div class="flex-1">
+                      <div class="h-2 w-24 bg-white/20 rounded-full mb-2"></div>
+                      <div class="h-2 w-full bg-white/10 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div class="p-4 bg-cta-500/10 rounded-xl border border-cta-500/20 flex items-center gap-4">
+                    <div class="w-12 h-12 bg-cta-500/20 rounded-lg flex items-center justify-center text-cta-400 text-2xl">🚀</div>
+                    <div class="flex-1">
+                      <div class="h-2 w-32 bg-cta-400/30 rounded-full mb-2"></div>
+                      <div class="h-2 w-full bg-cta-400/10 rounded-full"></div>
+                    </div>
+                  </div>
+                   <div class="p-4 bg-white/5 rounded-xl border border-white/10 flex items-center gap-4">
+                    <div class="w-12 h-12 bg-primary-500/20 rounded-lg flex items-center justify-center text-primary-400 text-2xl">🔒</div>
+                    <div class="flex-1">
+                      <div class="h-2 w-20 bg-white/20 rounded-full mb-2"></div>
+                      <div class="h-2 w-full bg-white/10 rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mt-8 flex justify-center">
+                   <div class="animate-bounce p-2 bg-white/10 rounded-full border border-white/10">
+                    <svg class="w-6 h-6 text-cta-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                  </div>
                 </div>
               </div>
             </div>
@@ -70,31 +129,48 @@ export function renderHomePage(container: HTMLElement): void {
         </div>
       </section>
 
-      <!-- Services Section -->
-      <section id="servicos-container" class="py-12 md:py-16 bg-gray-50"></section>
+      <!-- Services Grid Section -->
+      <section id="servicos-container" class="py-24 md:py-32 bg-white relative">
+        <div class="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-slate-50 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 relative">
+           <div class="text-center mb-16">
+            <h2 class="text-base font-black text-cta-600 uppercase tracking-[0.2em] mb-4">Portfólio de Soluções</h2>
+            <h3 class="text-3xl md:text-5xl font-black text-slate-900 leading-tight">Serviços que fazem sua <br/> empresa decolar.</h3>
+          </div>
+          <div id="services-grid" class="animate-fade-in"></div>
+        </div>
+      </section>
 
-      <!-- Testimonials Section -->
-      <section id="testimonials-container"></section>
+      <!-- Trust Section -->
+      <section id="testimonials-container" class="py-24 bg-slate-50 border-y border-slate-200"></section>
 
       <!-- FAQ Section -->
-      <section id="faq-container"></section>
+      <section id="faq-container" class="py-24 bg-white"></section>
 
-      <!-- CTA Final -->
-      <section class="py-12 md:py-16 bg-primary-900">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-            Ainda com dúvidas?
+      <!-- CTA Final Moderno -->
+      <section class="py-24 bg-[#0A192F] relative overflow-hidden">
+        <div class="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary-600/10 rounded-full blur-[100px]"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+          <div class="w-20 h-20 bg-cta-500/20 rounded-3xl flex items-center justify-center mx-auto mb-8 text-4xl shadow-xl border border-cta-500/20">💬</div>
+          <h2 class="text-3xl md:text-5xl font-black text-white mb-6">
+            Vamos profissionalizar <br/> seu negócio hoje?
           </h2>
-          <p class="text-primary-200 mb-8 max-w-xl mx-auto">
-            Fale diretamente com nossa equipe pelo WhatsApp. Respondemos rapidamente!
+          <p class="text-primary-200/80 mb-12 text-lg leading-relaxed max-w-xl mx-auto">
+            Nossa equipe técnica está pronta para analisar sua situação e propor o melhor caminho. Atendimento humanizado e sem robôs.
           </p>
           <a 
             href="https://wa.me/${APP_CONFIG.whatsappNumber}" 
-            class="inline-flex items-center gap-3 bg-cta-500 hover:bg-cta-600 text-white font-semibold px-8 py-4 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            class="group inline-flex items-center gap-4 bg-white text-[#0A192F] font-black px-10 py-5 rounded-2xl transition-all shadow-2xl hover:bg-cta-400 hover:text-white hover:-translate-y-1 active:scale-95 text-lg"
           >
             ${heroIcons.whatsapp}
-            <span>Falar no WhatsApp</span>
+            <span>Iniciar Conversa VIP</span>
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </a>
+          <div class="mt-12 flex flex-wrap justify-center gap-6 text-primary-400 font-bold uppercase tracking-widest text-[10px]">
+            <span class="flex items-center gap-2">✓ Resposta em 5min</span>
+            <span class="flex items-center gap-2">✓ Sem Custo Fixo</span>
+            <span class="flex items-center gap-2">✓ 100% Online</span>
+          </div>
         </div>
       </section>
     </div>
@@ -108,11 +184,11 @@ export function renderHomePage(container: HTMLElement): void {
   });
 
   setTimeout(() => {
-    const servicesContainer = document.getElementById('servicos-container');
+    const servicesContainer = document.getElementById('services-grid');
     if (servicesContainer) {
       renderServiceGrid(servicesContainer, {
-        title: 'Nossos Serviços',
-        subtitle: 'Escolha o serviço que você precisa e resolva em minutos',
+        title: '',
+        subtitle: '',
       });
     }
 
@@ -135,7 +211,7 @@ function initPageAnimations(): void {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
+          entry.target.classList.add('animate-visible');
         }
       });
     },
@@ -143,25 +219,36 @@ function initPageAnimations(): void {
   );
 
   document.querySelectorAll('section').forEach((section) => {
-    (section as HTMLElement).style.opacity = '0';
-    (section as HTMLElement).style.transition = 'opacity 0.6s ease-out';
+    section.classList.add('animate-on-scroll');
     observer.observe(section);
   });
 
-  setTimeout(() => {
-    document.querySelectorAll('section').forEach((section) => {
-      (section as HTMLElement).style.opacity = '1';
-    });
-  }, 100);
-
   const style = document.createElement('style');
   style.textContent = `
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .animate-fade-in {
-      animation: fadeIn 0.6s ease-out forwards;
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
+    .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+    .animate-fade-in-left { animation: fadeInLeft 1s ease-out forwards; opacity: 0; }
+    
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .animate-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   `;
   document.head.appendChild(style);

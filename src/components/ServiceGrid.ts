@@ -12,33 +12,17 @@ export interface ServiceGridProps {
 
 export function renderServiceGrid(container: HTMLElement, props?: ServiceGridProps): void {
   const services = props?.services || SERVICES;
-  const title = props?.title || 'Nossos Serviços';
-  const subtitle = props?.subtitle || 'Escolha o serviço que você precisa e resolva em minutos';
-  const showHeader = props?.showHeader ?? true;
 
   const cardsHTML = services.map((service, index) => renderServiceCard(service, index)).join('');
 
   const gridHTML = `
-    <section id="servicos" class="py-12 md:py-16" aria-labelledby="servicos-title">
-      ${showHeader ? `
-        <div class="text-center mb-10">
-          <h2 id="servicos-title" class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-            ${title}
-          </h2>
-          <p class="text-gray-600 max-w-xl mx-auto">
-            ${subtitle}
-          </p>
-        </div>
-      ` : ''}
-      
-      <div 
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6" 
-        role="list"
-        aria-label="Lista de serviços disponíveis"
-      >
-        ${cardsHTML}
-      </div>
-    </section>
+    <div 
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12" 
+      role="list"
+      aria-label="Lista de serviços disponíveis"
+    >
+      ${cardsHTML}
+    </div>
   `;
 
   container.innerHTML = gridHTML;
@@ -46,7 +30,7 @@ export function renderServiceGrid(container: HTMLElement, props?: ServiceGridPro
 }
 
 function initServiceGridBehavior(container: HTMLElement): void {
-  const cards = container.querySelectorAll('.service-card');
+  const cards = container.querySelectorAll('.service-card') as NodeListOf<HTMLElement>;
   
   const observer = new IntersectionObserver(
     (entries) => {
@@ -55,7 +39,6 @@ function initServiceGridBehavior(container: HTMLElement): void {
           const card = entry.target as HTMLElement;
           const serviceId = card.getAttribute('data-service-id');
           
-          card.style.opacity = '1';
           card.classList.add('service-card-visible');
           
           if (serviceId) {
@@ -71,8 +54,6 @@ function initServiceGridBehavior(container: HTMLElement): void {
   );
 
   cards.forEach((card) => {
-    (card as HTMLElement).style.opacity = '0';
-    (card as HTMLElement).style.transition = 'opacity 0.5s ease-out, transform 0.3s ease';
     observer.observe(card);
   });
 
@@ -80,21 +61,12 @@ function initServiceGridBehavior(container: HTMLElement): void {
   style.textContent = `
     .service-card-visible {
       opacity: 1 !important;
+      animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
     }
     
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .service-card-visible {
-      animation: fadeInUp 0.4s ease-out forwards;
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   `;
   document.head.appendChild(style);

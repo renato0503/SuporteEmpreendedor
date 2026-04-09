@@ -18,75 +18,84 @@ export function renderFooter(container: HTMLElement, props?: FooterProps): void 
   const showLinks = props?.showLinks ?? true;
 
   const footerHTML = `
-    <footer id="main-footer" class="bg-slate-950 text-white mt-auto" role="contentinfo">
+    <footer id="main-footer" class="bg-[#0A192F] text-white mt-auto border-t border-white/5" role="contentinfo">
       ${showCTA ? `
-        <div class="bg-primary-900/50 border-b border-primary-800">
-          <div class="max-w-7xl mx-auto px-4 py-8 text-center">
-            <h3 class="text-xl font-bold mb-2">Pronto para formalizar seu negócio?</h3>
-            <p class="text-gray-300 mb-4 max-w-lg mx-auto">Entre em contato conosco e tire todas as suas dúvidas sobre os serviços para MEI.</p>
+        <div class="bg-primary-900/30 border-b border-white/5 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-600/10 to-cta-500/10 opacity-50"></div>
+          <div class="max-w-7xl mx-auto px-4 py-16 relative text-center">
+            <h3 class="text-3xl md:text-4xl font-black mb-6 leading-tight">Pronto para formalizar <br class="md:hidden"/> seu negócio?</h3>
+            <p class="text-primary-200/80 mb-10 max-w-lg mx-auto text-lg">Entre em contato hoje mesmo e resolva suas pendências MEI com segurança.</p>
             <a 
               href="https://wa.me/${APP_CONFIG.whatsappNumber}" 
-              class="inline-flex items-center gap-2 bg-cta-500 hover:bg-cta-600 text-white font-semibold px-6 py-3 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              class="inline-flex items-center gap-3 bg-white text-[#0A192F] hover:bg-cta-400 hover:text-white font-black px-10 py-5 rounded-2xl transition-all shadow-2xl hover:-translate-y-1 active:scale-95"
               aria-label="Falar no WhatsApp"
             >
               ${footerIcons.whatsapp}
-              <span>Falar no WhatsApp</span>
+              <span>Falar no WhatsApp VIP</span>
             </a>
           </div>
         </div>
       ` : ''}
 
-      <div class="max-w-7xl mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                ${footerIcons.logo}
+      <div class="max-w-7xl mx-auto px-4 py-12 md:py-20">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
+          <div class="md:col-span-5">
+            <div class="flex items-center gap-4 mb-8">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-xl">
+                <img src="logo.png" alt="Logo" class="w-8 h-8 object-contain">
               </div>
               <div>
-                <h4 class="font-bold">${APP_CONFIG.siteName}</h4>
-                <p class="text-xs text-gray-400">Despachante Digital</p>
+                <h4 class="text-xl font-black tracking-tight">${APP_CONFIG.siteName}</h4>
+                <p class="text-[10px] uppercase tracking-widest text-primary-400 font-bold">Despachante Digital</p>
               </div>
             </div>
-            <p class="text-sm text-gray-400 leading-relaxed">
-              ${APP_CONFIG.siteDescription}
+            <p class="text-primary-200/60 leading-relaxed text-sm max-w-sm">
+              Sua parceira estratégica na gestão do MEI. Tecnologia e expertise para simplificar sua jornada empreendedora.
             </p>
           </div>
 
-          <div>
-            <h4 class="font-bold mb-4 text-lg">Links Rápidos</h4>
-            <nav class="space-y-2" aria-label="Links do footer">
-              <a href="#servicos" class="block text-gray-400 hover:text-cta-400 transition-colors text-sm">Nossos Serviços</a>
-              <a href="#faq" class="block text-gray-400 hover:text-cta-400 transition-colors text-sm">FAQ - Perguntas Frequentes</a>
-              <a href="#sobre" class="block text-gray-400 hover:text-cta-400 transition-colors text-sm">Sobre Nós</a>
-              <a href="#contato" class="block text-gray-400 hover:text-cta-400 transition-colors text-sm">Fale Conosco</a>
+          <div class="md:col-span-3">
+            <h4 class="font-black mb-8 text-sm uppercase tracking-widest text-white/50">Navegação</h4>
+            <nav class="flex flex-col gap-4 text-sm font-bold" aria-label="Links do footer">
+              <a href="#servicos" class="text-primary-200/60 hover:text-cta-400 transition-colors">Serviços</a>
+              <a href="#faq" class="text-primary-200/60 hover:text-cta-400 transition-colors">Dúvidas Frequentes</a>
+              <a href="#sobre" class="text-primary-200/60 hover:text-cta-400 transition-colors">Quem Somos</a>
+              <a href="#contato" class="text-primary-200/60 hover:text-cta-400 transition-colors">Suporte Direto</a>
             </nav>
           </div>
 
-          <div>
-            <h4 class="font-bold mb-4 text-lg">Contato</h4>
-            <div class="space-y-3 text-sm text-gray-400">
-              <p class="flex items-center gap-2">
-                ${footerIcons.whatsapp}
-                <span>WhatsApp disponível</span>
-              </p>
-              <p>✉️ ${APP_CONFIG.emailContato || 'contato@suporteempreendedor.com.br'}</p>
-              ${APP_CONFIG.horarioAtendimento ? `<p>🕐 ${APP_CONFIG.horarioAtendimento}</p>` : ''}
+          <div class="md:col-span-4">
+            <h4 class="font-black mb-8 text-sm uppercase tracking-widest text-white/50">Atendimento Oficial</h4>
+            <div class="space-y-4 text-sm font-bold">
+              <a href="https://wa.me/${APP_CONFIG.whatsappNumber}" class="flex items-center gap-3 text-primary-200/60 hover:text-emerald-400 transition-colors group">
+                <span class="p-2 bg-emerald-500/10 rounded-lg text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                  ${footerIcons.whatsapp}
+                </span>
+                <span>WhatsApp Express</span>
+              </a>
+              <div class="flex items-center gap-3 text-primary-200/60">
+                 <span class="p-2 bg-white/5 rounded-lg">✉️</span>
+                 <span>${APP_CONFIG.emailContato || 'contato@suporteempreendedor.com.br'}</span>
+              </div>
+              <div class="flex items-center gap-3 text-primary-200/60">
+                 <span class="p-2 bg-white/5 rounded-lg">🕐</span>
+                 <span>Atendimento: Seg - Sex</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="border-t border-slate-800 pt-6">
-          <div class="bg-amber-950/30 border border-amber-700/50 rounded-lg p-4 mb-6">
-            <div class="flex items-start gap-3">
-              <span class="text-amber-500 text-xl">⚠️</span>
+        <div class="border-t border-white/5 pt-12">
+          <div class="bg-primary-900/20 border border-white/5 rounded-3xl p-6 md:p-8 mb-12">
+            <div class="flex items-start gap-4">
+              <span class="p-3 bg-amber-500/10 text-amber-500 rounded-2xl text-2xl flex-shrink-0 animate-pulse">⚠️</span>
               <div>
-                <h5 class="font-bold text-amber-500 text-sm mb-2">Aviso Importante</h5>
-                <p class="text-xs text-gray-300 leading-relaxed">
-                  Este é um serviço <strong>PRIVADO</strong> e <strong>OPCIONAL</strong> de assessoria ao Microempreendedor Individual. 
-                  <strong>NÃO</strong> possuímos vínculo com o Governo Federal, Receita Federal, SEBRAE ou qualquer órgão público. 
-                  Os serviços oferecidos referem-se à assessoria e intermediação junto aos portais públicos, pelos quais cobramos honorários. 
-                  Todos os serviços aqui descritos podem ser realizados gratuitamente pelo próprio empreendedor nos portais oficiais do governo.
+                <h5 class="font-black text-amber-500 text-sm mb-3 uppercase tracking-widest">Aviso Importante / Disclaimer</h5>
+                <p class="text-[11px] md:text-xs text-primary-200/60 leading-relaxed font-medium">
+                  Este é um serviço <strong>PRIVADO</strong> e <strong>OPCIONAL</strong> de assessoria ao Microempreendedor Individual (MEI). 
+                  <strong>NÃO</strong> possuímos vínculo com o Governo Federal, Receita Federal ou qualquer órgão público. 
+                  Os serviços oferecidos referem-se à assessoria técnica e intermediação, pelos quais cobramos honorários fixos e transparentes. 
+                  Todos os processos descritos podem ser realizados gratuitamente pelo empreendedor diretamente nos portais oficiais do governo (gov.br).
                 </p>
               </div>
             </div>

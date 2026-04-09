@@ -38,13 +38,13 @@ export interface ServiceCardProps {
 
 export function renderServiceCard(service: Service, index: number = 0): string {
   const icon = serviceIcons[service.icone] || serviceIcons.briefcase;
-  const colorClass = serviceColors[service.id] || 'bg-gray-50 text-gray-600 border-gray-100';
-  const priceColorClass = priceColors[service.id] || 'text-gray-600';
+  const colorClass = serviceColors[service.id] || 'bg-gray-100 text-gray-600 border-gray-200';
+  const priceColorClass = priceColors[service.id] || 'text-gray-900';
   const delay = index * 100;
 
   return `
     <article 
-      class="service-card group bg-white rounded-xl p-5 shadow-sm hover:shadow-xl border border-gray-100 hover:border-gray-200 transition-all duration-300 cursor-pointer transform hover:-translate-y-1 opacity-0"
+      class="service-card group relative bg-white rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(30,58,95,0.15)] border border-slate-100 hover:border-primary-100 transition-all duration-500 cursor-pointer transform hover:-translate-y-2 opacity-0 overflow-hidden"
       data-service-id="${service.id}"
       data-index="${index}"
       style="animation-delay: ${delay}ms"
@@ -52,44 +52,58 @@ export function renderServiceCard(service: Service, index: number = 0): string {
       tabindex="0"
       aria-label="Solicitar ${service.nome} - R$ ${service.valorMinimo},00"
     >
-      <div class="flex items-start gap-4">
-        <div class="w-12 h-12 ${colorClass} rounded-lg flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110">
-          ${icon}
-        </div>
-        <div class="flex-1 min-w-0">
-          <h3 class="font-semibold text-gray-900 mb-1 truncate group-hover:text-primary-600 transition-colors">
-            ${service.nome}
-          </h3>
-          <p class="text-sm text-gray-500 mb-3 line-clamp-2">
-            ${service.descricaoCurta}
-          </p>
-          <div class="flex items-center justify-between">
-            <span class="text-xl font-bold ${priceColorClass}">
-              R$ ${service.valorMinimo},00
-            </span>
-            <span class="inline-flex items-center gap-1 text-sm font-medium text-primary-600 group-hover:text-cta-500 transition-colors">
-              Solicitar
-              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </span>
+      <!-- Background Ornament -->
+      <div class="absolute -top-12 -right-12 w-32 h-32 bg-primary-50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      
+      <div class="relative z-10">
+        <div class="flex items-center justify-between mb-8">
+          <div class="w-16 h-16 ${colorClass} rounded-2xl flex items-center justify-center shadow-inner group-hover:rotate-6 transition-transform duration-500">
+            ${icon}
+          </div>
+          <div class="px-3 py-1 bg-slate-50 rounded-full border border-slate-100 text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-primary-500 transition-colors">
+            Cód: ${service.id.split('-')[0]}
           </div>
         </div>
+
+        <h3 class="text-2xl font-black text-slate-900 mb-3 leading-tight group-hover:text-primary-600 transition-colors">
+          ${service.nome}
+        </h3>
+        
+        <p class="text-slate-500 text-sm leading-relaxed mb-8 line-clamp-3">
+          ${service.descricaoCurta}
+        </p>
+
+        <div class="flex items-end justify-between">
+          <div class="flex flex-col">
+            <span class="text-[10px] uppercase tracking-[0.2em] font-black text-slate-400 mb-1">A partir de</span>
+            <div class="flex items-baseline gap-1">
+              <span class="text-sm font-bold text-slate-400">R$</span>
+              <span class="text-3xl font-black ${priceColorClass} tracking-tighter">
+                ${service.valorMinimo}
+              </span>
+            </div>
+          </div>
+          
+          <div class="w-12 h-12 bg-primary-900 text-white rounded-xl flex items-center justify-center shadow-lg group-hover:bg-cta-500 transition-all duration-300 transform group-hover:scale-110">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-slate-50 flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+          <span class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            ${service.prazoEstimado}
+          </span>
+          <span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+          <span class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-cta-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Agência VIP
+          </span>
+        </div>
       </div>
-      <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
-        <span class="flex items-center gap-1">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          ${service.prazoEstimado}
-        </span>
-        <span class="flex items-center gap-1">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          Processamento rápido
-        </span>
-      </div>
+      
+      <!-- Hover Bottom Line -->
+      <div class="absolute bottom-0 left-0 h-1.5 w-0 bg-gradient-to-r from-primary-600 to-cta-500 group-hover:w-full transition-all duration-700"></div>
     </article>
   `;
 }
@@ -119,7 +133,7 @@ export function renderServiceCards(services: Service[], container: HTMLElement):
     card.addEventListener('keydown', (e) => {
       if (e instanceof KeyboardEvent && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault();
-        card.click();
+        (card as HTMLElement).click();
       }
     });
   });
