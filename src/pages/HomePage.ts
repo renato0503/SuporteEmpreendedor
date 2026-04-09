@@ -1,6 +1,7 @@
 import { $ } from '../utils/dom';
 import { scrollToElement } from '../utils/dom';
-import { SERVICES, getTopTestimonials } from '../data/services';
+import { SERVICES } from '../data/services';
+import { getTopTestimonials } from '../data/testimonials';
 import { FAQ_GERAL } from '../data/faq';
 import { renderServiceGrid } from '../components/ServiceGrid';
 import { renderTestimonials } from '../components/Testimonials';
