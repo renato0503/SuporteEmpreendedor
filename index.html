@@ -1,81 +1,274 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   
-  <!-- SEO Meta Tags -->
-  <title>Suporte Empreendedor | Despachante Digital MEI - Abertura, DASN, Parcelamento</title>
-  <meta name="description" content="Despachante digital especializado em serviços para MEI. Abertura, Declaração Anual (DASN), Parcelamento de Débitos, Alteração Cadastral, Baixa e Consulta de Situação. Rápido, seguro e sem sair de casa. Desde R$ 47,00.">
-  <meta name="keywords" content="MEI, Microempreendedor Individual, abertura MEI, DASN, declaração anual MEI, parcelamento débitos MEI, alteração cadastral MEI, baixa MEI, consulta situação CNPJ, despachante MEI, formalização empresarial">
-  <meta name="author" content="Renato Rosa">
-  <meta name="robots" content="index, follow">
-  <meta name="canonical" content="https://suporteempreendedor.com.br/">
-  <meta name="language" content="Portuguese">
-  <meta name="revisit-after" content="7 days">
-  <meta name="geo.region" content="BR">
-  <meta name="geo.placename" content="Brasil">
-  
-  <!-- Theme Color -->
-  <meta name="theme-color" content="#1E3A5F">
-  <meta name="msapplication-TileColor" content="#1E3A5F">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://suporteempreendedor.com.br/">
-  <meta property="og:title" content="Suporte Empreendedor | Despachante Digital MEI">
-  <meta property="og:description" content="Serviços especializados para MEIs: Abertura, DASN, Parcelamento e mais. Resolução rápida, segura e sem burocracia. Desde R$ 47,00.">
-  <meta property="og:image" content="https://suporteempreendedor.com.br/logo.png">
-  <meta property="og:image:width" content="512">
-  <meta property="og:image:height" content="512">
-  <meta property="og:image:alt" content="Suporte Empreendedor - Serviços para MEI">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:site_name" content="Suporte Empreendedor">
-  <meta property="og:price:amount" content="47.00">
-  <meta property="og:price:currency" content="BRL">
-  
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Suporte Empreendedor | Despachante Digital MEI">
-  <meta name="twitter:description" content="Serviços para MEI: Abertura, DASN, Parcelamento e mais. Rápido e seguro. Desde R$ 47,00.">
-  <meta name="twitter:image" content="https://suporteempreendedor.com.br/logo.png">
-  <meta name="twitter:site" content="@suporteempreendedor">
-  <meta name="twitter:creator" content="@renato0503">
-  
-  <!-- Hreflang -->
-  <link rel="alternate" hreflang="pt-BR" href="https://suporteempreendedor.com.br/">
-  
-  <!-- PWA & Mobile -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Suporte MEI">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  
-  <!-- Favicon & Icons -->
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
-  
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
+  <!-- Tailwind CSS CDN (Robustez Total para o Cliente) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+              950: '#082f49',
+            },
+            cta: {
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+            }
+          }
+        }
+      }
+    }
+  </script>
 
+  <!-- SEO Meta Tags -->
+  <title>Suporte Empreendedor | Despachante Digital MEI</title>
+  <meta name="description" content="Assessoria completa para MEI: Abertura, Declaração Anual, Parcelamento e Consultoria Digital.">
+  <link rel="icon" type="image/png" href="logo.png">
+  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    /* Prevenção de ícones gigantes caso CSS demore a carregar */
+    img, svg { max-width: 100%; height: auto; }
+    .hero-gradient { background: radial-gradient(circle at 70% 30%, #112240 0%, #0A192F 100%); }
+    .nav-blur { background: rgba(10, 25, 47, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased min-h-screen flex flex-col">
-  <div id="header"></div>
+<body class="bg-white text-slate-900 antialiased selection:bg-cta-500/30">
 
-  <main id="app" class="flex-1">
-    <div id="page-home" class="page active">
-      <!-- Content loaded via JavaScript -->
+  <!-- Navegação -->
+  <nav class="fixed top-0 inset-x-0 z-50 nav-blur">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo" class="w-10 h-10 rounded-xl shadow-inner bg-white/10 p-1">
+        <span class="text-white font-black text-xl tracking-tighter">Suporte<span class="text-cta-400">Empreendedor</span></span>
+      </div>
+      
+      <div class="hidden md:flex items-center gap-10">
+        <a href="#servicos" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">Serviços</a>
+        <a href="#solucoes" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">Vantagens</a>
+        <a href="#faq" class="text-sm font-bold text-slate-300 hover:text-white transition-colors">FAQ</a>
+        <a href="https://wa.me/556593619070" class="bg-cta-500 hover:bg-cta-400 text-white px-7 py-3 rounded-2xl font-black text-sm transition-all transform hover:-translate-y-0.5 active:scale-95 shadow-lg shadow-cta-500/25">
+          WhatsApp Oficial
+        </a>
+      </div>
+
+      <button id="menu-toggle" class="md:hidden text-white p-2 focus:outline-none">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+      </button>
     </div>
-  </main>
+  </nav>
 
-  <div id="footer"></div>
+  <!-- Menu Mobile Overlay -->
+  <div id="nav-overlay" class="fixed inset-0 z-[60] bg-slate-950/95 flex flex-col items-center justify-center gap-8 -translate-y-full transition-transform duration-500 md:hidden">
+    <button id="menu-close" class="absolute top-6 right-6 text-white p-2">
+      <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+    <a href="#servicos" class="mobile-link text-3xl font-black text-white hover:text-cta-400">Serviços</a>
+    <a href="#solucoes" class="mobile-link text-3xl font-black text-white hover:text-cta-400">Vantagens</a>
+    <a href="#faq" class="mobile-link text-3xl font-black text-white hover:text-cta-400">Dúvidas</a>
+    <a href="https://wa.me/556593619070" class="bg-cta-500 text-white px-10 py-5 rounded-3xl font-black text-xl shadow-2xl">Falar com Consultor</a>
+  </div>
 
-  <script type="module" src="src/main.ts"></script>
+  <!-- Hero Section -->
+  <section class="hero-gradient pt-44 pb-24 md:pt-56 md:pb-40 text-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-4xl">
+        <div class="inline-flex items-center gap-3 bg-cta-500/10 border border-cta-500/20 px-4 py-2 rounded-full mb-8">
+          <span class="flex h-2 w-2 rounded-full bg-cta-400 animate-pulse"></span>
+          <span class="text-xs font-black uppercase tracking-widest text-cta-400">Assessor Digital Especializado</span>
+        </div>
+        <h1 class="text-4xl md:text-7xl font-black mb-8 leading-[1.05] tracking-tight">
+          O Despachante <br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-cta-400 to-emerald-400">Legal do seu MEI</span>.
+        </h1>
+        <p class="text-lg md:text-2xl text-slate-400 mb-12 max-w-2xl leading-relaxed">
+          Regularize seu CNPJ com rapidez e total segurança jurídica. Mais de 15.000 empreendedores já confiam na nossa equipe.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-5">
+          <a href="https://wa.me/556593619070" class="bg-cta-500 hover:bg-cta-400 text-[#0A192F] px-12 py-6 rounded-3xl font-black text-xl transition-all shadow-2xl shadow-cta-500/40 text-center">
+            Solicitar Regularização
+          </a>
+          <a href="#servicos" class="bg-white/5 hover:bg-white/10 text-white border-2 border-white/10 px-10 py-6 rounded-3xl font-black text-xl text-center">
+            Ver Serviços
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Detalhe Decorativo -->
+    <div class="absolute bottom-0 right-0 w-[40%] h-[40%] bg-cta-500/5 blur-[100px] pointer-events-none"></div>
+  </section>
+
+  <!-- Lista de Serviços -->
+  <section id="servicos" class="py-24 md:py-32 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div class="max-w-2xl">
+          <h2 class="text-cta-600 font-black uppercase tracking-[0.2em] text-sm mb-4">Portfólio de Soluções</h2>
+          <h3 class="text-3xl md:text-5xl font-black text-slate-900 leading-none">Serviços profissionais <br class="hidden md:block"/> para sua jornada MEI.</h3>
+        </div>
+        <p class="text-slate-500 font-medium md:max-w-xs">Oferecemos consultoria completa para todas as fases do seu negócio.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Serviço Individual -->
+        <div class="bg-white p-10 rounded-[3rem] border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-500 group">
+          <div class="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-800 mb-8 group-hover:bg-cta-500 group-hover:text-white transition-all transform group-hover:rotate-6">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h4 class="text-2xl font-black mb-4">Abertura de MEI</h4>
+          <p class="text-slate-500 leading-relaxed mb-8">Formalize seu negócio em poucos minutos com total assessoria na emissão do alvará e certificado.</p>
+          <a href="https://wa.me/556593619070" class="inline-flex items-center gap-2 text-cta-500 font-black group-hover:gap-4 transition-all">Começar Agora <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+        </div>
+
+        <!-- Serviço Individual -->
+        <div class="bg-white p-10 rounded-[3rem] border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-500 group">
+          <div class="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-800 mb-8 group-hover:bg-cta-500 group-hover:text-white transition-all transform group-hover:rotate-6">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+          </div>
+          <h4 class="text-2xl font-black mb-4">Declaração (DASN)</h4>
+          <p class="text-slate-500 leading-relaxed mb-8">Entregamos sua declaração anual com precisão, evitando multas e o bloqueio do seu CNPJ.</p>
+          <a href="https://wa.me/556593619070" class="inline-flex items-center gap-2 text-cta-500 font-black group-hover:gap-4 transition-all">Entregar Declaração <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+        </div>
+
+        <!-- Serviço Individual -->
+        <div class="bg-white p-10 rounded-[3rem] border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-500 group">
+          <div class="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-800 mb-8 group-hover:bg-cta-500 group-hover:text-white transition-all transform group-hover:rotate-6">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+          <h4 class="text-2xl font-black mb-4">Parcelamentos</h4>
+          <p class="text-slate-500 leading-relaxed mb-8">Negociamos suas dívidas tributárias em atraso com as melhores condições oficiais dos órgãos do governo.</p>
+          <a href="https://wa.me/556593619070" class="inline-flex items-center gap-2 text-cta-500 font-black group-hover:gap-4 transition-all">Ver Valores <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Moderno -->
+  <section id="faq" class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-black text-slate-900 mb-4">Dúvidas Frequentes</h2>
+        <p class="text-slate-500 font-medium">Transparência total para você empreender com paz.</p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="border-2 border-slate-100 rounded-[2rem] overflow-hidden">
+          <button class="faq-btn w-full p-8 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-all">
+            <span class="text-xl font-black text-slate-800 text-center">Quais os riscos de não declarar o MEI?</span>
+            <svg class="w-7 h-7 text-slate-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-content hidden p-8 text-slate-600 bg-slate-50 text-lg border-t border-slate-100">
+            Atrasar a declaração (DASN) gera multas imediatas, impedimento na emissão de notas fiscais e pode levar ao cancelamento total do seu CNPJ, além de problemas com o INSS.
+          </div>
+        </div>
+
+        <div class="border-2 border-slate-100 rounded-[2rem] overflow-hidden">
+          <button class="faq-btn w-full p-8 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-all">
+            <span class="text-xl font-black text-slate-800 text-center">Como funciona o atendimento online?</span>
+            <svg class="w-7 h-7 text-slate-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-content hidden p-8 text-slate-600 bg-slate-50 text-lg border-t border-slate-100">
+            É 100% digital. Você nos envia os dados via WhatsApp, geramos as guias oficiais e os certificados, e enviamos tudo pronto para o seu celular com validade jurídica nacional.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="max-w-7xl mx-auto px-4 mb-16">
+    <div class="hero-gradient rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl">
+      <div class="relative z-10">
+        <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">Chega de burocracia. <br/> Comece a lucrar hoje.</h2>
+        <p class="text-primary-100/70 text-lg md:text-2xl mb-12 max-w-2xl mx-auto font-medium">
+          Todo suporte que você precisa para seu MEI, do seu celular para todo o Brasil.
+        </p>
+        <a href="https://wa.me/556593619070" class="bg-cta-500 hover:bg-white hover:text-cta-600 text-[#0A192F] px-16 py-7 rounded-3xl font-black text-2xl transition-all shadow-xl active:scale-95">
+          Falar com um Especialista
+        </a>
+      </div>
+      <!-- Glow -->
+      <div class="absolute -top-20 -right-20 w-80 h-80 bg-cta-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-100 py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center md:text-left">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
+        <div>
+          <h5 class="font-black text-2xl text-slate-900 mb-6 tracking-tighter">Suporte<span class="text-cta-500">Empreendedor</span></h5>
+          <p class="text-slate-500 font-medium leading-relaxed">Conectando microempreendedores à regularidade e ao sucesso sustentável desde 2018.</p>
+        </div>
+        <div>
+          <h6 class="font-black text-slate-900 mb-6 uppercase tracking-widest text-sm">Serviços</h6>
+          <ul class="space-y-4 text-slate-500 font-bold">
+            <li><a href="#servicos" class="hover:text-cta-500 transition-colors">Formalização</a></li>
+            <li><a href="#servicos" class="hover:text-cta-500 transition-colors">Parcelamentos</a></li>
+            <li><a href="#servicos" class="hover:text-cta-500 transition-colors">Assessoria Anual</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="font-black text-slate-900 mb-6 uppercase tracking-widest text-sm">Legal</h6>
+          <p class="text-slate-400 text-sm">
+            © 2026 Suporte Empreendedor Digital.<br/>
+            CNPJ: 50.123/456-0001/01<br/>
+            Responsável: Renato Rosa.
+          </p>
+        </div>
+      </div>
+      <div class="text-center pt-8 border-t border-slate-50">
+        <span class="text-slate-300 text-xs font-bold uppercase tracking-[0.5em]">Brasília • São Paulo • Multi-canal</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Menu Toggle
+    const toggle = document.getElementById('menu-toggle');
+    const close = document.getElementById('menu-close');
+    const overlay = document.getElementById('nav-overlay');
+    const links = document.querySelectorAll('.mobile-link');
+
+    const toggleNav = (open) => {
+      overlay.classList.toggle('-translate-y-full', !open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    toggle.onclick = () => toggleNav(true);
+    close.onclick = () => toggleNav(false);
+    links.forEach(l => l.onclick = () => toggleNav(false));
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.onclick = () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('svg');
+        content.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+      }
+    });
+  </script>
+
 </body>
 </html>
