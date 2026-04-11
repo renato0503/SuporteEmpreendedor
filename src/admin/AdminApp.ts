@@ -16,6 +16,9 @@ import { renderLeadsPage } from './pages/LeadsPage';
 import { renderKanbanPage } from './pages/KanbanPage';
 import { renderFinanceiroPage } from './pages/FinanceiroPage';
 import { renderAnalyticsPage } from './pages/AnalyticsPage';
+import { renderMensagensPage } from './pages/MensagensPage';
+import { renderAgendaPage } from './pages/AgendaPage';
+import { renderConfigPage } from './pages/ConfigPage';
 import { openLeadModal } from './components/LeadModal';
 
 const appContainer = $('#admin-app');
