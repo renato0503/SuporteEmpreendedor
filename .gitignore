@@ -10,3 +10,17 @@ dist/
 *.swp
 *.swo
 coverage/
+
+# Firebase
+.firebase/
+firebase-debug.log
+*.local.json
+
+# Tooling & Assistant
+.gemini/
+.antigravityignore
+build_error*.log
+scripts/*.ts
+
+# OS
+Thumbs.db
