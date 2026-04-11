@@ -21,7 +21,7 @@ export function renderHeader(container: HTMLElement, props?: HeaderProps): void 
   const headerHTML = `
     <header 
       id="main-header" 
-      class="fixed top-0 left-0 right-0 z-50 bg-primary-900/80 backdrop-blur-lg border-b border-primary-800/50 text-white transition-all duration-300"
+      class="fixed top-0 left-0 right-0 z-50 bg-[#125133]/90 backdrop-blur-lg border-b border-white/10 text-white transition-all duration-300"
       role="banner"
     >
       <div class="max-w-7xl mx-auto px-4 lg:px-8">
@@ -34,29 +34,29 @@ export function renderHeader(container: HTMLElement, props?: HeaderProps): void 
               </div>
             </div>
             <div class="hidden sm:block">
-              <h1 class="text-xl font-extrabold tracking-tight leading-none text-white transition-colors group-hover:text-cta-400">
-                ${APP_CONFIG.siteName.split(' ')[0]}<span class="text-cta-500 font-normal">.</span>
+              <h1 class="text-xl font-extrabold tracking-tight leading-none text-white transition-colors group-hover:text-[#F18825]">
+                Suporte<span class="text-[#F18825] font-black uppercase ml-1">Empreendedor</span>
               </h1>
-              <p class="text-[10px] uppercase tracking-widest text-primary-300 font-bold">Despachante Digital</p>
+              <p class="text-[10px] uppercase tracking-widest text-[#dcece5] font-bold">Despachante Digital • Especialista MT</p>
             </div>
           </a>
 
-          <nav class="hidden md:flex items-center bg-primary-800/30 backdrop-blur-sm px-6 py-2 rounded-full border border-primary-700/50 gap-8" role="navigation" aria-label="Menu principal">
-            <a href="#servicos" class="text-sm font-semibold text-primary-100 hover:text-cta-400 transition-colors uppercase tracking-wider">Serviços</a>
-            <a href="#faq" class="text-sm font-semibold text-primary-100 hover:text-cta-400 transition-colors uppercase tracking-wider">FAQ</a>
-            <a href="#sobre" class="text-sm font-semibold text-primary-100 hover:text-cta-400 transition-colors uppercase tracking-wider">Sobre</a>
-            <a href="#contato" class="text-sm font-semibold text-primary-100 hover:text-cta-400 transition-colors uppercase tracking-wider">Contato</a>
+          <nav class="hidden md:flex items-center bg-white/5 backdrop-blur-sm px-6 py-2 rounded-full border border-white/10 gap-8" role="navigation" aria-label="Menu principal">
+            <a href="#servicos" class="text-sm font-semibold text-white/80 hover:text-[#F18825] transition-colors uppercase tracking-wider">Serviços</a>
+            <a href="#faq" class="text-sm font-semibold text-white/80 hover:text-[#F18825] transition-colors uppercase tracking-wider">FAQ</a>
+            <a href="#sobre" class="text-sm font-semibold text-white/80 hover:text-[#F18825] transition-colors uppercase tracking-wider">Sobre</a>
+            <a href="#contato" class="text-sm font-semibold text-white/80 hover:text-[#F18825] transition-colors uppercase tracking-wider">Contato</a>
           </nav>
 
           <div class="flex items-center gap-4">
             ${showCTA ? `
               <a 
                 href="https://wa.me/${APP_CONFIG.whatsappNumber}" 
-                class="hidden sm:flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-cta-600 hover:from-cta-500 hover:to-emerald-700 text-white font-bold px-6 py-2.5 rounded-full text-sm transition-all shadow-[0_4px_14px_0_rgba(16,185,129,0.39)] hover:shadow-cta-500/50 hover:scale-105 active:scale-95"
+                class="hidden sm:flex items-center gap-2 bg-[#F18825] hover:bg-[#d16e11] text-white font-bold px-6 py-2.5 rounded-full text-sm transition-all shadow-lg hover:scale-105 active:scale-95"
                 aria-label="Falar no WhatsApp"
               >
                 ${headerIcons.whatsapp}
-                <span>Suporte VIP</span>
+                <span>Suporte Especialista</span>
               </a>
             ` : ''}
             

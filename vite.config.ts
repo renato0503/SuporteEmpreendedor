@@ -7,7 +7,7 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
-  base: '/SuporteEmpreendedor/',
+  base: '/',
   server: {
     port: 3000,
     open: false,
@@ -18,9 +18,13 @@ export default defineConfig({
     sourcemap: false,
     minify: 'esbuild',
     rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        admin: resolve(__dirname, 'admin.html'),
+      },
       output: {
         manualChunks: {
-          vendor: ['lottie-web'],
+          vendor: ['lottie-web', 'firebase/app', 'firebase/auth', 'firebase/firestore'],
         },
       },
     },

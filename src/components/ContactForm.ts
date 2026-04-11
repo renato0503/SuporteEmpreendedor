@@ -5,6 +5,8 @@ import { maskCPF, maskCNPJ, maskPhone } from '../utils/masks';
 import { redirectToWhatsApp, formatWhatsAppMessage } from '../utils/whatsapp';
 import { trackFormStart, trackFormSubmit, trackFormError } from '../utils/analytics';
 import { $ } from '../utils/dom';
+import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 export interface ContactFormProps {
   serviceId: ServiceId;
@@ -390,6 +392,20 @@ function initContactFormBehavior(serviceId: ServiceId, serviceName: string, serv
     };
 
     trackFormSubmit(serviceId, servicePrice);
+    
+    // CRM Activation: Save lead to Firestore
+    try {
+      await addDoc(collection(db, 'leads'), {
+        ...leadData,
+        createdAt: new Date(),
+        status: 'novo',
+        origem: window.location.hostname
+      });
+      console.log('CRM: Lead capturado com sucesso');
+    } catch (error) {
+      console.error('CRM: Erro ao salvar lead:', error);
+    }
+
     redirectToWhatsApp(leadData);
 
     isSubmitting = false;

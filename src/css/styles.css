@@ -1,28 +1,198 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@400;500&display=swap');
+
+@theme {
+  --color-dark-900: #0a120e;
+  --color-dark-800: #111a15;
+  --color-dark-700: #1a2620;
+  --color-dark-600: #24332b;
+  
+  --color-cta: #F18825;
+  --color-cta-hover: #d16e11;
+  
+  --color-primary-dark: #125133;
+  --color-primary-light: #22c55e;
+}
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
   }
-  body {
-    @apply bg-slate-50 text-slate-900;
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
   }
 }
 
 @layer components {
-  /* Adicione aqui qualquer componente personalizado que não possa ser feito puramente com utilitários */
+  /* ===== HEADER ===== */
+  .glass-header {
+    background: rgba(15, 31, 56, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .header-shrink {
+    height: 3.5rem !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  /* ===== HERO PATTERN ===== */
+  .hero-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+
+  /* ===== REVEAL ANIMATIONS ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== SERVICE CARDS ===== */
+  .service-card {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
+  }
+
+  /* ===== MARQUEE ===== */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ===== UTILS ===== */
   .glass-card {
     @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
   }
   
   .premium-gradient {
-    @apply bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950;
+    @apply bg-gradient-to-br from-[#125133] via-[#649b84] to-[#0e422a];
   }
+  
+  .cta-button {
+    @apply bg-[#F18825] hover:bg-[#d16e11] text-white font-bold transition-all transform hover:scale-105 active:scale-95 shadow-lg;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #10B981, #2563EB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ===== FAQ ACCORDION ===== */
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+    padding-bottom: 2rem;
+    opacity: 1;
+  }
+  
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+    opacity: 0;
+  }
+  
+  .faq-item.active .faq-chevron {
+    transform: rotate(180deg);
+    color: var(--cta);
+  }
+
+  /* ===== SIDEBAR ===== */
+  #sidebar-overlay {
+    transition: opacity 0.4s ease;
+  }
+  
+  #sidebar-content {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ===== WHATSAPP FLOAT ===== */
+  .wa-float {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .wa-float.visible {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0F1F38; }
+  ::-webkit-scrollbar-thumb {
+    background: #125133;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #F18825; }
 }
 
-/* Animações suaves */
-.transition-standard {
-  @apply transition-all duration-300 cubic-bezier(0.4, 0, 0.2, 1);
+/* Admin CRM Animations & Utilities */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.active-route {
+  background-color: #125133 !important;
+  color: white !important;
+  box-shadow: 0 10px 15px -3px rgba(18, 81, 51, 0.2) !important;
+}
+
+.active-tab {
+  border-bottom-color: #125133 !important;
+  color: #125133 !important;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+:root {
+  --primary-dark: #125133;
+  --primary: #1a6b45;
+  --primary-light: #22c55e;
+  --cta: #F18825;
 }

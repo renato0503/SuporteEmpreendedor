@@ -18,7 +18,7 @@ export function renderFooter(container: HTMLElement, props?: FooterProps): void 
   const showLinks = props?.showLinks ?? true;
 
   const footerHTML = `
-    <footer id="main-footer" class="bg-[#0A192F] text-white mt-auto border-t border-white/5" role="contentinfo">
+    <footer id="main-footer" class="bg-[#125133] text-white mt-auto border-t border-white/5" role="contentinfo">
       ${showCTA ? `
         <div class="bg-primary-900/30 border-b border-white/5 relative overflow-hidden">
           <div class="absolute inset-0 bg-gradient-to-r from-primary-600/10 to-cta-500/10 opacity-50"></div>
@@ -27,11 +27,11 @@ export function renderFooter(container: HTMLElement, props?: FooterProps): void 
             <p class="text-primary-200/80 mb-10 max-w-lg mx-auto text-lg">Entre em contato hoje mesmo e resolva suas pendências MEI com segurança.</p>
             <a 
               href="https://wa.me/${APP_CONFIG.whatsappNumber}" 
-              class="inline-flex items-center gap-3 bg-white text-[#0A192F] hover:bg-cta-400 hover:text-white font-black px-10 py-5 rounded-2xl transition-all shadow-2xl hover:-translate-y-1 active:scale-95"
+              class="inline-flex items-center gap-3 bg-[#F18825] hover:bg-[#d16e11] text-white font-black px-10 py-5 rounded-2xl transition-all shadow-2xl hover:-translate-y-1 active:scale-95"
               aria-label="Falar no WhatsApp"
             >
               ${footerIcons.whatsapp}
-              <span>Falar no WhatsApp VIP</span>
+              <span>Falar com Especialista</span>
             </a>
           </div>
         </div>
@@ -113,9 +113,9 @@ export function renderFooter(container: HTMLElement, props?: FooterProps): void 
             </div>
           ` : ''}
 
-          <div class="text-center text-xs text-gray-500">
+          <div class="text-center text-xs text-white/40">
             <p>© ${currentYear} ${APP_CONFIG.siteName}. Todos os direitos reservados.</p>
-            <p class="mt-1">CNPJ: XX.XXX.XXX/0001-XX | Despachante Independente</p>
+            <p class="mt-1">${APP_CONFIG.companyName} | CNPJ: ${APP_CONFIG.cnpj} | 📍 Cuiabá - MT</p>
           </div>
         </div>
       </div>

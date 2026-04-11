@@ -1,3 +1,4 @@
+import './css/styles.css';
 // Script principal de suporte
 // Este arquivo foi simplificado para garantir estabilidade no MVP do cliente
 
