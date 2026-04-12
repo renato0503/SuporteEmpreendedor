@@ -52,7 +52,7 @@ export function renderMensagensPage(container: HTMLElement) {
           <h1 class="text-3xl font-black text-slate-900 tracking-tight">Templates de Resposta</h1>
           <p class="text-slate-500 font-medium font-inter">Agilidade no atendimento com modelos padronizados.</p>
         </div>
-        <button class="px-6 py-3 bg-[#125133] text-white rounded-xl font-black text-xs uppercase tracking-widest shadow-lg shadow-[#125133]/20 hover:scale-105 transition-transform">Novo Template</button>
+        <button id="btn-new-template" class="px-6 py-3 bg-[#125133] text-white rounded-xl font-black text-xs uppercase tracking-widest shadow-lg shadow-[#125133]/20 hover:scale-105 transition-transform">Novo Template</button>
       </div>
 
       <!-- Search & Filters -->
@@ -79,7 +79,7 @@ export function renderMensagensPage(container: HTMLElement) {
               
               <div class="pt-6 mt-6 border-t border-slate-50 flex items-center justify-between">
                  <span class="text-[10px] text-slate-300 font-bold uppercase tracking-tight">Utilizado 12x hoje</span>
-                 <button class="text-[10px] font-black text-[#125133] uppercase tracking-widest hover:underline opacity-0 group-hover:opacity-100 transition-opacity">Editar</button>
+                 <button class="text-[10px] font-black text-[#125133] uppercase tracking-widest hover:underline opacity-0 group-hover:opacity-100 transition-opacity btn-edit">Editar</button>
               </div>
            </div>
          `).join('')}
@@ -98,6 +98,18 @@ export function renderMensagensPage(container: HTMLElement) {
          (card as HTMLElement).style.display = 'none';
        }
     });
+  });
+
+  // Logic: New Template
+  $('#btn-new-template')?.addEventListener('click', () => {
+    alert('Função: Abrindo editor de novo template...');
+  });
+
+  // Logic: Edit
+  document.querySelectorAll('.btn-edit').forEach(btn => {
+     btn.addEventListener('click', () => {
+        alert('Carregando editor para este template...');
+     });
   });
 
   // Logic: Copy

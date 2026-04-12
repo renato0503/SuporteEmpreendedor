@@ -13,11 +13,11 @@ export function renderAgendaPage(container: HTMLElement) {
           <p class="text-slate-500 font-medium">Controle de prazos DASN e follow-ups de leads.</p>
         </div>
         <div class="flex items-center gap-3">
-           <button class="px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-xl font-black text-xs uppercase tracking-widest shadow-sm hover:bg-slate-50 transition-all flex items-center gap-2">
+           <button id="cal-prev" class="px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-xl font-black text-xs uppercase tracking-widest shadow-sm hover:bg-slate-50 transition-all flex items-center gap-2">
              Anterior
            </button>
-           <button class="px-6 py-3 bg-slate-900 text-white rounded-xl font-black text-xs uppercase tracking-widest shadow-lg hover:scale-105 transition-transform">Março 2026</button>
-           <button class="px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-xl font-black text-xs uppercase tracking-widest shadow-sm hover:bg-slate-50 transition-all flex items-center gap-2">
+           <button id="cal-month" class="px-6 py-3 bg-slate-900 text-white rounded-xl font-black text-xs uppercase tracking-widest shadow-lg hover:scale-105 transition-transform">Março 2026</button>
+           <button id="cal-next" class="px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-xl font-black text-xs uppercase tracking-widest shadow-sm hover:bg-slate-50 transition-all flex items-center gap-2">
              Próximo
            </button>
         </div>
@@ -27,7 +27,7 @@ export function renderAgendaPage(container: HTMLElement) {
         <!-- Calendar Grid -->
         <div class="xl:col-span-2 bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-xl flex flex-col h-full">
            <div class="grid grid-cols-7 gap-4 mb-8">
-              ${days.map(d => `<div class="text-[10px] font-black text-slate-400 uppercase tracking-widest text-center">${d}</div> text-center`).join('')}
+              ${days.map(d => `<div class="text-[10px] font-black text-slate-400 uppercase tracking-widest text-center">${d}</div>`).join('')}
            </div>
            <div class="grid grid-cols-7 gap-4 flex-grow">
               ${dates.map(date => `
@@ -75,10 +75,25 @@ export function renderAgendaPage(container: HTMLElement) {
                 `).join('')}
               </div>
               
-              <button class="w-full py-4 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] mt-8 hover:bg-black transition-all shrink-0 shadow-lg">+ Adicionar Tarefa</button>
+              <button id="btn-add-task" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] mt-8 hover:bg-black transition-all shrink-0 shadow-lg">+ Adicionar Tarefa</button>
            </div>
         </div>
       </div>
     </div>
   `;
+
+  // --- Logic ---
+  $('#cal-prev')?.addEventListener('click', () => {
+    const btn = $('#cal-month');
+    if (btn) btn.textContent = 'Fevereiro 2026';
+  });
+
+  $('#cal-next')?.addEventListener('click', () => {
+    const btn = $('#cal-month');
+    if (btn) btn.textContent = 'Abril 2026';
+  });
+
+  $('#btn-add-task')?.addEventListener('click', () => {
+    alert('Função de agendamento: Abrindo formulário de nova tarefa...');
+  });
 }
