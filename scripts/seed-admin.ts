@@ -1,14 +1,18 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
+import * as dotenv from 'dotenv';
+
+// Load environment variables from .env
+dotenv.config();
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA54OA8hE6Xi9_WQEC-fT4VsUXzltiqZd0",
-  authDomain: "suporte-empreendedor.firebaseapp.com",
-  projectId: "suporte-empreendedor",
-  storageBucket: "suporte-empreendedor.firebasestorage.app",
-  messagingSenderId: "167509129804",
-  appId: "1:167509129804:web:197a85f476a2be906dd2e9",
-  measurementId: "G-Z1J2BX3Z60"
+  apiKey: process.env.VITE_FIREBASE_API_KEY,
+  authDomain: process.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.VITE_FIREBASE_APP_ID,
+  measurementId: process.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);

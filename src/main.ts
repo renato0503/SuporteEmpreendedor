@@ -1,7 +1,10 @@
 import './css/styles.css';
-// Script principal de suporte
-// Este arquivo foi simplificado para garantir estabilidade no MVP do cliente
+import { analytics } from './firebase';
 
+// Script principal de suporte
 console.log('Suporte Empreendedor: Landing Page Ativa');
 
-// Funções de apoio podem ser inseridas aqui se necessário futuramente.
+// Analytics inicializado via firebase.ts
+if (analytics) {
+  console.log('Firebase Analytics: Conectado');
+}
