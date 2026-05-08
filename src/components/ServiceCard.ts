@@ -78,7 +78,7 @@ export function renderServiceCard(service: Service, index: number = 0): string {
             <span class="text-[10px] uppercase tracking-[0.2em] font-black text-slate-400 mb-1">A partir de</span>
             <div class="flex items-baseline gap-1">
               <span class="text-sm font-bold text-slate-400">R$</span>
-              <span class="text-3xl font-black ${priceColorClass} tracking-tighter">
+              <span class="text-3xl font-black ${priceColorClass} tracking-tighter" data-service-price="${service.id}">
                 ${service.valorMinimo}
               </span>
             </div>

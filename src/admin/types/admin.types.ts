@@ -61,3 +61,38 @@ export interface AdminUser {
   displayName: string | null;
   role: 'admin' | 'editor';
 }
+
+export interface Task {
+  id: string;
+  title: string;
+  date: string; // YYYY-MM-DD
+  time: string;
+  category: string;
+  status: 'pendente' | 'concluido';
+  createdAt: any;
+  clientEmail?: string;
+  clientName?: string;
+}
+
+export interface MessageTemplate {
+  id: string;
+  title: string;
+  category: string;
+  text: string;
+  usageCount: number;
+  lastUsed?: any;
+}
+
+export interface SystemSettings {
+  companyName: string;
+  cnpj: string;
+  email: string;
+  whatsapp: string;
+  feeAbertura: string;
+  feeDasn: string;
+  feeParcelamento: string;
+  feeAlteracao: string;
+  feeBaixa: string;
+  feeConsulta: string;
+  pipelineStages: string[];
+}

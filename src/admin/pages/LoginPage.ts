@@ -1,5 +1,7 @@
-import { auth } from '../../firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { getDoc, doc, setDoc } from 'firebase/firestore';
+import { db } from '../../firebase';
+
+const DEFAULT_PASSWORD = '142536';
 
 export function renderLoginPage(container: HTMLElement) {
   container.innerHTML = `
@@ -25,36 +27,24 @@ export function renderLoginPage(container: HTMLElement) {
           <div class="p-8 sm:p-12">
             <form id="login-form" class="space-y-6">
               <div>
-                <label for="email" class="block text-xs font-black text-slate-400 uppercase tracking-widest ml-1 mb-2">E-mail Corporativo</label>
-                <div class="relative group">
-                  <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-[#125133] transition-colors">
-                    <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                  </div>
-                  <input id="email" name="email" type="email" autocomplete="email" required 
-                    class="block w-full pl-11 pr-4 py-4 border border-slate-200 rounded-2xl text-slate-900 text-sm font-medium placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-[#125133]/5 focus:border-[#125133] transition-all bg-slate-50/50"
-                    placeholder="admin@suporteempreendedor.com">
-                </div>
-              </div>
-
-              <div>
-                <label for="password" class="block text-xs font-black text-slate-400 uppercase tracking-widest ml-1 mb-2">Chave de Segurança</label>
+                <label for="password" class="block text-xs font-black text-slate-400 uppercase tracking-widest ml-1 mb-2">Senha de Acesso</label>
                 <div class="relative group">
                   <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-[#125133] transition-colors">
                     <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                   </div>
                   <input id="password" name="password" type="password" autocomplete="current-password" required 
                     class="block w-full pl-11 pr-4 py-4 border border-slate-200 rounded-2xl text-slate-900 text-sm font-medium placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-[#125133]/5 focus:border-[#125133] transition-all bg-slate-50/50"
-                    placeholder="••••••••••••">
+                    placeholder="Digite sua senha">
                 </div>
               </div>
 
               <div id="login-error" class="hidden animate-shake bg-red-50 border border-red-100 p-4 rounded-2xl flex items-center gap-3">
                 <svg class="w-5 h-5 text-red-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-                <p class="text-xs font-bold text-red-600 uppercase tracking-tight" id="error-message">Credenciais Inválidas</p>
+                <p class="text-xs font-bold text-red-600 uppercase tracking-tight" id="error-message">Senha incorreta</p>
               </div>
 
               <button type="submit" id="submit-btn" class="w-full flex justify-center items-center gap-3 py-4 px-6 border border-transparent rounded-2xl shadow-xl text-sm font-black text-white bg-gradient-to-r from-[#125133] to-[#1a6b45] hover:from-[#1a6b45] hover:to-[#125133] focus:outline-none focus:ring-4 focus:ring-[#125133]/20 transition-all transform active:scale-[0.98] uppercase tracking-[0.2em]">
-                <span id="btn-text">Autenticar Acesso</span>
+                <span id="btn-text">Entrar</span>
                 <span id="btn-loader" class="hidden animate-spin rounded-full h-4 w-4 border-2 border-white/30 border-t-white"></span>
               </button>
             </form>
@@ -86,7 +76,6 @@ export function renderLoginPage(container: HTMLElement) {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = (document.getElementById('email') as HTMLInputElement).value;
     const password = (document.getElementById('password') as HTMLInputElement).value;
 
     errorEl?.classList.add('hidden');
@@ -95,17 +84,68 @@ export function renderLoginPage(container: HTMLElement) {
     btnLoader?.classList.remove('hidden');
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      // Auth state change will handle navigation
-    } catch (error: any) {
-      console.error('Login error:', error);
+      // Fetch stored password from Firebase
+      const settingsDoc = await getDoc(doc(db, 'settings', 'global'));
+      const storedPassword = settingsDoc.exists() && settingsDoc.data().adminPassword 
+        ? settingsDoc.data().adminPassword 
+        : DEFAULT_PASSWORD;
+      
+      if (password === storedPassword) {
+        // Save login state to localStorage
+        localStorage.setItem('adminAuthenticated', 'true');
+        localStorage.setItem('adminLoginTime', Date.now().toString());
+        
+        // Redirect to dashboard
+        window.location.hash = '#/dashboard';
+        window.location.reload();
+      } else {
+        throw new Error('Invalid password');
+      }
+    } catch (error) {
       if (errorEl && errorMsg) {
         errorEl.classList.remove('hidden');
-        errorMsg.innerText = 'Credenciais Inválidas ou Erro de Rede';
+        errorMsg.innerText = 'Senha incorreta';
       }
       submitBtn?.removeAttribute('disabled');
       btnText?.classList.remove('opacity-50');
       btnLoader?.classList.add('hidden');
     }
   });
+}
+
+// Check if admin is authenticated
+export function checkAdminAuth(): boolean {
+  const auth = localStorage.getItem('adminAuthenticated');
+  const loginTime = localStorage.getItem('adminLoginTime');
+  
+  if (!auth || !loginTime) return false;
+  
+  // Check if session expired (24 hours)
+  const oneDay = 24 * 60 * 60 * 1000;
+  if (Date.now() - parseInt(loginTime) > oneDay) {
+    localStorage.removeItem('adminAuthenticated');
+    localStorage.removeItem('adminLoginTime');
+    return false;
+  }
+  
+  return true;
+}
+
+// Logout function
+export function adminLogout() {
+  localStorage.removeItem('adminAuthenticated');
+  localStorage.removeItem('adminLoginTime');
+  window.location.hash = '#/login';
+  window.location.reload();
+}
+
+// Change password function
+export async function changeAdminPassword(newPassword: string): Promise<boolean> {
+  try {
+    await setDoc(doc(db, 'settings', 'global'), { adminPassword: newPassword }, { merge: true });
+    return true;
+  } catch (error) {
+    console.error('Error changing password:', error);
+    return false;
+  }
 }

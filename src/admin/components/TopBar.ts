@@ -57,8 +57,8 @@ export function renderTopBar(title: string) {
           <div class="flex items-center gap-4 relative group">
             <div class="flex flex-col items-end text-right">
               <span class="text-slate-900 text-sm font-extrabold leading-none">${user?.displayName || 'Airton Silva'}</span>
-              <span class="text-slate-400 text-[10px] uppercase font-black tracking-widest mt-1 flex items-center gap-1">
-                <span class="w-1.5 h-1.5 bg-[#22c55e] rounded-full"></span>
+              <span class="text-emerald-700 text-[10px] uppercase font-black tracking-widest mt-1 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
                 Online
               </span>
             </div>

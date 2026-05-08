@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "suporte-empreendedor",
     "public": "dist",
     "ignore": [
       "firebase.json",

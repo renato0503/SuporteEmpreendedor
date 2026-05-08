@@ -1,4 +1,0 @@
-build:
-  install: npm install
-run:
-  main: node index.js

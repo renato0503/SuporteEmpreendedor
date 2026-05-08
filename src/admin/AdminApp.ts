@@ -1,12 +1,10 @@
 import '../css/styles.css';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth, db } from '../firebase';
-import { getDoc, doc } from 'firebase/firestore';
 import { adminRouter } from './adminRouter';
 import { $ } from '../utils/dom';
+import { initializePrices, SERVICE_PRICES_MAP } from '../utils/priceService';
 
 // Pages
-import { renderLoginPage } from './pages/LoginPage';
+import { renderLoginPage, checkAdminAuth, adminLogout } from './pages/LoginPage';
 import { renderDashboardPage } from './pages/DashboardPage';
 
 // Components
@@ -23,30 +21,20 @@ import { openLeadModal } from './components/LeadModal';
 
 const appContainer = $('#admin-app');
 
-if (appContainer) {
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      try {
-        // 1. RBAC Verification
-        const userDoc = await getDoc(doc(db, 'users', user.uid));
-        const userData = userDoc.data();
+// Initialize prices from Firebase
+initializePrices().then(() => {
+  console.log('Admin prices loaded from Firebase');
+  (window as any).SERVICE_PRICES_MAP = SERVICE_PRICES_MAP;
+});
 
-        if (userData && userData.role === 'admin') {
-          console.log('Admin Authenticated (RBAC):', user.email);
-          initAdminShell();
-        } else {
-          console.warn('Unauthorized attempt:', user.email);
-          auth.signOut();
-          renderLoginPage(appContainer);
-        }
-      } catch (error) {
-        console.error('Error verifying admin access:', error);
-        renderLoginPage(appContainer);
-      }
-    } else {
-      renderLoginPage(appContainer);
-    }
-  });
+// Check authentication on load
+if (appContainer) {
+  // Check if already authenticated
+  if (!checkAdminAuth()) {
+    renderLoginPage(appContainer);
+  } else {
+    initAdminShell();
+  }
 }
 
 function initAdminShell() {
@@ -77,63 +65,43 @@ function initAdminShell() {
     sidebarContainer.innerHTML = renderSidebar();
     attachSidebarEvents();
   }
-
-  // Setup Routes
-  adminRouter.addRoute('/dashboard', () => {
-    const main = $('#admin-main-content');
-    const top = $('#topbar-container');
-    if (top) top.innerHTML = renderTopBar('Dashboard Estratégico');
-    if (main) renderDashboardPage(main);
+  
+  // Add logout handler
+  $('#btn-admin-logout')?.addEventListener('click', () => {
+    if (confirm('Deseja sair do sistema?')) {
+      adminLogout();
+    }
   });
 
-  adminRouter.addRoute('/leads', () => {
+  // Setup Routes helper
+  const renderRoute = async (title: string, renderFn: (container: HTMLElement) => void | Promise<void>) => {
     const main = $('#admin-main-content');
     const top = $('#topbar-container');
-    if (top) top.innerHTML = renderTopBar('Gestão de Leads (CRM)');
-    if (main) renderLeadsPage(main);
-  });
+    if (top) top.innerHTML = renderTopBar(title);
+    
+    if (main) {
+      // Execute cleanup of previous page listeners
+      if ((main as any)._cleanup) {
+        (main as any)._cleanup();
+        (main as any)._cleanup = null;
+      }
+      
+      // Potential loader
+      main.innerHTML = '<div class="h-full flex items-center justify-center opacity-50"><span class="animate-pulse font-black uppercase tracking-[0.3em] text-[10px]">Carregando...</span></div>';
+      
+      await renderFn(main);
+    }
+  };
 
-  adminRouter.addRoute('/kanban', () => {
-    const main = $('#admin-main-content');
-    const top = $('#topbar-container');
-    if (top) top.innerHTML = renderTopBar('Pipeline Kanban');
-    if (main) renderKanbanPage(main);
-  });
-
-  adminRouter.addRoute('/financeiro', () => {
-    const main = $('#admin-main-content');
-    const top = $('#topbar-container');
-    if (top) top.innerHTML = renderTopBar('Gestão Financeira');
-    if (main) renderFinanceiroPage(main);
-  });
-
-  adminRouter.addRoute('/analytics', () => {
-    const main = $('#admin-main-content');
-    const top = $('#topbar-container');
-    if (top) top.innerHTML = renderTopBar('Analytics & BI');
-    if (main) renderAnalyticsPage(main);
-  });
-
-  adminRouter.addRoute('/mensagens', () => {
-    const main = $('#admin-main-content');
-    const top = $('#topbar-container');
-    if (top) top.innerHTML = renderTopBar('Templates de Mensagens');
-    if (main) renderMensagensPage(main);
-  });
-
-  adminRouter.addRoute('/agenda', () => {
-    const main = $('#admin-main-content');
-    const top = $('#topbar-container');
-    if (top) top.innerHTML = renderTopBar('Agenda de Assessoria');
-    if (main) renderAgendaPage(main);
-  });
-
-  adminRouter.addRoute('/configuracoes', () => {
-    const main = $('#admin-main-content');
-    const top = $('#topbar-container');
-    if (top) top.innerHTML = renderTopBar('Configurações');
-    if (main) renderConfigPage(main);
-  });
+  adminRouter.addRoute('/dashboard', () => renderRoute('Dashboard', renderDashboardPage));
+  adminRouter.addRoute('/leads', () => renderRoute('Leads / CRM', renderLeadsPage));
+  adminRouter.addRoute('/kanban', () => renderRoute('Kanban Board', renderKanbanPage));
+  adminRouter.addRoute('/financeiro', () => renderRoute('Financeiro', renderFinanceiroPage));
+  adminRouter.addRoute('/analytics', () => renderRoute('Analytics', renderAnalyticsPage));
+  adminRouter.addRoute('/mensagens', () => renderRoute('Mensagens', renderMensagensPage));
+  adminRouter.addRoute('/agenda', () => renderRoute('Agenda', renderAgendaPage));
+  adminRouter.addRoute('/configuracoes', () => renderRoute('Configurações', renderConfigPage));
+  adminRouter.addRoute('/login', () => renderLoginPage(appContainer!));
 
   // Initial redirect if just logging in
   if (window.location.hash === '' || window.location.hash === '#/') {

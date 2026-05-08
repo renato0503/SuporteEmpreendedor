@@ -35,4 +35,7 @@ export default defineConfig({
   preview: {
     port: 4173,
   },
+  define: {
+    'import.meta.env': JSON.stringify(process.env),
+  },
 });

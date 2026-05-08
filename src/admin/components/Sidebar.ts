@@ -16,7 +16,7 @@ export function renderSidebar() {
           </div>
           <div class="flex flex-col">
             <span class="font-black text-white text-sm tracking-tight font-display">HUB ADMIN</span>
-            <span class="text-[9px] text-[#F18825] font-black uppercase tracking-[0.2em] leading-none mt-1 bg-[#F18825]/10 px-1.5 py-0.5 rounded-full border border-[#F18825]/20">v2.0 Premium</span>
+            
           </div>
         </div>
       </div>
@@ -47,12 +47,11 @@ export function renderSidebar() {
           Dashboard
         </button>
 
-        <button data-hash="/leads" class="nav-link group w-full flex items-center gap-4 px-4 py-3.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-2xl font-bold text-sm transition-all relative">
+        <button data-hash="/leads" class="nav-link group w-full flex items-center gap-4 px-4 py-3.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-2xl font-bold text-sm transition-all">
           <div class="bg-dark-700 p-2 rounded-xl group-hover:bg-[#125133] group-hover:text-white transition-all">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2m16-10a4 4 0 11-8 0 4 4 0 018 0zM9 7h.01M9 11h.01M9 15h.01"></path></svg>
           </div>
           Leads / CRM
-          <span class="absolute right-4 top-1/2 -translate-y-1/2 px-2 py-0.5 bg-[#F18825] text-white text-[9px] font-black rounded-full shadow-lg shadow-[#F18825]/20 animate-pulse">12</span>
         </button>
 
         <button data-hash="/kanban" class="nav-link group w-full flex items-center gap-4 px-4 py-3.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-2xl font-bold text-sm transition-all">

@@ -58,7 +58,7 @@ export const COLORS = {
   info: '#125133',
 } as const;
 
-export const SERVICE_PRICES = {
+const defaultPrices = {
   'abertura-mei': { min: 97, average: 97 },
   'dasan': { min: 67, average: 67 },
   'parcelamento': { min: 127, average: 127 },
@@ -66,6 +66,34 @@ export const SERVICE_PRICES = {
   'baixa-mei': { min: 97, average: 97 },
   'consulta-situacao': { min: 47, average: 47 },
 } as const;
+
+export function getServicePrice(serviceKey: string): { min: number; average: number } {
+  // Try to get from global (loaded from Firebase)
+  const globalPrices = (window as any).__SERVICE_PRICES__;
+  if (globalPrices) {
+    const keyMap: Record<string, string> = {
+      'abertura-mei': 'feeAbertura',
+      'dasan': 'feeDasn',
+      'parcelamento': 'feeParcelamento',
+      'alteracao-cadastral': 'feeAlteracao',
+      'baixa-mei': 'feeBaixa',
+      'consulta-situacao': 'feeConsulta',
+    };
+    const firebaseKey = keyMap[serviceKey];
+    if (firebaseKey && globalPrices[firebaseKey]) {
+      const price = globalPrices[firebaseKey];
+      return { min: price, average: price };
+    }
+  }
+  // Fallback to default
+  return defaultPrices[serviceKey as keyof typeof defaultPrices] || { min: 97, average: 97 };
+}
+
+export const SERVICE_PRICES = new Proxy(defaultPrices, {
+  get(target, prop) {
+    return getServicePrice(prop as string);
+  }
+});
 
 export const VALIDATION_MESSAGES = {
   required: 'Este campo é obrigatório',

@@ -49,35 +49,35 @@ export function renderFooter(container: HTMLElement, props?: FooterProps): void 
                 <p class="text-[10px] uppercase tracking-widest text-primary-400 font-bold">Despachante Digital</p>
               </div>
             </div>
-            <p class="text-primary-200/60 leading-relaxed text-sm max-w-sm">
-              Sua parceira estratégica na gestão do MEI. Tecnologia e expertise para simplificar sua jornada empreendedora.
-            </p>
+<p class="text-primary-400 leading-relaxed text-sm max-w-sm">
+               Sua parceira estratégica na gestão do MEI. Tecnologia e expertise para simplificar sua jornada empreendedora.
+             </p>
           </div>
 
           <div class="md:col-span-3">
             <h4 class="font-black mb-8 text-sm uppercase tracking-widest text-white/50">Navegação</h4>
             <nav class="flex flex-col gap-4 text-sm font-bold" aria-label="Links do footer">
-              <a href="#servicos" class="text-primary-200/60 hover:text-cta-400 transition-colors">Serviços</a>
-              <a href="#faq" class="text-primary-200/60 hover:text-cta-400 transition-colors">Dúvidas Frequentes</a>
-              <a href="#sobre" class="text-primary-200/60 hover:text-cta-400 transition-colors">Quem Somos</a>
-              <a href="#contato" class="text-primary-200/60 hover:text-cta-400 transition-colors">Suporte Direto</a>
+              <a href="#servicos" class="text-primary-400 hover:text-cta-400 transition-colors">Serviços</a>
+              <a href="#faq" class="text-primary-400 hover:text-cta-400 transition-colors">Dúvidas Frequentes</a>
+              <a href="#sobre" class="text-primary-400 hover:text-cta-400 transition-colors">Quem Somos</a>
+              <a href="#contato" class="text-primary-400 hover:text-cta-400 transition-colors">Suporte Direto</a>
             </nav>
           </div>
 
           <div class="md:col-span-4">
             <h4 class="font-black mb-8 text-sm uppercase tracking-widest text-white/50">Atendimento Oficial</h4>
             <div class="space-y-4 text-sm font-bold">
-              <a href="https://wa.me/${APP_CONFIG.whatsappNumber}" class="flex items-center gap-3 text-primary-200/60 hover:text-emerald-400 transition-colors group">
+              <a href="https://wa.me/${APP_CONFIG.whatsappNumber}" class="flex items-center gap-3 text-primary-400 hover:text-emerald-400 transition-colors group">
                 <span class="p-2 bg-emerald-500/10 rounded-lg text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all">
                   ${footerIcons.whatsapp}
                 </span>
                 <span>WhatsApp Express</span>
               </a>
-              <div class="flex items-center gap-3 text-primary-200/60">
+              <div class="flex items-center gap-3 text-primary-400">
                  <span class="p-2 bg-white/5 rounded-lg">✉️</span>
                  <span>${APP_CONFIG.emailContato || 'contato@suporteempreendedor.com.br'}</span>
               </div>
-              <div class="flex items-center gap-3 text-primary-200/60">
+              <div class="flex items-center gap-3 text-primary-400">
                  <span class="p-2 bg-white/5 rounded-lg">🕐</span>
                  <span>Atendimento: Seg - Sex</span>
               </div>

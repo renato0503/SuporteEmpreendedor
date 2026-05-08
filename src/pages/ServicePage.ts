@@ -90,7 +90,7 @@ export function renderServicePage(container: HTMLElement, slug: string): void {
             </div>
             <div>
               <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">${service.nome}</h1>
-              <p class="text-3xl font-bold text-cta-500">R$ ${service.valorMinimo},00</p>
+              <p class="text-3xl font-bold text-cta-500" data-service-price="${service.id}">R$ ${service.valorMinimo},00</p>
             </div>
           </div>
 
